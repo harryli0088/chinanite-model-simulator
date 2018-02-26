@@ -1,0 +1,313 @@
+<canvas id='canvas' width='560' height='560'></canvas>
+<button onclick="prev()">Prev</button>
+<button onclick="next()">Next</button>
+<button onclick="play()">Play</button>
+<button onclick="stop()">Stop</button>
+<script type="text/javascript" src="3_so_close.json"></script>
+<script>
+//T squares are 60px
+/************************Data************************/
+radius = 10;
+step = 40;
+move_index = 127;
+play_mode = 0;
+sections = [];
+
+/*******************Initialization*******************/
+//canvas
+canvas = document.getElementById('canvas'); //get the canvas
+canvas_context = canvas.getContext('2d');
+canvas_context.font = "17px Arial"; //font size and type
+
+/***********************Convert preMoves to moves************************/
+//for each model
+for(var i=0; i<models.length; ++i) {
+  //for each of this model's pre moves
+  for(var j=0; j<models[i].preMoves.length; ++j) {
+    var count = 0;
+    //while we are below the count length
+    while(count < models[i].preMoves[j][0]) {
+      //get duration
+      if(typeof models[i].preMoves[j][1] == "string") {
+        if(models[i].preMoves[j][1].indexOf("up") !== -1) {
+          //push move
+          models[i].moves.push([0,-1,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("down") !== -1) {
+          //push move
+          models[i].moves.push([0,1,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1] == "pose") {
+          //push move
+          models[i].moves.push([0,0,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1] == "delay") {
+          //push move
+          models[i].moves.push([0,0,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("right") !== -1) {
+          //push move
+          models[i].moves.push([1,0,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("left") !== -1) {
+          //push move
+          models[i].moves.push([-1,0,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("diag ne") !== -1) {
+          //push move
+          models[i].moves.push([1,-1,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("diag se") !== -1) {
+          //push move
+          models[i].moves.push([1,1,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("diag sw") !== -1) {
+          //push move
+          models[i].moves.push([-1,1,models[i].preMoves[j][1]]);
+        }
+        else if(models[i].preMoves[j][1].indexOf("diag nw") !== -1) {
+          //push move
+          models[i].moves.push([-1,-1,models[i].preMoves[j][1]]);
+        }
+      }
+      else {
+        //manually calculate move
+        var duration = models[i].preMoves[j][0];
+        var dx = models[i].preMoves[j][1] / duration;
+        var dy = models[i].preMoves[j][2] / duration;
+
+        //push move
+        models[i].moves.push([dx,dy,"walk"]);
+      }
+
+      //increase count
+      ++count;
+    }
+  }
+
+  //set starting positions
+  if(models[i].start == "middle") {
+    models[i].x = canvas.width/2;
+  }
+  else if(models[i].start == "left") {
+    models[i].x = canvas.width/2 - 2*step;
+  }
+  else if(models[i].start == "right") {
+    models[i].x = canvas.width/2 + 2*step;
+  }
+  else if(models[i].start == "middle left") {
+    models[i].x = canvas.width/2 - step;
+  }
+  else if(models[i].start == "middle right") {
+    models[i].x = canvas.width/2 + step;
+  }
+  models[i].y = canvas.height-20;
+}
+
+
+
+
+
+/***********************Convert pre_sections************************/
+var sections_delay = 0;
+for(var i=0; i<pre_sections.length; ++i) {
+  for(var j=0; j<pre_sections[i][0]; ++j) {
+    for(var k=0; k<8; ++k) {
+      sections.push([sections.length,pre_sections[i][1],sections_delay]);
+    }
+  }
+  sections_delay += pre_sections[i][0]*8;
+}
+
+drawT = function() {
+  //cear entire canvas
+  canvas_context.fillStyle = 'white';
+  canvas_context.fillRect(0,0,canvas.width,canvas.height);
+  //gray boxes
+  canvas_context.fillStyle = '#dddddd';
+  canvas_context.fillRect(160,0,240,340);
+  canvas_context.fillRect(0,canvas.height-220,canvas.width,220);
+  //white T
+  canvas_context.fillStyle = 'white';
+  canvas_context.fillRect(180,20,200,340);
+  canvas_context.fillRect(20,canvas.height-200,canvas.width-40,180);
+
+  //key
+  canvas_context.fillStyle = 'black';
+  canvas_context.fillText("Key:",20,50);
+
+  //walk
+  drawCircle(20, 100, radius);
+  canvas_context.fillText("Walk",50,110);
+  //pose
+  drawStar(20, 150, 5, 1.5*radius, 3*radius/4);
+  canvas_context.fillText("Pose",50,160);
+  //pivot
+  drawTriangle(20, 200);
+  canvas_context.fillText("Pivot",50,210);
+  //kneel
+  canvas_context.fillRect(20-radius, 250-radius,2*radius,2*radius);
+  canvas_context.fillText("Kneel",50,260);
+  //twirl
+  drawCircle(20, 300, radius);
+  canvas_context.fillText("Twirl",50,310);
+  canvas_context.fillStyle = 'white';
+  drawCircle(20, 300, radius/2);
+}
+drawT();
+
+draw_model = function(model) {
+
+  //model shape
+  //is move index is in range and modl is not delaying
+  if(move_index>=0 && move_index<model.moves.length && model.moves[move_index][2]!="delay") {
+    canvas_context.globalAlpha = 0.5;
+
+    canvas_context.fillStyle = model.color;
+    //pose
+    if(model.moves[move_index][2] == "pose") {
+      drawStar(model.x, model.y, 5, 1.5*radius, 3*radius/4);
+    }
+    //pivot
+    else if(model.moves[move_index][2].indexOf("pivot") !== -1) {
+      drawTriangle(model.x, model.y);
+    }
+    //kneel
+    else if(model.moves[move_index][2].indexOf("kneel") !== -1) {
+      canvas_context.fillRect(model.x-radius, model.y-radius,2*radius,2*radius);
+    }
+    //twirl
+    else if(model.moves[move_index][2].indexOf("twirl") !== -1) {
+      drawCircle(model.x, model.y, radius);
+      canvas_context.fillStyle = 'white';
+      canvas_context.globalAlpha = 1;
+      drawCircle(model.x, model.y, radius/2);
+    }
+    //regularly walking
+    else {
+      drawCircle(model.x, model.y, radius);
+    }
+
+    //draw each model
+    canvas_context.globalAlpha = 1;
+    canvas_context.fillStyle = "black";
+    canvas_context.fillText(model.name,model.x,model.y);
+  }
+}
+for(var i=0; i<models.length; ++i) {
+  draw_model(models[i]);
+}
+
+
+
+function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+  var rot = Math.PI / 2 * 3;
+  var x = cx;
+  var y = cy;
+  var step = Math.PI / spikes;
+
+  canvas_context.strokeSyle = "#000";
+  canvas_context.beginPath();
+  canvas_context.moveTo(cx, cy - outerRadius)
+  for (i = 0; i < spikes; i++) {
+    x = cx + Math.cos(rot) * outerRadius;
+    y = cy + Math.sin(rot) * outerRadius;
+    canvas_context.lineTo(x, y)
+    rot += step
+
+    x = cx + Math.cos(rot) * innerRadius;
+    y = cy + Math.sin(rot) * innerRadius;
+    canvas_context.lineTo(x, y)
+    rot += step
+  }
+  canvas_context.lineTo(cx, cy - outerRadius)
+  canvas_context.closePath();
+  canvas_context.fill();
+
+}
+
+function drawTriangle(x,y) {
+  canvas_context.beginPath();
+  canvas_context.moveTo(x,y-radius);
+  canvas_context.lineTo(x+radius, y+radius);
+  canvas_context.lineTo(x-radius, y+radius);
+  canvas_context.fill();
+}
+
+function draw_count() {
+  canvas_context.fillStyle = "black";
+  canvas_context.fillText("Total 8cts: "+(Math.floor(move_index/8) + 1),420,100);
+  canvas_context.fillText(sections[move_index][1]+"  8cts: "+(Math.floor((move_index-sections[move_index][2])/8) + 1),420,150);
+  canvas_context.fillText("Count: "+(move_index%8+1),420,200);
+}
+
+function drawCircle(x,y,r) {
+  canvas_context.beginPath();
+  canvas_context.arc(x, y, r, 0, 2 * Math.PI, 0);
+  canvas_context.fill();
+}
+
+
+
+/*****************Updates each frame*****************/
+prev = function() {
+  drawT();
+
+  for(var i=0; i<models.length; ++i) {
+    //update each model position
+    if(move_index < models[i].moves.length) {
+      models[i].x -= step * models[i].moves[move_index][0];
+      models[i].y -= step * models[i].moves[move_index][1];
+    }
+
+    //draw each model
+    draw_model(models[i]);
+  }
+
+  --move_index;
+
+  //draw count
+  draw_count();
+}
+
+next = function() {
+  drawT();
+
+  ++move_index;
+
+  for(var i=0; i<models.length; ++i) {
+    //update each model position
+    if(move_index < models[i].moves.length) {
+      models[i].x += step * models[i].moves[move_index][0];
+      models[i].y += step * models[i].moves[move_index][1];
+    }
+
+    //draw each model
+    draw_model(models[i]);
+  }
+
+  //draw count
+  draw_count();
+}
+
+play = function() {
+  interval = setInterval(next,60000/bpm); //update each frame
+}
+
+stop = function() {
+  interval = clearInterval(next);
+}
+
+
+
+//clear the canvas when user presses "c" key
+key = function(e){
+  if(e.keyCode == 39) {
+    next();
+  }
+  else if(e.keyCode == 37) {
+    prev();
+  }
+}
+window.addEventListener('keydown',key);
+</script>

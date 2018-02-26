@@ -1,0 +1,494 @@
+bpm = 90;
+
+pre_sections = [
+  [6,"Chorus 1"],
+  [4,"Verse 2"],
+  [6,"Chorus 2"],
+  [8,"Bridge"],
+  [3,"Ending"]
+];
+
+models = [
+  {
+    start: "left",
+    preMoves: [
+      [4,1.5,0],
+      [12,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Jeremy R",
+  },
+  {
+    start: "right",
+    preMoves: [
+      [4,-1.5,0],
+      [12,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Maggie"
+  },
+
+
+  {
+    start: "left",
+    preMoves: [
+      [8,"delay"],
+      [8,7,-4],
+      [4,"pose"],
+      [4,"left"],
+      [4,"up twirl"],
+      [4,"up"],
+      [4,"pose"],
+      [2,"down"],
+      [4,"down twirl"],
+      [2,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Joe"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [8,"delay"],
+      [8,-7,-4],
+      [4,"pose"],
+      [4,"right"],
+      [4,"up twirl"],
+      [4,"up"],
+      [4,"pose"],
+      [2,"down"],
+      [4,"down twirl"],
+      [2,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Christine"
+  },
+
+
+
+  {
+    start: "middle left",
+    preMoves: [
+      [24,"delay"],
+      [8,0,-4],
+      [4,"pose"],
+      [2,"up"],
+      [4,"up twirl"],
+      [2,"up"],
+      [4,"pose"],
+      [6,"down"],
+      [2,"down twirl"],
+      [2,"left twirl"],
+      [2,"left"],
+    ],
+    moves: [],
+    color:"blue",
+    name:"Peter"
+  },
+  {
+    start: "middle right",
+    preMoves: [
+      [24,"delay"],
+      [8,0,-4],
+      [4,"pose"],
+      [2,"up"],
+      [4,"up twirl"],
+      [2,"up"],
+      [4,"pose"],
+      [6,"down"],
+      [2,"down twirl"],
+      [2,"right twirl"],
+      [2,"right"],
+    ],
+    moves: [],
+    color:"blue",
+    name:"Elizabeth"
+  },
+
+
+
+  {
+    start: "left",
+    preMoves: [
+      [48,"delay"],
+      [4,1.5,0],
+      [2,"up"],
+      [4,"up twirl"],
+      [6,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Rebecca"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [48,"delay"],
+      [4,-1.5,0],
+      [2,"up"],
+      [4,"up twirl"],
+      [6,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Chris M"
+  },
+
+
+  {
+    start: "left",
+    preMoves: [
+      [48,"delay"],
+      [8,"delay"],
+      [8,7,-4],
+      [4,"pose"],
+      [4,"left"],
+      [4,"up twirl"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Michelle F"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [48,"delay"],
+      [8,"delay"],
+      [8,-7,-4],
+      [4,"pose"],
+      [4,"right"],
+      [4,"up twirl"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"green",
+    name:"John"
+  },
+
+
+
+
+
+
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,-2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Iris <3"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [8,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,-2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Nick P"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [16,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,-2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Jen"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [24,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,-2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Eric"
+  },
+
+
+
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Patrick"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [8,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Michele T"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [16,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Jeremy G"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [24,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,2,1],
+      [1,"down"],
+      [2,"down pivot"],
+      [4,"down"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Cynthia"
+  },
+
+
+
+
+
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [4,"diag ne"],
+      [44,"delay"],
+      [8,-4,0],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Eurie"
+  },
+  {
+    start: "right",
+    preMoves: [
+      [80,"delay"],
+      [16,"delay"],
+      [4,"diag ne"],
+      [60,"delay"],
+      [8,-4,0],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"June (S)"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [8,"delay"],
+      [4,"diag nw"],
+      [48,"delay"],
+      [8,4,0],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Julia"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [80,"delay"],
+      [4,"delay"],
+      [24,"delay"],
+      [4,"diag nw"],
+      [64,"delay"],
+      [8,4,0],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Isabelle"
+  },
+
+
+
+
+
+  {
+    name:"Brandon",
+    start: "middle right",
+    preMoves: [
+      [128,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"]
+    ],
+    moves: [],
+    color:"green"
+  },
+  {
+    name:"Shawn",
+    start: "middle left",
+    preMoves: [
+      [128,"delay"],
+      [16,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"]
+    ],
+    moves: [],
+    color:"green"
+  },
+  {
+    name:"Nick L",
+    start: "middle right",
+    preMoves: [
+      [128,"delay"],
+      [32,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"right"]
+    ],
+    moves: [],
+    color:"green"
+  },
+  {
+    name:"Chris Y",
+    start: "middle left",
+    preMoves: [
+      [128,"delay"],
+      [16,"delay"],
+      [32,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [4,"left"]
+    ],
+    moves: [],
+    color:"green"
+  },
+]

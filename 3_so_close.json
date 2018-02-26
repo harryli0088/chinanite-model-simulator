@@ -1,0 +1,303 @@
+bpm = 90;
+
+pre_sections = [
+  [8,"Verse 1"],
+  [8,"Chorus 1"],
+  [8,"Verse 2"],
+  [8,"Chorus 2"],
+  [8,"Bridge"],
+];
+
+models = [
+  {
+    name:"Derrick",
+    start: "middle left",
+    preMoves: [
+      [8,0,-4],
+      [24,"pose"],
+      [8,"up"],
+      [24,"pose"],
+      [4,"up"],
+    ],
+    moves: [],
+    color:"green",
+  },
+  {
+    name:"Melody T",
+    start: "middle right",
+    preMoves: [
+      [16,"delay"],
+      [8,0,-4],
+      [8,"pose"],
+      [8,"up"],
+      [24,"pose"],
+      [4,"up"],
+    ],
+    moves: [],
+    color:"purple",
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    name:"Shyam",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [4,"diag nw"],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+  {
+    name:"Sabrina",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [32,"delay"],
+      [4,"diag nw"],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+  {
+    name:"Jeremy R",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [64,"delay"],
+      [4,"diag nw"],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+
+
+  {
+    name:"Jeremy G",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [4,"diag ne"],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+  {
+    name:"Brianna",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [32,"delay"],
+      [4,"diag ne"],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+  {
+    name:"Julianne",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [64,"delay"],
+      [4,"diag ne"],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"yellow",
+  },
+
+
+  {
+    name:"Michele T",
+    start: "middle",
+    preMoves: [
+      [128,"delay"],
+      [8,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Elaine",
+    start: "middle",
+    preMoves: [
+      [128,"delay"],
+      [8,"delay"],
+      [32,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Joe",
+    start: "middle",
+    preMoves: [
+      [128,"delay"],
+      [8,"delay"],
+      [64,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [8,"up"],
+      [12,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+
+
+  {
+    name:"June (J)",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [16,"delay"],
+      [8,7,-4],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Melody W",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [32,"delay"],
+      [16,"delay"],
+      [8,7,-4],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Brandon",
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [64,"delay"],
+      [16,"delay"],
+      [8,7,-4],
+      [4,"pose"],
+      [4,"left"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+
+
+  {
+    name:"Jen",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [16,"delay"],
+      [8,-7,-4],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Christina",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [32,"delay"],
+      [16,"delay"],
+      [8,-7,-4],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+  {
+    name:"Shawn",
+    start: "right",
+    preMoves: [
+      [128,"delay"],
+      [64,"delay"],
+      [16,"delay"],
+      [8,-7,-4],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"blue",
+  },
+]
