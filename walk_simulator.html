@@ -1,15 +1,17 @@
-<canvas id='canvas' width='560' height='560'></canvas>
+<canvas id='canvas' width='800' height='560'></canvas>
 <button onclick="prev()">Prev</button>
 <button onclick="next()">Next</button>
 <button onclick="play()">Play</button>
 <button onclick="stop()">Stop</button>
-<script type="text/javascript" src="3_so_close.json"></script>
+<script type="text/javascript" src="1_motions.json"></script>
 <script>
 //T squares are 60px
 /************************Data************************/
+rect_width = 560;
+rect_height = 560;
 radius = 10;
 step = 40;
-move_index = 127;
+move_index = 191;
 play_mode = 0;
 sections = [];
 
@@ -37,11 +39,7 @@ for(var i=0; i<models.length; ++i) {
           //push move
           models[i].moves.push([0,1,models[i].preMoves[j][1]]);
         }
-        else if(models[i].preMoves[j][1] == "pose") {
-          //push move
-          models[i].moves.push([0,0,models[i].preMoves[j][1]]);
-        }
-        else if(models[i].preMoves[j][1] == "delay") {
+        else if(models[i].preMoves[j][1]=="pose" || models[i].preMoves[j][1]=="delay" || models[i].preMoves[j][1]=="kneel") {
           //push move
           models[i].moves.push([0,0,models[i].preMoves[j][1]]);
         }
@@ -87,21 +85,21 @@ for(var i=0; i<models.length; ++i) {
 
   //set starting positions
   if(models[i].start == "middle") {
-    models[i].x = canvas.width/2;
+    models[i].x = rect_width/2;
   }
   else if(models[i].start == "left") {
-    models[i].x = canvas.width/2 - 2*step;
+    models[i].x = rect_width/2 - 2*step;
   }
   else if(models[i].start == "right") {
-    models[i].x = canvas.width/2 + 2*step;
+    models[i].x = rect_width/2 + 2*step;
   }
   else if(models[i].start == "middle left") {
-    models[i].x = canvas.width/2 - step;
+    models[i].x = rect_width/2 - step;
   }
   else if(models[i].start == "middle right") {
-    models[i].x = canvas.width/2 + step;
+    models[i].x = rect_width/2 + step;
   }
-  models[i].y = canvas.height-20;
+  models[i].y = rect_height-20;
 }
 
 
@@ -126,11 +124,11 @@ drawT = function() {
   //gray boxes
   canvas_context.fillStyle = '#dddddd';
   canvas_context.fillRect(160,0,240,340);
-  canvas_context.fillRect(0,canvas.height-220,canvas.width,220);
+  canvas_context.fillRect(0,rect_height-220,rect_width,220);
   //white T
   canvas_context.fillStyle = 'white';
   canvas_context.fillRect(180,20,200,340);
-  canvas_context.fillRect(20,canvas.height-200,canvas.width-40,180);
+  canvas_context.fillRect(20,rect_height-200,rect_width-40,180);
 
   //key
   canvas_context.fillStyle = 'black';
