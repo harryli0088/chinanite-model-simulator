@@ -1,4 +1,4 @@
-bpm = 90;
+video_src="https://www.youtube.com/embed/JZELmUooBlY";
 
 pre_sections = [
   [6,"Chorus 1"],
@@ -6,6 +6,10 @@ pre_sections = [
   [6,"Chorus 2"],
   [8,"Bridge"],
   [3,"Ending"]
+];
+
+pre_comments = [
+  [17,80,"Lanes are inaccurate"],
 ];
 
 models = [

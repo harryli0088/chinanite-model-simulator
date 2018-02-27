@@ -1,4 +1,4 @@
-bpm = 90;
+video_src="https://www.youtube.com/embed/O9XPyO_STIg";
 
 pre_sections = [
   [8,"Verse 1"],
@@ -6,6 +6,11 @@ pre_sections = [
   [8,"Verse 2"],
   [8,"Chorus 2"],
   [8,"Bridge"],
+];
+
+pre_comments = [
+  [1,16,"commentadasda"],
+  [33,64,"lalala"]
 ];
 
 models = [
@@ -40,7 +45,151 @@ models = [
 
 
 
+  {
+    name:"Iris",
+    start: "middle left",
+    preMoves: [
+      [32,"delay"],
+      [8,6,-3],
+      [24,"pose"],
+      [8,"pose"],
+      [12,"pose"],
+      [4,-1.5,2],
+      [12,"pose"],
+      [4,-1.5,-2],
+      [2,"diag nw"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,2,1],
+      [11,"down"],
+    ],
+    moves: [],
+    color:"orange",
+  },
 
+  {
+    name:"Chris Y",
+    start: "middle right",
+    preMoves: [
+      [32,"delay"],
+      [4,"delay"],
+      [8,-6,-3],
+      [20,"pose"],
+      [12,"pose"],
+      [4,1.5,2],
+      [12,"pose"],
+      [4,1.5,-2],
+      [2,"diag ne"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,-2,1],
+      [7,"down"],
+      [8,"pose"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"green",
+  },
+
+
+  {
+    name:"June (S)",
+    start: "middle left",
+    preMoves: [
+      [32,"delay"],
+      [8,"delay"],
+      [8,3,-3],
+      [16,"pose"],
+      [8,"pose"],
+      [2,"diag nw"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,2,1],
+      [7,"down"],
+      [4,3,1],
+      [4,"pose"],
+      [4,-1.5,2],
+      [16,"pose"],
+      [2,"diag sw"],
+    ],
+    moves: [],
+    color:"orange",
+  },
+
+  {
+    name:"Allysa",
+    start: "middle right",
+    preMoves: [
+      [32,"delay"],
+      [12,"delay"],
+      [8,-3,-3],
+      [12,"pose"],
+      [2,"diag ne"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,-2,1],
+      [7,"down"],
+      [4,-3,1],
+      [4,"pose"],
+      [4,1.5,2],
+      [12,"pose"],
+      [12,"pose"],
+        [2,"diag se"],
+    ],
+    moves: [],
+    color:"green",
+  },
+
+
+  {
+    name:"Jenett",
+    start: "middle left",
+    preMoves: [
+      [32,"delay"],
+      [16,"delay"],
+      [8,4.5,-1],
+      [8,"pose"],
+      [8,"pose"],
+      [12,"pose"],
+      [4,-1.5,-2],
+      [2,"diag nw"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,2,1],
+      [7,"down"],
+      [4,3,1],
+      [8,"pose"],
+      [2,"pose"],
+      [4,"diag sw"],
+    ],
+    moves: [],
+    color:"orange",
+  },
+
+  {
+    name:"Sam",
+    start: "middle right",
+    preMoves: [
+      [32,"delay"],
+      [20,"delay"],
+      [8,-4.5,-1],
+      [4,"pose"],
+      [12,"pose"],
+      [4,1.5,-2],
+      [2,"diag ne"],
+      [6,0,-7],
+      [4,"pose"],
+      [1,-2,1],
+      [7,"down"],
+      [4,-3,1],
+      [4,"pose"],
+      [12,"pose"],
+      [2,"pose"],
+      [4,"diag se"],
+    ],
+    moves: [],
+    color:"green",
+  },
 
 
 

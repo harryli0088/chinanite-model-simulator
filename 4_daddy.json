@@ -1,4 +1,4 @@
-bpm = 90;
+video_src="https://www.youtube.com/embed/vnLAa6_hB9A";
 
 pre_sections = [
   [4,"Intro"],
@@ -10,6 +10,11 @@ pre_sections = [
   [4,"Chorus 2"],
   [8,"Bridge"],
   [8,"Chorus 3"],
+];
+
+pre_comments = [
+  [1,16,"commentadasda"],
+  [33,64,"lalala"]
 ];
 
 models = [
