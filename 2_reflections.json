@@ -1,16 +1,17 @@
 video_src="https://www.youtube.com/embed/n_zgqlUutvM";
 
 pre_sections = [
-  [8,"Verse 1"],
-  [8,"Chorus 1"],
-  [8,"Verse 2"],
-  [8,"Chorus 2"],
-  [8,"Bridge"],
+  [6,"Verse 1"],
+  [6,"Chorus 1"],
+  [6,"Verse 2"],
+  [6,"Chorus 2"],
+  [6,"Bridge"],
+  [6,"Chorus 3"],
 ];
 
 pre_comments = [
-  [1,16,"commentadasda"],
-  [33,64,"lalala"]
+  [1,192,"Stay in your lanes!!"],
+  [257,312,"Order doesn't matter"]
 ];
 
 models = [

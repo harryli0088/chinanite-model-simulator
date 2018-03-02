@@ -13,8 +13,8 @@ pre_sections = [
 ];
 
 pre_comments = [
-  [1,16,"commentadasda"],
-  [33,64,"lalala"]
+  [257,288,"Models circle Derrick, ending position will vary"],
+  [313,352,"Spacing will be more equal"],
 ];
 
 models = [
@@ -317,7 +317,8 @@ models = [
       [1,"pause"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"orange",
@@ -341,7 +342,8 @@ models = [
       [1,"right"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,-1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"green",
@@ -367,7 +369,8 @@ models = [
       [1,"pause"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"orange",
@@ -392,7 +395,8 @@ models = [
       [1,"right"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,-1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"green",
@@ -418,7 +422,8 @@ models = [
       [1,"pause"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"orange",
@@ -443,7 +448,8 @@ models = [
       [1,"right"],
       [4,"up"],
       [4,"pose"],
-      [8,"down"],
+      [1,-1,1],
+      [7,"down"],
     ],
     moves: [],
     color:"green",

@@ -9,8 +9,7 @@ pre_sections = [
 ];
 
 pre_comments = [
-  [1,16,"commentadasda"],
-  [33,64,"lalala"]
+  [65,112,"Models pivot rotate"],
 ];
 
 models = [
@@ -308,7 +307,9 @@ models = [
       [4,"pose"],
       [8,"up"],
       [12,"pose"],
-      [12,"down"],
+      [6,"down"],
+      [1,-1,1],
+      [5,"down"],
     ],
     moves: [],
     color:"blue",
@@ -324,7 +325,9 @@ models = [
       [4,"pose"],
       [8,"up"],
       [12,"pose"],
-      [12,"down"],
+      [6,"down"],
+      [1,-1,1],
+      [5,"down"],
     ],
     moves: [],
     color:"blue",

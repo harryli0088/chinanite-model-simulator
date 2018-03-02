@@ -403,25 +403,6 @@ models = [
     color:"orange",
     name:"Julia"
   },
-  {
-    start: "left",
-    preMoves: [
-      [80,"delay"],
-      [4,"delay"],
-      [24,"delay"],
-      [4,"diag nw"],
-      [64,"delay"],
-      [8,4,0],
-      [8,"up"],
-      [4,"pose"],
-      [4,"down"],
-      [4,"down twirl"],
-      [4,"left"],
-    ],
-    moves: [],
-    color:"orange",
-    name:"Isabelle"
-  },
 
 
 
@@ -477,8 +458,10 @@ models = [
     moves: [],
     color:"green"
   },
+
+
   {
-    name:"Chris Y",
+    name:"Derrick",
     start: "middle left",
     preMoves: [
       [128,"delay"],
@@ -486,13 +469,33 @@ models = [
       [32,"delay"],
       [4,"up"],
       [4,"pose"],
-      [8,"up"],
+      [4,"up"],
+      [4,1.5,-4],
       [4,"pose"],
       [4,"down"],
       [4,"down twirl"],
-      [4,"left"]
+      [8,"pose"],
     ],
     moves: [],
     color:"green"
+  },
+  {
+    start: "left",
+    preMoves: [
+      [128,"delay"],
+      [16,"delay"],
+      [32,"delay"],
+      [4,"up"],
+      [4,"pose"],
+      [4,"up"],
+      [4,1.5,-4],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down twirl"],
+      [8,"pose"],
+    ],
+    moves: [],
+    color:"orange",
+    name:"Melody T"
   },
 ]
