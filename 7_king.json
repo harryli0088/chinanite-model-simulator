@@ -15,8 +15,6 @@ pre_sections = [
 ];
 
 pre_comments = [
-  [113,144,"Order and spacing are inaccurate, final spots are correct"],
-  [288,352,"Spots will vary"],
 ];
 
 models = [
@@ -27,24 +25,17 @@ models = [
       [4,-3,0],
       [4,0,3],
       [4,3,0],
-      [8,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [1,2,-1],
-      [3,"up"],
+      [2,2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,-1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red1"
   },
   {
     start: "left",
@@ -54,21 +45,19 @@ models = [
       [4,-3,0],
       [4,0,3],
       [8,"pose"],
-      [4,0,-3],
-      [12,"pose"],
       [4,3,0],
-      [12,"pose"],
-      [1,2,-1],
-      [3,"up"],
+      [4,"pose"],
+      [2,2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,-1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red2"
   },
   {
     start: "left",
@@ -77,19 +66,21 @@ models = [
       [4,-1,-4],
       [4,-3,0],
       [8,"pose"],
-      [4,3,0],
+      [4,0,3],
       [12,"pose"],
-      [1,2,-1],
-      [3,"up"],
+      [4,3,0],
+      [4,"pose"],
+      [2,2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,-1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red3"
   },
   {
     start: "left",
@@ -97,18 +88,26 @@ models = [
       [12,"delay"],
       [4,-1,-4],
       [8,"pose"],
+      [4,-3,0],
+      [12,"pose"],
+      [4,0,3],
+      [12,"pose"],
+      [4,3,0],
+      [16,"pose"],
       [1,2,-1],
       [3,"up"],
+      [1,-1,-1],
+      [7,0,-6],
       [4,"pose"],
-      [1,-1,1],
-      [1,"down"],
+      [4,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"blue",
+    name:"4Blue1"
   },
+
 
 
   {
@@ -119,23 +118,17 @@ models = [
       [4,0,3],
       [4,-3,0],
       [8,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [1,-2,-1],
-      [3,"up"],
+      [2,-2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red4"
   },
   {
     start: "right",
@@ -144,22 +137,20 @@ models = [
       [4,1,-4],
       [4,3,0],
       [4,0,3],
-      [8,"pose"],
-      [4,0,-3],
-      [12,"pose"],
+      [16,"pose"],
       [4,-3,0],
-      [12,"pose"],
-      [1,-2,-1],
-      [3,"up"],
+      [4,"pose"],
+      [2,-2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red5"
   },
   {
     start: "right",
@@ -167,352 +158,261 @@ models = [
       [8,"delay"],
       [4,1,-4],
       [4,3,0],
-      [8,"pose"],
-      [4,-3,0],
+      [16,"pose"],
+      [4,0,3],
       [12,"pose"],
-      [1,-2,-1],
-      [3,"up"],
+      [4,-3,0],
+      [4,"pose"],
+      [2,-2,-1],
+      [10,"up"],
       [4,"pose"],
       [1,1,1],
-      [1,"down"],
+      [3,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"red",
+    name:"6Red6"
   },
   {
     start: "right",
     preMoves: [
       [12,"delay"],
       [4,1,-4],
-      [8,"pose"],
-      [1,-2,-1],
-      [3,"up"],
+      [16,"pose"],
+      [4,3,0],
+      [12,"pose"],
+      [4,0,3],
+      [12,"pose"],
+      [4,-3,0],
+      [24,"pose"],
+      [1,"diag nw"],
+      [11,0,-10],
       [4,"pose"],
-      [1,1,1],
-      [1,"down"],
+      [4,"down"],
       [4,"down pivot"],
-      [6,"down"],
+      [4,"down"],
     ],
     moves: [],
-    color:"gray",
-    name:""
+    color:"blue",
+    name:"4Blue2"
   },
 
 
 
   {
-    start: "middle",
+    start: "middle right",
     preMoves: [
       [16,"delay"],
       [12,"up"],
       [4,"pose"],
-      [1,"down"],
-      [1,-1,1],
-      [4,"down pivot"],
       [1,1,1],
       [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"6Gray1"
   },
   {
-    start: "middle",
+    start: "middle left",
     preMoves: [
-      [16,"delay"],
-      [16,"delay"],
-      [1,"up"],
-      [1,1,-1],
-      [4,"up"],
-      [1,-1,-1],
-      [5,"up"],
+      [24,"delay"],
+      [12,"up"],
       [4,"pose"],
-      [1,"down"],
       [1,-1,1],
-      [4,"down pivot"],
-      [1,1,1],
       [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"6Gray2"
   },
   {
-    start: "middle",
+    start: "middle right",
     preMoves: [
       [32,"delay"],
-      [16,"delay"],
-      [1,"up"],
-      [1,1,-1],
-      [4,"up"],
-      [1,-1,-1],
-      [5,"up"],
+      [12,"up"],
       [4,"pose"],
-      [1,"down"],
-      [1,-1,1],
-      [4,"down pivot"],
       [1,1,1],
       [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"6Gray3"
   },
   {
-    start: "middle",
+    start: "middle left",
+    preMoves: [
+      [40,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [1,-1,1],
+      [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"gray",
+    name:"6Gray4"
+  },
+  {
+    start: "middle right",
     preMoves: [
       [48,"delay"],
-      [16,"delay"],
-      [1,"up"],
-      [1,1,-1],
-      [4,"up"],
-      [1,-1,-1],
-      [5,"up"],
+      [12,"up"],
       [4,"pose"],
-      [1,"down"],
-      [1,-1,1],
-      [4,"down pivot"],
       [1,1,1],
       [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
     color:"gray",
-    name:""
-  },
-
-
-
-
-
-
-
-  {
-    start: "left",
-    preMoves: [
-      [24,"delay"],
-      [2,-1,-1],
-      [14,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,3,0],
-      [20,"pose"],
-      [1,2,-1],
-      [6,"up"],
-      [1,-1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-  {
-    start: "left",
-    preMoves: [
-      [24,"delay"],
-      [16,"delay"],
-      [2,-1,-1],
-      [14,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [20,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [1,2,-1],
-      [6,"up"],
-      [1,-1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-  {
-    start: "left",
-    preMoves: [
-      [24,"delay"],
-      [32,"delay"],
-      [2,-1,-1],
-      [14,"pose"],
-      [4,-3,0],
-      [20,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [1,2,-1],
-      [6,"up"],
-      [1,-1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-
-
-  {
-    start: "right",
-    preMoves: [
-      [24,"delay"],
-      [2,1,-1],
-      [14,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [1,-2,-1],
-      [6,"up"],
-      [1,1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-  {
-    start: "right",
-    preMoves: [
-      [16,"delay"],
-      [24,"delay"],
-      [2,1,-1],
-      [14,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [1,-2,-1],
-      [6,"up"],
-      [1,1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-  {
-    start: "right",
-    preMoves: [
-      [32,"delay"],
-      [24,"delay"],
-      [2,1,-1],
-      [14,"pose"],
-      [4,3,0],
-      [12,"pose"],
-      [4,0,-3],
-      [12,"pose"],
-      [4,-3,0],
-      [12,"pose"],
-      [1,-2,-1],
-      [6,"up"],
-      [1,1,-1],
-      [4,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"red",
-    name:""
-  },
-
-
-
-
-  {
-    start: "middle right",
-    preMoves: [
-      [80,"delay"],
-      [12,"up"],
-      [8,"pose"],
-      [1,"right"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"blue",
-    name:""
-  },
-  {
-    start: "middle right",
-    preMoves: [
-      [80,"delay"],
-      [16,"delay"],
-      [12,"up"],
-      [8,"pose"],
-      [1,"right"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"blue",
-    name:""
-  },
-  {
-    start: "middle right",
-    preMoves: [
-      [80,"delay"],
-      [32,"delay"],
-      [12,"up"],
-      [8,"pose"],
-      [1,"right"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"blue",
-    name:""
+    name:"6Gray5"
   },
   {
     start: "middle left",
     preMoves: [
-      [80,"delay"],
-      [8,"delay"],
+      [56,"delay"],
       [12,"up"],
-      [8,"pose"],
-      [1,"left"],
-      [12,"down"],
+      [4,"pose"],
+      [1,-1,1],
+      [3,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
-    color:"blue",
-    name:""
+    color:"gray",
+    name:"6Gray6"
   },
+
+
+
+
+
+
   {
     start: "middle left",
     preMoves: [
-      [80,"delay"],
+      [72,"delay"],
+      [12,"up"],
+      [8,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"gray",
+    name:"4Gray1"
+  },
+  {
+    start: "middle right",
+    preMoves: [
+      [64,"delay"],
       [24,"delay"],
       [12,"up"],
       [8,"pose"],
-      [1,"left"],
-      [12,"down"],
+      [4,"down"],
+      [4,"down pivot"],
+      [4,"down"],
     ],
     moves: [],
-    color:"blue",
-    name:""
+    color:"gray",
+    name:"4Gray2"
   },
   {
     start: "middle left",
     preMoves: [
-      [80,"delay"],
+      [64,"delay"],
       [40,"delay"],
       [12,"up"],
       [8,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"gray",
+    name:"4Gray3"
+  },
+  {
+    start: "middle right",
+    preMoves: [
+      [64,"delay"],
+      [56,"delay"],
+      [12,"up"],
+      [8,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"gray",
+    name:"4Gray4"
+  },
+
+
+
+
+
+
+  {
+    start: "left",
+    preMoves: [
+      [24,"delay"],
+      [4,-1,-4],
+      [12,"pose"],
+      [4,-3,0],
+      [12,"pose"],
+      [4,0,3],
+      [20,"pose"],
+      [4,3,0],
+      [24,"pose"],
+      [1,"diag ne"],
+      [3,0,-2],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
+      [4,"down"],
+    ],
+    moves: [],
+    color:"blue",
+    name:"4Blue3"
+  },
+
+
+  {
+    start: "right",
+    preMoves: [
+      [24,"delay"],
+      [8,"delay"],
+      [4,1,-4],
+      [12,"pose"],
+      [4,3,0],
+      [12,"pose"],
+      [4,0,3],
+      [32,"pose"],
+      [4,-3,0],
+      [20,"pose"],
+      [1,"diag nw"],
+      [3,0,-2],
+      [8,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
       [1,"left"],
-      [12,"down"],
+      [4,"down"],
     ],
     moves: [],
     color:"blue",
-    name:""
+    name:"4Blue4"
   },
 
 
@@ -526,23 +426,19 @@ models = [
 
 
 
-
-
-
-
   {
-    start: "right",
+    start: "left",
     preMoves: [
       [144,"delay"],
       [8,"up"],
-      [4,"diag nw"],
+      [4,"diag ne"],
       [4,"pose"],
       [8,0,4],
       [8,"down"],
     ],
     moves: [],
     color:"red",
-    name:""
+    name:"3Red1"
   },
   {
     start: "middle",
@@ -556,47 +452,47 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"3Gray1"
   },
   {
-    start: "left",
+    start: "right",
     preMoves: [
       [144,"delay"],
       [4,"delay"],
       [4,"up"],
-      [4,"diag ne"],
+      [4,"diag nw"],
       [4,"pose"],
       [8,0,-4],
       [12,"down"],
     ],
     moves: [],
     color:"blue",
-    name:""
+    name:"3Blue1"
   },
   {
-    start: "middle left",
+    start: "middle right",
     preMoves: [
       [144,"delay"],
       [12,"delay"],
-      [4,"diag nw"],
+      [4,"diag ne"],
       [4,"pose"],
-      [4,"right"],
+      [4,"left"],
       [8,"up"],
       [8,"pose"],
       [12,"down"],
     ],
     moves: [],
     color:"green",
-    name:""
+    name:"Green1"
   },
   {
-    start: "middle right",
+    start: "middle left",
     preMoves: [
       [144,"delay"],
       [8,"delay"],
-      [4,"diag ne"],
+      [4,"diag nw"],
       [4,"pose"],
-      [4,"left"],
+      [4,"right"],
       [8,"up"],
       [4,"pose"],
       [8,"pose"],
@@ -604,24 +500,24 @@ models = [
     ],
     moves: [],
     color:"orange",
-    name:""
+    name:"Orange1"
   },
 
 
   {
-    start: "left",
+    start: "right",
     preMoves: [
       [144,"delay"],
       [32,"delay"],
       [8,"up"],
-      [4,"diag ne"],
+      [4,"diag nw"],
       [4,"pose"],
       [8,0,4],
       [8,"down"],
     ],
     moves: [],
     color:"red",
-    name:""
+    name:"3Red2"
   },
   {
     start: "middle",
@@ -636,50 +532,50 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"3Gray2"
   },
   {
-    start: "right",
+    start: "left",
     preMoves: [
       [144,"delay"],
       [32,"delay"],
       [4,"delay"],
       [4,"up"],
-      [4,"diag nw"],
+      [4,"diag ne"],
       [4,"pose"],
       [8,0,-4],
       [12,"down"],
     ],
     moves: [],
     color:"blue",
-    name:""
-  },
-  {
-    start: "middle right",
-    preMoves: [
-      [144,"delay"],
-      [32,"delay"],
-      [12,"delay"],
-      [4,"diag ne"],
-      [4,"pose"],
-      [4,"left"],
-      [8,"up"],
-      [8,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"green",
-    name:""
+    name:"3Blue2"
   },
   {
     start: "middle left",
     preMoves: [
       [144,"delay"],
       [32,"delay"],
-      [8,"delay"],
+      [12,"delay"],
       [4,"diag nw"],
       [4,"pose"],
       [4,"right"],
+      [8,"up"],
+      [8,"pose"],
+      [12,"down"],
+    ],
+    moves: [],
+    color:"green",
+    name:"Green2"
+  },
+  {
+    start: "middle right",
+    preMoves: [
+      [144,"delay"],
+      [32,"delay"],
+      [8,"delay"],
+      [4,"diag ne"],
+      [4,"pose"],
+      [4,"left"],
       [8,"up"],
       [4,"pose"],
       [8,"pose"],
@@ -687,25 +583,25 @@ models = [
     ],
     moves: [],
     color:"orange",
-    name:""
+    name:"Orange2"
   },
 
 
 
   {
-    start: "right",
+    start: "left",
     preMoves: [
       [144,"delay"],
       [64,"delay"],
       [8,"up"],
-      [4,"diag nw"],
+      [4,"diag ne"],
       [4,"pose"],
       [8,0,4],
       [8,"down"],
     ],
     moves: [],
     color:"red",
-    name:""
+    name:"3Red3"
   },
   {
     start: "middle",
@@ -716,61 +612,79 @@ models = [
       [10,"up"],
       [4,"pose"],
       [8,"pose"],
-      [16,"pose"]
+      [10,"down"]
     ],
     moves: [],
     color:"gray",
-    name:""
+    name:"3Gray3"
   },
   {
-    start: "left",
+    start: "right",
     preMoves: [
       [144,"delay"],
       [64,"delay"],
       [4,"delay"],
       [4,"up"],
-      [4,"diag ne"],
+      [4,"diag nw"],
       [4,"pose"],
       [8,0,-4],
       [12,"down"],
     ],
     moves: [],
     color:"blue",
-    name:""
-  },
-  {
-    start: "middle left",
-    preMoves: [
-      [144,"delay"],
-      [64,"delay"],
-      [12,"delay"],
-      [4,"diag nw"],
-      [4,"pose"],
-      [4,"right"],
-      [8,"up"],
-      [8,"pose"],
-      [12,"down"],
-    ],
-    moves: [],
-    color:"green",
-    name:""
+    name:"3Blue3"
   },
   {
     start: "middle right",
     preMoves: [
       [144,"delay"],
       [64,"delay"],
-      [8,"delay"],
+      [12,"delay"],
       [4,"diag ne"],
       [4,"pose"],
       [4,"left"],
       [8,"up"],
-      [4,"pose"],
       [8,"pose"],
       [12,"down"],
     ],
     moves: [],
+    color:"green",
+    name:"Melody T"
+  },
+  {
+    start: "middle left",
+    preMoves: [
+      [144,"delay"],
+      [64,"delay"],
+      [8,"delay"],
+      [4,"diag nw"],
+      [4,"pose"],
+      [4,"right"],
+      [8,"up"],
+      [4,"pose"],
+      [16,"pose"],
+      [2,1,1],
+      [14,0,7],
+      [4,-2,2],
+      [4,"pose"],
+    ],
+    moves: [],
     color:"orange",
-    name:""
+    name:"Derrick"
+  },
+
+
+  {
+    start: "right",
+    preMoves: [
+      [260,"delay"],
+      [8,-2,0],
+      [4,"pose"],
+      [4,2,-2],
+      [4,"pose"],
+    ],
+    moves: [],
+    color:"red",
+    name:"Tim"
   },
 ];
