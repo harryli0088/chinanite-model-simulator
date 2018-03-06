@@ -1,5 +1,6 @@
 # chinanite-model-simulator
-This is a bird's eye view simulator for ChinaNite, a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier. This simulator is intended to create walk guides, not a 100% accurate teaching tool.
+This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=Q3QqFn1ThFQ), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier. This simulator is intended to create walk guides, not a 100% accurate teaching tool.
+[Example video of the simulator](https://drive.google.com/file/d/1j_BwTIWdvUy5nd9A0IPfShJoqkx7Q6ml/view?usp=sharing)
 
 ## How to use it
 To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid json file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
@@ -61,4 +62,3 @@ This configuration features the T catwalk. Imagining a 3x3 grid, the T occupies 
 (3 3)
 Each square is four steps wide. Models enter from the bottom middle of the T.
 You can change the function "drawT" to draw whatever configuration you like.
-
