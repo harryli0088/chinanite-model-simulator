@@ -1,11 +1,11 @@
 video_src="https://www.youtube.com/embed/O9XPyO_STIg";
 
 pre_sections = [
-  [8,"Verse 1"],
-  [8,"Chorus 1"],
-  [8,"Verse 2"],
-  [8,"Chorus 2"],
-  [8,"Bridge"],
+  [8,8,"Verse 1"],
+  [8,8,"Chorus 1"],
+  [8,8,"Verse 2"],
+  [8,8,"Chorus 2"],
+  [8,8,"Bridge"],
 ];
 
 pre_comments = [
@@ -403,7 +403,7 @@ models = [
 
 
   {
-    name:"Jen",
+    name:"Peter",
     start: "right",
     preMoves: [
       [128,"delay"],

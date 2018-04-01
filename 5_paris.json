@@ -1,11 +1,11 @@
 video_src="https://www.youtube.com/embed/JZELmUooBlY";
 
 pre_sections = [
-  [6,"Chorus 1"],
-  [4,"Verse 2"],
-  [6,"Chorus 2"],
-  [8,"Bridge"],
-  [3,"Ending"]
+  [6,8,"Chorus 1"],
+  [4,8,"Verse 2"],
+  [6,8,"Chorus 2"],
+  [8,8,"Bridge"],
+  [3,8,"Ending"]
 ];
 
 pre_comments = [
@@ -382,7 +382,7 @@ models = [
     ],
     moves: [],
     color:"orange",
-    name:"June (S)"
+    name:"Isabelle"
   },
   {
     start: "left",

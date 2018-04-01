@@ -1,17 +1,17 @@
 video_src="https://www.youtube.com/embed/539dWR_-xF0";
 
 pre_sections = [
-  [2,"Intro"],
-  [4,"Verse 1"],
-  [4,"Pre-Chorus 1"],
-  [8,"Chorus 1"],
-  [4,"Verse 2"],
-  [4,"Pre-Chorus 2"],
-  [4,"Chorus 2"],
-  [6,"Bridge 1"],
-  [4,"Bridge 2"],
-  [4,"Chorus 3"],
-  [6,"Ending"],
+  [2,8,"Intro"],
+  [4,8,"Verse 1"],
+  [4,8,"Pre-Chorus 1"],
+  [8,8,"Chorus 1"],
+  [4,8,"Verse 2"],
+  [4,8,"Pre-Chorus 2"],
+  [4,8,"Chorus 2"],
+  [6,8,"Bridge 1"],
+  [4,8,"Bridge 2"],
+  [4,8,"Chorus 3"],
+  [6,8,"Ending"],
 ];
 
 pre_comments = [
@@ -35,7 +35,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red1"
+    name:"Eric"
   },
   {
     start: "left",
@@ -57,7 +57,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red2"
+    name:"Cynthia"
   },
   {
     start: "left",
@@ -80,7 +80,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red3"
+    name:"June (J)"
   },
   {
     start: "left",
@@ -105,7 +105,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"4Blue1"
+    name:"Nick Lee"
   },
 
 
@@ -128,7 +128,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red4"
+    name:"Isabelle"
   },
   {
     start: "right",
@@ -150,7 +150,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red5"
+    name:"Julia"
   },
   {
     start: "right",
@@ -173,7 +173,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"6Red6"
+    name:"Patrick"
   },
   {
     start: "right",
@@ -196,7 +196,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"4Blue2"
+    name:"Chris Y"
   },
 
 
@@ -214,7 +214,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray1"
+    name:"Elizabeth"
   },
   {
     start: "middle left",
@@ -229,7 +229,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray2"
+    name:"Melody W"
   },
   {
     start: "middle right",
@@ -244,7 +244,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray3"
+    name:"Michelle F"
   },
   {
     start: "middle left",
@@ -259,7 +259,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray4"
+    name:"June (S)"
   },
   {
     start: "middle right",
@@ -274,7 +274,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray5"
+    name:"John"
   },
   {
     start: "middle left",
@@ -289,7 +289,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"6Gray6"
+    name:"Sabrina"
   },
 
 
@@ -309,7 +309,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"4Gray1"
+    name:"Dom"
   },
   {
     start: "middle right",
@@ -324,7 +324,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"4Gray2"
+    name:"Kevin"
   },
   {
     start: "middle left",
@@ -339,7 +339,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"4Gray3"
+    name:"Elaine"
   },
   {
     start: "middle right",
@@ -354,7 +354,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"4Gray4"
+    name:"Jenett"
   },
 
 
@@ -384,7 +384,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"4Blue3"
+    name:"Maggie"
   },
 
 
@@ -412,7 +412,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"4Blue4"
+    name:"Christine"
   },
 
 
@@ -438,7 +438,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"3Red1"
+    name:"Jen"
   },
   {
     start: "middle",
@@ -452,7 +452,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"3Gray1"
+    name:"Iris"
   },
   {
     start: "right",
@@ -467,7 +467,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"3Blue1"
+    name:"Christina"
   },
   {
     start: "middle right",
@@ -483,7 +483,7 @@ models = [
     ],
     moves: [],
     color:"green",
-    name:"Green1"
+    name:"Jeremy G"
   },
   {
     start: "middle left",
@@ -500,7 +500,7 @@ models = [
     ],
     moves: [],
     color:"orange",
-    name:"Orange1"
+    name:"Rebecca"
   },
 
 
@@ -517,7 +517,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"3Red2"
+    name:"Peter"
   },
   {
     start: "middle",
@@ -532,7 +532,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"3Gray2"
+    name:"Allysa"
   },
   {
     start: "left",
@@ -548,7 +548,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"3Blue2"
+    name:"Shyam"
   },
   {
     start: "middle left",
@@ -565,7 +565,7 @@ models = [
     ],
     moves: [],
     color:"green",
-    name:"Green2"
+    name:"Jeremy R"
   },
   {
     start: "middle right",
@@ -583,7 +583,7 @@ models = [
     ],
     moves: [],
     color:"orange",
-    name:"Orange2"
+    name:"Josh"
   },
 
 
@@ -601,7 +601,7 @@ models = [
     ],
     moves: [],
     color:"red",
-    name:"3Red3"
+    name:"Jeff"
   },
   {
     start: "middle",
@@ -616,7 +616,7 @@ models = [
     ],
     moves: [],
     color:"gray",
-    name:"3Gray3"
+    name:"Michael"
   },
   {
     start: "right",
@@ -632,7 +632,7 @@ models = [
     ],
     moves: [],
     color:"blue",
-    name:"3Blue3"
+    name:"Joe"
   },
   {
     start: "middle right",

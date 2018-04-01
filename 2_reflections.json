@@ -1,12 +1,12 @@
 video_src="https://www.youtube.com/embed/n_zgqlUutvM";
 
 pre_sections = [
-  [6,"Verse 1"],
-  [6,"Chorus 1"],
-  [6,"Verse 2"],
-  [6,"Chorus 2"],
-  [6,"Bridge"],
-  [6,"Chorus 3"],
+  [6,8,"Verse 1"],
+  [6,8,"Chorus 1"],
+  [6,8,"Verse 2"],
+  [6,8,"Chorus 2"],
+  [6,8,"Bridge"],
+  [6,8,"Chorus 3"],
 ];
 
 pre_comments = [

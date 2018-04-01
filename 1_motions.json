@@ -1,21 +1,21 @@
 video_src="https://www.youtube.com/embed/1rjH98cvqsg";
 
 pre_sections = [
-  [2,"Intro"],
-  [8,"Verse 1"],
-  [4,"Pre-Chorus 1"],
-  [8,"Chorus 1"],
-  [2,"Interlude"],
-  [8,"Verse 2"],
-  [4,"Pre-Chorus 2"],
-  [8,"Chorus 2"],
-  [4,"Repeat Chorus"],
-  [7,"Ending"],
+  [2,8,"Intro"],
+  [8,8,"Verse 1"],
+  [4,8,"Pre-Chorus 1"],
+  [8,8,"Chorus 1"],
+  [2,8,"Interlude"],
+  [8,8,"Verse 2"],
+  [4,8,"Pre-Chorus 2"],
+  [8,8,"Chorus 2"],
+  [4,8,"Repeat Chorus"],
+  [7,8,"Ending"],
 ];
 
 pre_comments = [
-  [81,112,"Not 100% sure if correct, will update later"],
-  [113,144,"Grays: ignore order and spacing, final spots are correct"],
+  [81,112,"Not 100% sure if correct"],
+  [113,144,"Try this new order for the 2nd grays"],
   [145,168,"Pivot rotate"],
   [288,352,"Exact positions will vary"],
 ];
@@ -315,7 +315,7 @@ models = [
     color:"gray",
   },
   {
-    name:"Julia",
+    name:"Melody T",
     start: "left",
     preMoves: [
       [112,"delay"],
