@@ -23,16 +23,23 @@ The HTML file opens json files from the same directory which contain the necessa
 You can add a link to a video to play the song for the walk. YouTube songs are sometimes blocked.
 
 ### pre_sections
-Pre sections allow you to break up the song into parts, so that you know which part you are in. Ex Verse 1, Chorus 1, Bridge, etc. In each pre section, the first item is the number of eight counts that this section lasts, and the second item is the title of the section. When the HTML file loads, it multiplies the number by 8 to get the total counts.
+Pre sections allow you to break up the song into parts, so that you know which part you are in. Ex Verse 1, Chorus 1, Bridge, etc.
+[number of times this measure repeats, counts per measure, section title]
+ex: [4,8,"Verse 1"] corresponds to four 8cts with a label of "Verse 1"
+These sections stack so that you don't have to manually set which beats the sections last for, only each section duration
 
 ### pre_comments
-Pre comments allow you to write comments at different parts of the song. In each pre comment, the first number indicates the beat that the comment begins, the second number indicates when the comment ends, and the third number is the comment. You have to do a little math :P
+Pre comments allow you to write comments at different parts of the song.
+[comment start beat, comment end beat, comment]
+You have to do a little math and guess and check :P
 
 ### models
 Each model has customizable features. You can give the model a name, starting position, color, and pre moves
 
 ### model moves
-A model's pre moves are converted into beat-by-beat positions on the canvas. There are a few main moves you can do:
+A model's pre moves are converted into beat-by-beat positions on the canvas. There are a few preset moves you can do:
+
+[number of beats, preset move]
 1) up - (negative y) for a set number of beats
 2) down - (positive y)
 3) left - (negative x)
@@ -43,6 +50,7 @@ A model's pre moves are converted into beat-by-beat positions on the canvas. The
 8) diag sw - (negative x, positive y)
 
 9) custom - for a set number of beats, set a manual change in x and y
+[number of beats, dx, dy] (keep in mind that right is positive x, and down is positive y)
 
 10) delay - make the model wait before entering the walk
 11) pose - stop at the current position and pose
@@ -62,3 +70,7 @@ This configuration features the T catwalk. Imagining a 3x3 grid, the T occupies 
 (3 3)
 Each square is four steps wide. Models enter from the bottom middle of the T.
 You can change the function "drawT" to draw whatever configuration you like.
+
+
+## Further application
+This lightweight simulator could be used in other applications such as for marching band formations. Feel free to take and adapt this code as you see fit!
