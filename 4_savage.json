@@ -15,7 +15,7 @@ pre_sections = [
 
 pre_comments = [
   [269,275,"Models circle Derrick, ending position will vary"],
-  [317,352,"Spacing will be more equal"],
+  [325,260,"Spacing will be more equal"],
 ];
 
 models = [
@@ -544,7 +544,7 @@ models = [
       [4,"pose"],
       [8,"down"],
       [4,0,-2],
-      [8,"pose"],
+      [12,"pose"],
       [8,0,-4],
       [4,"pose"],
       [5,0,10],
@@ -595,6 +595,7 @@ models = [
       [32,"delay"],
       [4,"delay"],
       [8,0,-7],
+      [4,"pose"],
       [8,0,-4],
       [10,"kneel"],
       [2,"pose"],
@@ -612,6 +613,7 @@ models = [
       [32,"delay"],
       [4,"delay"],
       [8,0,-7],
+      [4,"pose"],
       [8,0,-4],
       [8,"kneel"],
       [2,"pose"],
@@ -629,6 +631,7 @@ models = [
       [34,"delay"],
       [4,"delay"],
       [6,0,-5],
+      [4,"pose"],
       [8,0,-4],
       [6,"kneel"],
       [2,"pose"],
@@ -646,6 +649,7 @@ models = [
       [34,"delay"],
       [4,"delay"],
       [6,0,-5],
+      [4,"pose"],
       [8,0,-4],
       [4,"kneel"],
       [2,"pose"],

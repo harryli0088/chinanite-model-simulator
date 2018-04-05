@@ -303,7 +303,7 @@ models = [
     color:"orange",
   },
   {
-    name:"John",
+    name:"Kevin",
     start: "left",
     preMoves: [
       [160,"delay"],
