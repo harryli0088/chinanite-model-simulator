@@ -34,13 +34,11 @@ models = [
   },
   {
     name:"Elizabeth",
-    start: "left",
+    start: "left middle",
     preMoves: [
       [48,"delay"],
-      [8,8,-4],
-      [4,"pose"],
-      [4,"left"],
-      [8,"up"],
+      [4,"delay"],
+      [12,"up"],
       [4,"pose"],
       [4,"down"],
       [4,"pose"],
@@ -49,6 +47,22 @@ models = [
     ],
     moves: [],
     color:"orange",
+  },
+
+  {
+    name:"Someone",
+    start: "middle",
+    preMoves: [
+      [48,"delay"],
+      [12,"up"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"pose"],
+      [4,"down"],
+      [4,"down pivot"],
+    ],
+    moves: [],
+    color:"blue",
   },
 
   {
@@ -73,10 +87,8 @@ models = [
     start: "right",
     preMoves: [
       [48,"delay"],
-      [8,-7,-4],
-      [4,"pose"],
-      [4,"right"],
-      [8,"up"],
+      [4,"delay"],
+      [12,"up"],
       [4,"pose"],
       [4,"down"],
       [4,"pose"],

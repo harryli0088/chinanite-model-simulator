@@ -14,8 +14,8 @@ pre_sections = [
 ];
 
 pre_comments = [
-  [269,275,"Models circle Derrick, ending position will vary"],
-  [325,260,"Spacing will be more equal"],
+  [273,280,"Models circle Derrick, ending position will vary"],
+  [317,352,"Spacing will be more equal"],
 ];
 
 models = [
