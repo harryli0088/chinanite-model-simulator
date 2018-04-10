@@ -4,7 +4,7 @@ rect_width = 560; //width the T occupies
 rect_height = 560; //height the T occupies
 radius = 10; //pixel size of model radius
 step = 40; //pixel size of model step
-move_index = -1; //which move to load first
+move_index = 200; //which move to load first
 sections = []; //empty array to store song sections
 comments = []; // empty array to store comments
 
@@ -26,7 +26,7 @@ canvas_context.font = "15px Arial"; //font size and type
 // document.body.appendChild(iframe);
 
 
-/***********************Convert preMoves to moves************************/
+/***********************Convert model preMoves to moves************************/
 //for each model
 for(var i=0; i<models.length; ++i) {
   //set starting positions
@@ -89,6 +89,23 @@ for(var i=0; i<models.length; ++i) {
         }
         else if(move.indexOf("diag nw") !== -1) {
           models[i].moves.push({dx:-1,dy:-1});
+        }
+
+        //if the model is moving at half speed
+        if(move.indexOf("half speed") !== -1) {
+          //record move
+          models[i].moves[models[i].moves.length-1].move = move;
+          //get new model position
+          models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
+          models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
+          //record new model position
+          models[i].moves[models[i].moves.length-1].x = models[i].x;
+          models[i].moves[models[i].moves.length-1].y = models[i].y;
+
+          //push half speed delay
+          models[i].moves.push({dx:0,dy:0});
+          move = "pause";
+          ++count;
         }
 
         //record move
@@ -158,6 +175,110 @@ for(var i=0; i<pre_comments.length; ++i) {
 
 
 
+
+
+// /***********************Process lights************************/
+// //for each light
+// for(var i=0; i<lights.length; ++i) {
+//   //for each of this lights's pre moves
+//   for(var j=0; j<lights[i].preMoves.length; ++j) {
+//     var count = 0;
+//     //while we are below the count length
+//     while(count < models[i].preMoves[j][0]) {
+//       var move = models[i].preMoves[j][1];
+//
+//       if(move.indexOf("off") !== -1) {
+//         models[i].moves.push({dx:0,dy:-1});
+//       }
+//       else if(move.indexOf("on") !== -1) {
+//         models[i].moves.push({dx:0,dy:1});
+//       }
+//       else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
+//         models[i].moves.push({dx:0,dy:0});
+//       }
+//       else if(move.indexOf("right") !== -1) {
+//         models[i].moves.push({dx:1,dy:0});
+//       }
+//       else if(move.indexOf("left") !== -1) {
+//         models[i].moves.push({dx:-1,dy:0});
+//       }
+//       else if(move.indexOf("diag ne") !== -1) {
+//         models[i].moves.push({dx:1,dy:-1});
+//       }
+//       else if(move.indexOf("diag se") !== -1) {
+//         models[i].moves.push({dx:1,dy:1});
+//       }
+//       else if(move.indexOf("diag sw") !== -1) {
+//         models[i].moves.push({dx:-1,dy:1});
+//       }
+//       else if(move.indexOf("diag nw") !== -1) {
+//         models[i].moves.push({dx:-1,dy:-1});
+//       }
+//
+//       //record move
+//       models[i].moves[models[i].moves.length-1].move = move;
+//
+//
+//
+//       //get new model position
+//       models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
+//       models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
+//
+//       //record new model position
+//       models[i].moves[models[i].moves.length-1].x = models[i].x;
+//       models[i].moves[models[i].moves.length-1].y = models[i].y;
+//
+//       //increase count
+//       ++count;
+//     }
+//   }
+// }
+
+draw_light = function(light) {
+  //is move index is in range
+  if(move_index>=0 && move_index<light.moves.length) {
+    //update model position
+    model.x = model.moves[move_index].x;
+    model.y = model.moves[move_index].y;
+
+    //draw if model is not delaying
+    if(model.moves[move_index].move != "delay") {
+      //models are translucent
+      canvas_context.globalAlpha = 0.8;
+
+      //switch to model color
+      canvas_context.fillStyle = model.color;
+      //pose
+      if(model.moves[move_index].move == "pose") {
+        drawStar(model.x, model.y, 5, 1.5*radius, 3*radius/4);
+      }
+      //pivot
+      else if(model.moves[move_index].move.indexOf("pivot") !== -1) {
+        drawTriangle(model.x, model.y);
+      }
+      //kneel
+      else if(model.moves[move_index].move.indexOf("kneel") !== -1) {
+        canvas_context.fillRect(model.x-radius, model.y-radius,2*radius,2*radius);
+      }
+      //twirl
+      else if(model.moves[move_index].move.indexOf("twirl") !== -1) {
+        drawCircle(model.x, model.y, radius);
+        canvas_context.fillStyle = 'white';
+        canvas_context.globalAlpha = 1;
+        drawCircle(model.x, model.y, radius/2);
+      }
+      //regularly walking
+      else {
+        drawCircle(model.x, model.y, radius);
+      }
+
+      //model label
+      canvas_context.globalAlpha = 1;
+      canvas_context.fillStyle = "black";
+      canvas_context.fillText(model.name,model.x-model.name.length*4,model.y-radius-10);
+    }
+  }
+}
 
 
 
