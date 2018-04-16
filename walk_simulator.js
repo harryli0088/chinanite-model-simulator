@@ -4,7 +4,7 @@ rect_width = 560; //width the T occupies
 rect_height = 560; //height the T occupies
 radius = 10; //pixel size of model radius
 step = 40; //pixel size of model step
-move_index = 200; //which move to load first
+move_index = -1; //which move to load first
 sections = []; //empty array to store song sections
 comments = []; // empty array to store comments
 
@@ -27,27 +27,34 @@ canvas_context.font = "15px Arial"; //font size and type
 
 
 /***********************Convert model preMoves to moves************************/
+var model_names = [];
 //for each model
 for(var i=0; i<models.length; ++i) {
   //set starting positions
   //left - middle left - middle - middle right - right
   if(typeof models[i].start == "string") {
+    //if the starting position includes the word middle
     if(models[i].start == "middle") {
-      models[i].x = rect_width/2;
+      //if starting middle left
+      if(models[i].start.indexOf("left") !== -1) {
+        models[i].x = rect_width/2 - step;
+      }
+      //if starting middle right
+      else if(models[i].start.indexOf("right") !== -1) {
+        models[i].x = rect_width/2 + step;
+      }
+      //else just middle
+      else {
+        models[i].x = rect_width/2;
+      }
     }
-    else if(models[i].start == "left") {
+    else if(models[i].start.indexOf("left") !== -1) {
       models[i].x = rect_width/2 - 2*step;
     }
-    else if(models[i].start == "right") {
+    else if(models[i].start.indexOf("right") !== -1) {
       models[i].x = rect_width/2 + 2*step;
     }
-    else if(models[i].start=="middle left" || models[i].start=="left middle") {
-      models[i].x = rect_width/2 - step;
-    }
-    else if(models[i].start=="middle right" || models[i].start=="right middle") {
-      models[i].x = rect_width/2 + step;
-    }
-    models[i].y = rect_height-20; //all models start at bottom of T
+    models[i].y = rect_height-20; //all set starting positions start at bottom of T
   }
   //custom starting position
   else {
@@ -64,52 +71,41 @@ for(var i=0; i<models.length; ++i) {
       if(typeof models[i].preMoves[j][1] == "string") {
         var move = models[i].preMoves[j][1];
         if(move.indexOf("up") !== -1) {
-          models[i].moves.push({dx:0,dy:-1});
+          models[i].moves.push({dx:0,dy:-1,move:move});
         }
         else if(move.indexOf("down") !== -1) {
-          models[i].moves.push({dx:0,dy:1});
+          models[i].moves.push({dx:0,dy:1,move:move});
         }
         else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
-          models[i].moves.push({dx:0,dy:0});
+          models[i].moves.push({dx:0,dy:0,move:move});
         }
         else if(move.indexOf("right") !== -1) {
-          models[i].moves.push({dx:1,dy:0});
+          models[i].moves.push({dx:1,dy:0,move:move});
         }
         else if(move.indexOf("left") !== -1) {
-          models[i].moves.push({dx:-1,dy:0});
+          models[i].moves.push({dx:-1,dy:0,move:move});
         }
         else if(move.indexOf("diag ne") !== -1) {
-          models[i].moves.push({dx:1,dy:-1});
+          models[i].moves.push({dx:1,dy:-1,move:move});
         }
         else if(move.indexOf("diag se") !== -1) {
-          models[i].moves.push({dx:1,dy:1});
+          models[i].moves.push({dx:1,dy:1,move:move});
         }
         else if(move.indexOf("diag sw") !== -1) {
-          models[i].moves.push({dx:-1,dy:1});
+          models[i].moves.push({dx:-1,dy:1,move:move});
         }
         else if(move.indexOf("diag nw") !== -1) {
-          models[i].moves.push({dx:-1,dy:-1});
+          models[i].moves.push({dx:-1,dy:-1,move:move});
         }
 
         //if the model is moving at half speed
         if(move.indexOf("half speed") !== -1) {
-          //record move
-          models[i].moves[models[i].moves.length-1].move = move;
-          //get new model position
-          models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
-          models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
-          //record new model position
-          models[i].moves[models[i].moves.length-1].x = models[i].x;
-          models[i].moves[models[i].moves.length-1].y = models[i].y;
+          recordModelNewPosition(i)
 
           //push half speed delay
-          models[i].moves.push({dx:0,dy:0});
-          move = "pause";
+          models[i].moves.push({dx:0,dy:0,move:"pause"});
           ++count;
         }
-
-        //record move
-        models[i].moves[models[i].moves.length-1].move = move;
       }
       //otherwise the move is custom
       else {
@@ -118,26 +114,78 @@ for(var i=0; i<models.length; ++i) {
         var dx = models[i].preMoves[j][1] / duration;
         var dy = models[i].preMoves[j][2] / duration;
 
+        //check if there is a custom move description
+        var move = "walk";
+        if(models[i].preMoves[j][3]) {
+          move = models[i].preMoves[j][3];
+        }
 
-        models[i].moves.push({dx:dx,dy:dy,move:"walk"});
+        //if the model is moving at half speed
+        if(move.indexOf("half speed") !== -1) {
+          //record double the half step to make a regular step
+          models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
+
+          recordModelNewPosition(i)
+
+          //push half speed delay
+          models[i].moves.push({dx:0,dy:0,move:"pause"});
+          ++count;
+        }
+        else {
+          models[i].moves.push({dx:dx,dy:dy,move:move});
+        }
       }
 
-
-      //get new model position
-      models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
-      models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
-
-      //record new model position
-      models[i].moves[models[i].moves.length-1].x = models[i].x;
-      models[i].moves[models[i].moves.length-1].y = models[i].y;
+      recordModelNewPosition(i)
 
       //increase count
       ++count;
     }
   }
+
+  binary_insert(models[i].name,model_names);
+}
+//binary insert function taken from https://gist.github.com/eloone/11342252
+function binary_insert(value, array, startVal, endVal){
+	var length = array.length;
+	var start = typeof(startVal) != 'undefined' ? startVal : 0;
+	var end = typeof(endVal) != 'undefined' ? endVal : length - 1;//!! endVal could be 0 don't use || syntax
+	var m = start + Math.floor((end - start)/2);
+	if(length == 0){
+		array.push(value);
+		return;
+	}
+	if(value > array[end]){
+		array.splice(end + 1, 0, value);
+		return;
+	}
+	if(value < array[start]){//!!
+		array.splice(start, 0, value);
+		return;
+	}
+	if(start >= end){
+		return;
+	}
+	if(value < array[m]){
+		binary_insert(value, array, start, m - 1);
+		return;
+	}
+	if(value > array[m]){
+		binary_insert(value, array, m + 1, end);
+		return;
+	}
+	//we don't insert duplicates
 }
 
-
+//function used to get and record the new model position
+function recordModelNewPosition(i) {
+  //get new model position
+  models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
+  models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
+  //record new model position
+  models[i].moves[models[i].moves.length-1].x = models[i].x;
+  models[i].moves[models[i].moves.length-1].y = models[i].y;
+}
 
 
 
@@ -284,11 +332,11 @@ draw_light = function(light) {
 
 /***********************Draw functions************************/
 drawT = function() {
-  //cear entire canvas
+  //clear entire canvas
   canvas_context.fillStyle = 'white';
   canvas_context.fillRect(0,0,canvas.width,canvas.height);
   //gray boxes
-  canvas_context.fillStyle = '#dddddd';
+  canvas_context.fillStyle = '#bbbbbb';
   canvas_context.fillRect(160,0,240,340);
   canvas_context.fillRect(0,rect_height-220,rect_width,220);
   //white T
@@ -317,6 +365,17 @@ drawT = function() {
   canvas_context.fillText("Twirl",50,310);
   canvas_context.fillStyle = 'white';
   drawCircle(20, 300, radius/2);
+
+
+  //model names in this walk
+  canvas_context.fillStyle = 'black';
+  canvas_context.fillText("Models in this walk:",600,300);
+  for(var i=0; i<model_names.length; ++i) {
+    //draw columns with names
+    var max_rows = 10;
+    canvas_context.fillText(model_names[i],600 + 100*(Math.floor(i/max_rows)),320 + 20*i - 200*Math.floor(i/max_rows));
+  }
+
 }
 drawT();
 

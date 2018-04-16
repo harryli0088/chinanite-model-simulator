@@ -583,8 +583,8 @@ models = [
       [4,"left"],
       [8,"up"],
       [24,"pose"],
-      [2,-1,1],
-      [14,0,7],
+      [2,"diag sw half speed"],
+      [14,"down half speed"],
       [32,"pose"],
       [4,"down"],
     ],
@@ -596,7 +596,7 @@ models = [
 
 
   {
-    name:"Briana",
+    name:"Rebecca",
     start: "middle right",
     preMoves: [
       [240,"delay"],

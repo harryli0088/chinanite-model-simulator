@@ -1,8 +1,14 @@
 video_src="https://www.youtube.com/embed/UzXuQbcp8Yc";
 
 pre_sections = [
+  [4,6,"Duet Intro"],
+  [4,8,"Intro"],
+  [4,8,"Verse 1"],
+  [4,8,"Pre Chorus 1"],
+  [1,4,"Pause"],
+  [8,8,"Chorus 1"],
   [4,8,"Verse 2"],
-  [4,8,"Pre Chorus 3"],
+  [4,8,"Pre Chorus 2"],
   [1,4,"Pause"],
   [4,8,"Chorus 2"],
   [4,8,"Bridge 1"],
@@ -14,27 +20,59 @@ pre_sections = [
 ];
 
 pre_comments = [
-  [65,68,"Freeze 4cts"],
-  [130,140,"Don't collide plz ty"],
-  [141,148,"Make a semicircle"],
-  [149,150,"Chris Y switch pose"],
-  [151,152,"John switch pose"],
-  [153,154,"June (J) switch pose"],
-  [155,156,"Julia switch pose"],
-  [157,158,"Jenett switch pose"],
-  [159,160,"Jeremy G switch pose"],
-  [161,162,"Allysa switch pose"],
-  [163,164,"Michelle F switch pose"],
-  [189,196,"Seizure warning"],
-  [197,212,"Order doesn't matter, line up with your color"],
-  [212,260,"Do a final group pose at the bottom of the T"],
+  [1,24,"Beat can be hard to discern"],
+  [25,188,"Dance; walk starts ~1:45"],
+  [253,257,"Freeze 4cts"],
+  [318,328,"Don't collide plz ty"],
+  [329,336,"Make a semicircle"],
+  [337,338,"Chris Y switch pose"],
+  [339,340,"John switch pose"],
+  [341,342,"June (J) switch pose"],
+  [343,344,"Julia switch pose"],
+  [345,346,"Jenett switch pose"],
+  [347,348,"Jeremy G switch pose"],
+  [349,350,"Allysa switch pose"],
+  [351,352,"Michelle F switch pose"],
+  [377,384,"Seizure warning"],
+  [385,400,"Order doesn't matter, line up with your color"],
+  [401,448,"Do a final group pose at the bottom of the T"],
 ];
 
 models = [
   {
+    name:"Derrick",
+    start: [280,60],
+    preMoves: [
+      [6,"pose"],
+      [6,"pose"],
+      [5,"down"],
+      [1,"diag sw"],
+      [6,"pose"],
+    ],
+    moves: [],
+    color:"green",
+  },
+  {
+    name:"Tim",
+    start: "middle",
+    preMoves: [
+      [6,"delay"],
+      [6,"pose"],
+      [5,"up"],
+      [1,"diag ne"],
+      [6,"pose"],
+      [6,"down"],
+    ],
+    moves: [],
+    color:"red",
+  },
+
+
+  {
     name:"Sam",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [8,"up"],
       [4,"pose"],
       [1,"diag sw"],
@@ -50,6 +88,7 @@ models = [
     name:"Eurie",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [8,"delay"],
       [8,"up"],
       [4,"pose"],
@@ -66,6 +105,7 @@ models = [
     name:"Brandon",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [16,"delay"],
       [8,"up"],
       [4,"pose"],
@@ -81,6 +121,7 @@ models = [
     name:"Nick P",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [24,"delay"],
       [8,"up"],
       [8,"pose"],
@@ -95,6 +136,7 @@ models = [
     name:"Julianne",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [8,"up"],
       [4,"pose"],
       [1,"diag se"],
@@ -110,6 +152,7 @@ models = [
     name:"Briana",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [8,"delay"],
       [8,"up"],
       [4,"pose"],
@@ -126,6 +169,7 @@ models = [
     name:"Michele T",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [16,"delay"],
       [8,"up"],
       [4,"pose"],
@@ -141,6 +185,7 @@ models = [
     name:"Shyam",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [24,"delay"],
       [8,"up"],
       [8,"pose"],
@@ -157,6 +202,7 @@ models = [
     name:"Maggie",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [8,"up"],
       [4,1,-4],
@@ -176,6 +222,7 @@ models = [
     name:"ChaoLi",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [8,"delay"],
       [8,"up"],
@@ -196,6 +243,7 @@ models = [
     name:"Alvin",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [16,"delay"],
       [8,"up"],
@@ -216,6 +264,7 @@ models = [
     name:"Nick L",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [24,"delay"],
       [8,"up"],
@@ -237,6 +286,7 @@ models = [
     name:"Christine",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [4,"delay"],
       [8,"up"],
@@ -257,6 +307,7 @@ models = [
     name:"Joe",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [8,"delay"],
       [4,"delay"],
@@ -278,6 +329,7 @@ models = [
     name:"Rebecca",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [16,"delay"],
       [4,"delay"],
@@ -299,6 +351,7 @@ models = [
     name:"Shawn",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [32,"delay"],
       [24,"delay"],
       [4,"delay"],
@@ -331,6 +384,7 @@ models = [
     name:"Chris M",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [8,"up"],
@@ -350,6 +404,7 @@ models = [
     name:"Josh",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [8,"delay"],
@@ -371,6 +426,7 @@ models = [
     name:"Jeff",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [4,"delay"],
@@ -391,6 +447,7 @@ models = [
     name:"Patrick",
     start: "middle",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [8,"delay"],
@@ -415,6 +472,7 @@ models = [
     name:"Elizabeth",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -436,6 +494,7 @@ models = [
     name:"Christina",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -458,6 +517,7 @@ models = [
     name:"Melody W",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -478,6 +538,7 @@ models = [
     name:"Kevin",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -499,6 +560,7 @@ models = [
     name:"Isabelle",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -520,6 +582,7 @@ models = [
     name:"Michael",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -542,6 +605,7 @@ models = [
     name:"Cynthia",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -562,6 +626,7 @@ models = [
     name:"Elaine",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [64,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -585,10 +650,11 @@ models = [
     name:"Julia",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [6,"delay"],
-      [8,0,-4],
+      [8,0,-4,"half speed"],
       [18,"pose"],
       [2,1.75,0.75],
       [2,1.5,1.5],
@@ -602,10 +668,11 @@ models = [
     name:"June (J)",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [4,"delay"],
-      [8,1.75,-3.25],
+      [8,1.75,-3.25,"half speed"],
       [20,"pose"],
       [2,1.5,1.5],
       [2,0.75,1.75],
@@ -617,10 +684,11 @@ models = [
     name:"John",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [2,"delay"],
-      [8,3.25,-1.75],
+      [8,3.25,-1.75,"half speed"],
       [22,"pose"],
       [2,0.75,1.75],
       [3,"left"],
@@ -632,9 +700,10 @@ models = [
     name:"Chris Y",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
-      [8,4,0],
+      [8,4,0,"half speed"],
       [24,"pose"],
       [3,"left"],
     ],
@@ -646,10 +715,11 @@ models = [
     name:"Jenett",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [6,"delay"],
-      [8,0,-4],
+      [8,0,-4,"half speed"],
       [18,"pose"],
       [2,-1.75,0.75],
       [2,-1.5,1.5],
@@ -663,10 +733,11 @@ models = [
     name:"Jereny G",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [4,"delay"],
-      [8,-1.75,-3.25],
+      [8,-1.75,-3.25,"half speed"],
       [20,"pose"],
       [2,-1.5,1.5],
       [2,-0.75,1.75],
@@ -678,10 +749,11 @@ models = [
     name:"Allysa",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
       [2,"delay"],
-      [8,-3.25,-1.75],
+      [8,-3.25,-1.75,"half speed"],
       [22,"pose"],
       [2,-0.75,1.75],
       [3,"right"],
@@ -693,9 +765,10 @@ models = [
     name:"Michelle F",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [128,"delay"],
       [4,"delay"],
-      [8,-4,0],
+      [8,-4,0,"half speed"],
       [24,"pose"],
       [3,"right"],
     ],
@@ -708,9 +781,10 @@ models = [
     name:"Sabrina",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [4,"delay"],
-      [24,0,-12],
+      [24,"up half speed"],
       [8,"pose"],
       [10,"down"],
     ],
@@ -721,9 +795,10 @@ models = [
     name:"Iris",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [8,"delay"],
-      [16,1,-8],
+      [16,1,-8,"half speed"],
       [12,"pose"],
       [4,"up"],
       [1,"diag sw"],
@@ -736,9 +811,10 @@ models = [
     name:"Jen",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [12,"delay"],
-      [8,1,-4],
+      [8,1,-4,"half speed"],
       [16,"pose"],
       [8,"up"],
       [1,"diag sw"],
@@ -751,9 +827,10 @@ models = [
     name:"Jeremy R",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [16,"delay"],
-      [12,5,-4],
+      [12,5,-4,"half speed"],
       [8,"pose"],
       [4,"left"],
       [8,"up"],
@@ -767,9 +844,10 @@ models = [
     name:"Cynthia",
     start: "middle right",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [20,"delay"],
-      [8,5,0],
+      [8,5,0,"half speed"],
       [8,"pose"],
       [4,"up"],
       [4,"left"],
@@ -785,9 +863,10 @@ models = [
     name:"Eric",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [4,"delay"],
-      [24,0,-12],
+      [24,"up half speed"],
       [8,"pose"],
       [10,"down"],
     ],
@@ -798,9 +877,10 @@ models = [
     name:"June (S)",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [8,"delay"],
-      [16,-1,-8],
+      [16,-1,-8,"half speed"],
       [12,"pose"],
       [4,"up"],
       [1,"diag se"],
@@ -813,9 +893,10 @@ models = [
     name:"Peter",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [12,"delay"],
-      [8,-1,-4],
+      [8,-1,-4,"up half speed"],
       [16,"pose"],
       [8,"up"],
       [1,"diag se"],
@@ -828,9 +909,10 @@ models = [
     name:"Dom",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [16,"delay"],
-      [12,-5,-4],
+      [12,-5,-4,"half speed"],
       [8,"pose"],
       [4,"right"],
       [8,"up"],
@@ -844,9 +926,10 @@ models = [
     name:"Michele T",
     start: "middle left",
     preMoves: [
+      [188,"delay"],
       [160,"delay"],
       [20,"delay"],
-      [8,-5,0],
+      [8,-5,0,"half speed"],
       [8,"pose"],
       [4,"up"],
       [4,"right"],
@@ -864,6 +947,7 @@ models = [
     name:"C3O1",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [4,"delay"],
       [4,"right"],
@@ -880,6 +964,7 @@ models = [
     name:"C3O2",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [6,"delay"],
       [4,"right"],
@@ -896,6 +981,7 @@ models = [
     name:"C3O3",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [8,"delay"],
       [4,"right"],
@@ -912,6 +998,7 @@ models = [
     name:"C3O4",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [10,"delay"],
       [4,"right"],
@@ -928,6 +1015,7 @@ models = [
     name:"C3O5",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [12,"delay"],
       [4,"right"],
@@ -944,6 +1032,7 @@ models = [
     name:"C3O6",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [14,"delay"],
       [4,"right"],
@@ -960,6 +1049,7 @@ models = [
     name:"C3O7",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [16,"delay"],
       [4,"right"],
@@ -976,6 +1066,7 @@ models = [
     name:"C3O8",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [18,"delay"],
       [4,"right"],
@@ -992,6 +1083,7 @@ models = [
     name:"C3O9",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [20,"delay"],
       [4,"right"],
@@ -1008,6 +1100,7 @@ models = [
     name:"C3O10",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [22,"delay"],
       [4,"right"],
@@ -1024,6 +1117,7 @@ models = [
     name:"C3O11",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [24,"delay"],
       [4,"right"],
@@ -1040,6 +1134,7 @@ models = [
     name:"C3O12",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [26,"delay"],
       [4,"right"],
@@ -1056,6 +1151,7 @@ models = [
     name:"C3O13",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [28,"delay"],
       [4,"right"],
@@ -1072,6 +1168,7 @@ models = [
     name:"C3O14",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [30,"delay"],
       [4,"right"],
@@ -1088,6 +1185,7 @@ models = [
     name:"C3O15",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [32,"delay"],
       [4,"right"],
@@ -1104,6 +1202,7 @@ models = [
     name:"C3O16",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [34,"delay"],
       [4,"right"],
@@ -1120,6 +1219,7 @@ models = [
     name:"C3O17",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [36,"delay"],
       [4,"right"],
@@ -1136,6 +1236,7 @@ models = [
     name:"C3O18",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [38,"delay"],
       [4,"right"],
@@ -1152,6 +1253,7 @@ models = [
     name:"C3O19",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [40,"delay"],
       [4,"right"],
@@ -1168,6 +1270,7 @@ models = [
     name:"Derrick",
     start: "right",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [42,"delay"],
       [4,"right"],
@@ -1185,6 +1288,7 @@ models = [
     name:"C3G1",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [4,"delay"],
       [4,"left"],
@@ -1201,6 +1305,7 @@ models = [
     name:"C3G2",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [6,"delay"],
       [4,"left"],
@@ -1217,6 +1322,7 @@ models = [
     name:"C3G3",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [8,"delay"],
       [4,"left"],
@@ -1233,6 +1339,7 @@ models = [
     name:"C3G4",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [10,"delay"],
       [4,"left"],
@@ -1249,6 +1356,7 @@ models = [
     name:"C3G5",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [12,"delay"],
       [4,"left"],
@@ -1265,6 +1373,7 @@ models = [
     name:"C3G6",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [14,"delay"],
       [4,"left"],
@@ -1281,6 +1390,7 @@ models = [
     name:"C3G7",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [16,"delay"],
       [4,"left"],
@@ -1297,6 +1407,7 @@ models = [
     name:"C3G8",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [18,"delay"],
       [4,"left"],
@@ -1313,6 +1424,7 @@ models = [
     name:"C3G9",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [20,"delay"],
       [4,"left"],
@@ -1329,6 +1441,7 @@ models = [
     name:"C3G10",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [22,"delay"],
       [4,"left"],
@@ -1345,6 +1458,7 @@ models = [
     name:"C3G11",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [24,"delay"],
       [4,"left"],
@@ -1361,6 +1475,7 @@ models = [
     name:"C3G12",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [26,"delay"],
       [4,"left"],
@@ -1377,6 +1492,7 @@ models = [
     name:"C3G13",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [28,"delay"],
       [4,"left"],
@@ -1393,6 +1509,7 @@ models = [
     name:"C3G14",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [30,"delay"],
       [4,"left"],
@@ -1409,6 +1526,7 @@ models = [
     name:"C3G15",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [32,"delay"],
       [4,"left"],
@@ -1425,6 +1543,7 @@ models = [
     name:"C3G16",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [34,"delay"],
       [4,"left"],
@@ -1441,6 +1560,7 @@ models = [
     name:"C3G17",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [36,"delay"],
       [4,"left"],
@@ -1457,6 +1577,7 @@ models = [
     name:"C3G18",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [38,"delay"],
       [4,"left"],
@@ -1473,6 +1594,7 @@ models = [
     name:"C3G19",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [40,"delay"],
       [4,"left"],
@@ -1489,6 +1611,7 @@ models = [
     name:"Melody T",
     start: "left",
     preMoves: [
+      [188,"delay"],
       [192,"delay"],
       [42,"delay"],
       [4,"left"],
