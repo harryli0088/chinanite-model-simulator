@@ -8,6 +8,9 @@ To use this simulator, open "walk_simulaor.html" in a browser. If it loads a val
 ## How to record a walk
 To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song while recording. Some music videos allow external embeds, but many do not. If the embedded video is blocked, you have to play the music in a separate tab.
 
+### Why do I have to step through the song manually? Why can't I just hit a "play" button
+In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. I feel that it is harder to accurately do both. What if the song changes tempo or is slightly off tempo at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
+
 ## How it works
 This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JSON file in the same directory (without using a server). When the file opens, it processes the JSON data to calculate at each beat:
 1) Where each model will be

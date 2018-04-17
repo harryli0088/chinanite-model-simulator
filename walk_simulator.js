@@ -13,7 +13,11 @@ comments = []; // empty array to store comments
 canvas = document.getElementById('canvas'); //get the canvas
 canvas_context = canvas.getContext('2d');
 canvas_context.font = "15px Arial"; //font size and type
-
+function text_bold(text,x,y) {
+  canvas_context.font = "bold 15px Arial";
+  canvas_context.fillText(text,x,y);
+  canvas_context.font = "15px Arial";
+}
 
 
 // /***********************iframe video************************/
@@ -26,15 +30,17 @@ canvas_context.font = "15px Arial"; //font size and type
 // document.body.appendChild(iframe);
 
 
-/***********************Convert model preMoves to moves************************/
-var model_names = [];
+/***********************Process Models************************/
+//convert their moves into beat by beat positions and actions
+//add models to a list of all the models in this walk
+var model_names = []; //array to binary insert model names
 //for each model
 for(var i=0; i<models.length; ++i) {
-  //set starting positions
+  //pre set starting positions
   //left - middle left - middle - middle right - right
   if(typeof models[i].start == "string") {
-    //if the starting position includes the word middle
-    if(models[i].start == "middle") {
+    //if the starting position includes the word "middle"
+    if(models[i].start.indexOf("middle") !== -1) {
       //if starting middle left
       if(models[i].start.indexOf("left") !== -1) {
         models[i].x = rect_width/2 - step;
@@ -48,9 +54,11 @@ for(var i=0; i<models.length; ++i) {
         models[i].x = rect_width/2;
       }
     }
+    //if starting left
     else if(models[i].start.indexOf("left") !== -1) {
       models[i].x = rect_width/2 - 2*step;
     }
+    //if starting right
     else if(models[i].start.indexOf("right") !== -1) {
       models[i].x = rect_width/2 + 2*step;
     }
@@ -143,8 +151,9 @@ for(var i=0; i<models.length; ++i) {
     }
   }
 
-  binary_insert(models[i].name,model_names);
+  binary_insert(models[i].name,model_names); //binary inser this model into the list
 }
+
 //binary insert function taken from https://gist.github.com/eloone/11342252
 function binary_insert(value, array, startVal, endVal){
 	var length = array.length;
@@ -189,25 +198,23 @@ function recordModelNewPosition(i) {
 
 
 
-/***********************Convert pre_sections************************/
-var sections_delay = 0;
-//for all pre sections
+/***********************Process pre_sections************************/
+//convert pre_sections into beat by beat section titles
 for(var i=0; i<pre_sections.length; ++i) {
   var section_cnt = 0;
   for(var j=0; j<pre_sections[i][0]; ++j) {
     //multiply by specified cts
     for(var k=0; k<pre_sections[i][1]; ++k) {
-      sections.push({measure_size:pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:pre_sections[i][2],delay:sections_delay});
+      sections.push({measure_size:pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:pre_sections[i][2]});
       ++section_cnt;
     }
   }
-  sections_delay += pre_sections[i][0]*8;
 }
 
 
 
-/***********************Convert pre_comments************************/
-//for all pre sections
+/***********************Process pre_comments************************/
+//convert pre_comments into beat by beat comments
 var comments_delay = 0;
 for(var i=0; i<pre_comments.length; ++i) {
   //push empty comment while advancing to next comment
@@ -215,116 +222,10 @@ for(var i=0; i<pre_comments.length; ++i) {
     comments.push("");
     ++comments_delay;
   }
+  //push comment
   while(comments_delay < pre_comments[i][1]) {
     comments.push(pre_comments[i][2]);
     ++comments_delay;
-  }
-}
-
-
-
-
-
-// /***********************Process lights************************/
-// //for each light
-// for(var i=0; i<lights.length; ++i) {
-//   //for each of this lights's pre moves
-//   for(var j=0; j<lights[i].preMoves.length; ++j) {
-//     var count = 0;
-//     //while we are below the count length
-//     while(count < models[i].preMoves[j][0]) {
-//       var move = models[i].preMoves[j][1];
-//
-//       if(move.indexOf("off") !== -1) {
-//         models[i].moves.push({dx:0,dy:-1});
-//       }
-//       else if(move.indexOf("on") !== -1) {
-//         models[i].moves.push({dx:0,dy:1});
-//       }
-//       else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
-//         models[i].moves.push({dx:0,dy:0});
-//       }
-//       else if(move.indexOf("right") !== -1) {
-//         models[i].moves.push({dx:1,dy:0});
-//       }
-//       else if(move.indexOf("left") !== -1) {
-//         models[i].moves.push({dx:-1,dy:0});
-//       }
-//       else if(move.indexOf("diag ne") !== -1) {
-//         models[i].moves.push({dx:1,dy:-1});
-//       }
-//       else if(move.indexOf("diag se") !== -1) {
-//         models[i].moves.push({dx:1,dy:1});
-//       }
-//       else if(move.indexOf("diag sw") !== -1) {
-//         models[i].moves.push({dx:-1,dy:1});
-//       }
-//       else if(move.indexOf("diag nw") !== -1) {
-//         models[i].moves.push({dx:-1,dy:-1});
-//       }
-//
-//       //record move
-//       models[i].moves[models[i].moves.length-1].move = move;
-//
-//
-//
-//       //get new model position
-//       models[i].x += step * models[i].moves[models[i].moves.length-1].dx;
-//       models[i].y += step * models[i].moves[models[i].moves.length-1].dy;
-//
-//       //record new model position
-//       models[i].moves[models[i].moves.length-1].x = models[i].x;
-//       models[i].moves[models[i].moves.length-1].y = models[i].y;
-//
-//       //increase count
-//       ++count;
-//     }
-//   }
-// }
-
-draw_light = function(light) {
-  //is move index is in range
-  if(move_index>=0 && move_index<light.moves.length) {
-    //update model position
-    model.x = model.moves[move_index].x;
-    model.y = model.moves[move_index].y;
-
-    //draw if model is not delaying
-    if(model.moves[move_index].move != "delay") {
-      //models are translucent
-      canvas_context.globalAlpha = 0.8;
-
-      //switch to model color
-      canvas_context.fillStyle = model.color;
-      //pose
-      if(model.moves[move_index].move == "pose") {
-        drawStar(model.x, model.y, 5, 1.5*radius, 3*radius/4);
-      }
-      //pivot
-      else if(model.moves[move_index].move.indexOf("pivot") !== -1) {
-        drawTriangle(model.x, model.y);
-      }
-      //kneel
-      else if(model.moves[move_index].move.indexOf("kneel") !== -1) {
-        canvas_context.fillRect(model.x-radius, model.y-radius,2*radius,2*radius);
-      }
-      //twirl
-      else if(model.moves[move_index].move.indexOf("twirl") !== -1) {
-        drawCircle(model.x, model.y, radius);
-        canvas_context.fillStyle = 'white';
-        canvas_context.globalAlpha = 1;
-        drawCircle(model.x, model.y, radius/2);
-      }
-      //regularly walking
-      else {
-        drawCircle(model.x, model.y, radius);
-      }
-
-      //model label
-      canvas_context.globalAlpha = 1;
-      canvas_context.fillStyle = "black";
-      canvas_context.fillText(model.name,model.x-model.name.length*4,model.y-radius-10);
-    }
   }
 }
 
@@ -346,7 +247,7 @@ drawT = function() {
 
   //key
   canvas_context.fillStyle = 'black';
-  canvas_context.fillText("Key:",20,50);
+  text_bold("Key:",20,50);
 
   //walk
   drawCircle(20, 100, radius);
@@ -369,15 +270,15 @@ drawT = function() {
 
   //model names in this walk
   canvas_context.fillStyle = 'black';
-  canvas_context.fillText("Models in this walk:",600,300);
+  text_bold("Models in this walk:",600,300);
   for(var i=0; i<model_names.length; ++i) {
     //draw columns with names
     var max_rows = 10;
     canvas_context.fillText(model_names[i],600 + 100*(Math.floor(i/max_rows)),320 + 20*i - 200*Math.floor(i/max_rows));
   }
-
 }
 drawT();
+
 
 draw_model = function(model) {
   //is move index is in range
@@ -430,7 +331,7 @@ for(var i=0; i<models.length; ++i) {
 }
 
 
-
+//draw shape functions were taken from stackoverflow
 function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
   var rot = Math.PI / 2 * 3;
   var x = cx;
