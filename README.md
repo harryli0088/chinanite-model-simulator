@@ -1,6 +1,14 @@
 # chinanite-model-simulator
-This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=Q3QqFn1ThFQ), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier. This simulator is intended to create walk guides, not a 100% accurate teaching tool.
-[Example video of the simulator](https://drive.google.com/file/d/1j_BwTIWdvUy5nd9A0IPfShJoqkx7Q6ml/view?usp=sharing)
+This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=hqvDFgA9IJc), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier.
+This simulator is intended to create walk guides, not a 100% accurate teaching tool.
+
+## How it works
+This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JSON file in the same directory (without using a server). When the file opens, it processes the JSON data to calculate at each beat:
+1) Where each model will be
+2) What section of the song it is
+3) If there are any comments
+
+Every time the user presses one of the arrow keys to move forward or back, the canvas is compeltely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
 
 ## How to use it
 To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid json file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
@@ -9,21 +17,10 @@ To use this simulator, open "walk_simulaor.html" in a browser. If it loads a val
 To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song while recording. Some music videos allow external embeds, but many do not. If the embedded video is blocked, you have to play the music in a separate tab.
 
 ### Why do I have to step through the song manually? Why can't I just hit a "play" button
-In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. I feel that it is harder to accurately do both. What if the song changes tempo or is slightly off tempo at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
-
-## How it works
-This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JSON file in the same directory (without using a server). When the file opens, it processes the JSON data to calculate at each beat:
-1) Where each model will be
-2) What section of the song it is
-3) If there are any comments
-The file also tries to embed a link to the song. YouTube songs are sometimes blocked from being embeded in an external page.
-
-Every time the user presses one of the arrow keys to move forward or back, the canvas is compeltely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
+In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. I feel that it is harder to accurately do both. What if the song changes tempo or is slightly off best at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
 
 ## JSON files
 The HTML file opens json files from the same directory which contain the necessary information for each walk.
-### video_src
-You can add a link to a video to play the song for the walk. YouTube songs are sometimes blocked.
 
 ### pre_sections
 Pre sections allow you to break up the song into parts, so that you know which part you are in. Ex Verse 1, Chorus 1, Bridge, etc.
@@ -53,7 +50,7 @@ A model's pre moves are converted into beat-by-beat positions on the canvas. The
 8) diag sw - (negative x, positive y)
 
 9) custom - for a set number of beats, set a manual change in x and y
-[number of beats, dx, dy] (keep in mind that right is positive x, and down is positive y)
+[number of beats, dx, dy, move type] (keep in mind that right is positive x, and down is positive y)
 
 10) delay - make the model wait before entering the walk
 11) pose - stop at the current position and pose
