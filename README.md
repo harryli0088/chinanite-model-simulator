@@ -2,6 +2,8 @@
 This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=hqvDFgA9IJc), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier.
 This simulator is intended to create walk guides, not a 100% accurate teaching tool.
 
+![Alt Text](example.gif)
+
 ## How it works
 This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JSON file in the same directory (without using a server). When the file opens, it processes the JSON data to calculate at each beat:
 1) Where each model will be
