@@ -16,10 +16,10 @@ Every time the user presses one of the arrow keys to move forward or back, the c
 To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid json file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
 
 ## How to record a walk
-To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song while recording. Some music videos allow external embeds, but many do not. If the embedded video is blocked, you have to play the music in a separate tab.
+To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song while recording.
 
 ### Why do I have to step through the song manually? Why can't I just hit a "play" button
-In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. I feel that it is harder to accurately do both. What if the song changes tempo or is slightly off best at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
+In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. It is difficult to do either. What if the song changes tempo or is slightly off beat at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
 
 ## JSON files
 The HTML file opens json files from the same directory which contain the necessary information for each walk.
