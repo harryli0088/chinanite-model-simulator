@@ -13,6 +13,7 @@ comments = []; // empty array to store comments
 canvas = document.getElementById('canvas'); //get the canvas
 canvas_context = canvas.getContext('2d');
 canvas_context.font = "15px Arial"; //font size and type
+
 function text_bold(text,x,y) {
   canvas_context.font = "bold 15px Arial";
   canvas_context.fillText(text,x,y);
@@ -35,124 +36,127 @@ function text_bold(text,x,y) {
 //add models to a list of all the models in this walk
 var model_names = []; //array to binary insert model names
 //for each model
-for(var i=0; i<models.length; ++i) {
-  //pre set starting positions
-  //left - middle left - middle - middle right - right
-  if(typeof models[i].start == "string") {
-    //if the starting position includes the word "middle"
-    if(models[i].start.indexOf("middle") !== -1) {
-      //if starting middle left
-      if(models[i].start.indexOf("left") !== -1) {
-        models[i].x = rect_width/2 - step;
-      }
-      //if starting middle right
-      else if(models[i].start.indexOf("right") !== -1) {
-        models[i].x = rect_width/2 + step;
-      }
-      //else just middle
-      else {
-        models[i].x = rect_width/2;
-      }
-    }
-    //if starting left
-    else if(models[i].start.indexOf("left") !== -1) {
-      models[i].x = rect_width/2 - 2*step;
-    }
-    //if starting right
-    else if(models[i].start.indexOf("right") !== -1) {
-      models[i].x = rect_width/2 + 2*step;
-    }
-    models[i].y = rect_height-20; //all set starting positions start at bottom of T
-  }
-  //custom starting position
-  else {
-    models[i].x = models[i].start[0];
-    models[i].y = models[i].start[1];
-  }
-
-  //for each of this model's pre moves
-  for(var j=0; j<models[i].preMoves.length; ++j) {
-    var count = 0;
-    //while we are below the count length
-    while(count < models[i].preMoves[j][0]) {
-      //if the move is a string
-      if(typeof models[i].preMoves[j][1] == "string") {
-        var move = models[i].preMoves[j][1];
-        if(move.indexOf("up") !== -1) {
-          models[i].moves.push({dx:0,dy:-1,move:move});
+function process_models() {
+  for(var i=0; i<models.length; ++i) {
+    //pre set starting positions
+    //left - middle left - middle - middle right - right
+    if(typeof models[i].start == "string") {
+      //if the starting position includes the word "middle"
+      if(models[i].start.indexOf("middle") !== -1) {
+        //if starting middle left
+        if(models[i].start.indexOf("left") !== -1) {
+          models[i].x = rect_width/2 - step;
         }
-        else if(move.indexOf("down") !== -1) {
-          models[i].moves.push({dx:0,dy:1,move:move});
+        //if starting middle right
+        else if(models[i].start.indexOf("right") !== -1) {
+          models[i].x = rect_width/2 + step;
         }
-        else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
-          models[i].moves.push({dx:0,dy:0,move:move});
-        }
-        else if(move.indexOf("right") !== -1) {
-          models[i].moves.push({dx:1,dy:0,move:move});
-        }
-        else if(move.indexOf("left") !== -1) {
-          models[i].moves.push({dx:-1,dy:0,move:move});
-        }
-        else if(move.indexOf("diag ne") !== -1) {
-          models[i].moves.push({dx:1,dy:-1,move:move});
-        }
-        else if(move.indexOf("diag se") !== -1) {
-          models[i].moves.push({dx:1,dy:1,move:move});
-        }
-        else if(move.indexOf("diag sw") !== -1) {
-          models[i].moves.push({dx:-1,dy:1,move:move});
-        }
-        else if(move.indexOf("diag nw") !== -1) {
-          models[i].moves.push({dx:-1,dy:-1,move:move});
-        }
-
-        //if the model is moving at half speed
-        if(move.indexOf("half speed") !== -1) {
-          recordModelNewPosition(i)
-
-          //push half speed delay
-          models[i].moves.push({dx:0,dy:0,move:"pause"});
-          ++count;
-        }
-      }
-      //otherwise the move is custom
-      else {
-        //manually calculate move
-        var duration = models[i].preMoves[j][0];
-        var dx = models[i].preMoves[j][1] / duration;
-        var dy = models[i].preMoves[j][2] / duration;
-
-        //check if there is a custom move description
-        var move = "walk";
-        if(models[i].preMoves[j][3]) {
-          move = models[i].preMoves[j][3];
-        }
-
-        //if the model is moving at half speed
-        if(move.indexOf("half speed") !== -1) {
-          //record double the half step to make a regular step
-          models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
-
-          recordModelNewPosition(i)
-
-          //push half speed delay
-          models[i].moves.push({dx:0,dy:0,move:"pause"});
-          ++count;
-        }
+        //else just middle
         else {
-          models[i].moves.push({dx:dx,dy:dy,move:move});
+          models[i].x = rect_width/2;
         }
       }
-
-      recordModelNewPosition(i)
-
-      //increase count
-      ++count;
+      //if starting left
+      else if(models[i].start.indexOf("left") !== -1) {
+        models[i].x = rect_width/2 - 2*step;
+      }
+      //if starting right
+      else if(models[i].start.indexOf("right") !== -1) {
+        models[i].x = rect_width/2 + 2*step;
+      }
+      models[i].y = rect_height-20; //all set starting positions start at bottom of T
     }
-  }
+    //custom starting position
+    else {
+      models[i].x = models[i].start[0];
+      models[i].y = models[i].start[1];
+    }
 
-  binary_insert(models[i].name,model_names); //binary inser this model into the list
+    //for each of this model's pre moves
+    for(var j=0; j<models[i].preMoves.length; ++j) {
+      var count = 0;
+      //while we are below the count length
+      while(count < models[i].preMoves[j][0]) {
+        //if the move is a string
+        if(typeof models[i].preMoves[j][1] == "string") {
+          var move = models[i].preMoves[j][1];
+          if(move.indexOf("up") !== -1) {
+            models[i].moves.push({dx:0,dy:-1,move:move});
+          }
+          else if(move.indexOf("down") !== -1) {
+            models[i].moves.push({dx:0,dy:1,move:move});
+          }
+          else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
+            models[i].moves.push({dx:0,dy:0,move:move});
+          }
+          else if(move.indexOf("right") !== -1) {
+            models[i].moves.push({dx:1,dy:0,move:move});
+          }
+          else if(move.indexOf("left") !== -1) {
+            models[i].moves.push({dx:-1,dy:0,move:move});
+          }
+          else if(move.indexOf("diag ne") !== -1) {
+            models[i].moves.push({dx:1,dy:-1,move:move});
+          }
+          else if(move.indexOf("diag se") !== -1) {
+            models[i].moves.push({dx:1,dy:1,move:move});
+          }
+          else if(move.indexOf("diag sw") !== -1) {
+            models[i].moves.push({dx:-1,dy:1,move:move});
+          }
+          else if(move.indexOf("diag nw") !== -1) {
+            models[i].moves.push({dx:-1,dy:-1,move:move});
+          }
+
+          //if the model is moving at half speed
+          if(move.indexOf("half speed") !== -1) {
+            recordModelNewPosition(i)
+
+            //push half speed delay
+            models[i].moves.push({dx:0,dy:0,move:"pause"});
+            ++count;
+          }
+        }
+        //otherwise the move is custom
+        else {
+          //manually calculate move
+          var duration = models[i].preMoves[j][0];
+          var dx = models[i].preMoves[j][1] / duration;
+          var dy = models[i].preMoves[j][2] / duration;
+
+          //check if there is a custom move description
+          var move = "walk";
+          if(models[i].preMoves[j][3]) {
+            move = models[i].preMoves[j][3];
+          }
+
+          //if the model is moving at half speed
+          if(move.indexOf("half speed") !== -1) {
+            //record double the half step to make a regular step
+            models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
+
+            recordModelNewPosition(i)
+
+            //push half speed delay
+            models[i].moves.push({dx:0,dy:0,move:"pause"});
+            ++count;
+          }
+          else {
+            models[i].moves.push({dx:dx,dy:dy,move:move});
+          }
+        }
+
+        recordModelNewPosition(i)
+
+        //increase count
+        ++count;
+      }
+    }
+
+    binary_insert(models[i].name,model_names); //binary inser this model into the list
+  }
 }
+
 
 //binary insert function taken from https://gist.github.com/eloone/11342252
 function binary_insert(value, array, startVal, endVal){
@@ -200,39 +204,44 @@ function recordModelNewPosition(i) {
 
 /***********************Process pre_sections************************/
 //convert pre_sections into beat by beat section titles
-for(var i=0; i<pre_sections.length; ++i) {
-  var section_cnt = 0;
-  for(var j=0; j<pre_sections[i][0]; ++j) {
-    //multiply by specified cts
-    for(var k=0; k<pre_sections[i][1]; ++k) {
-      sections.push({measure_size:pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:pre_sections[i][2]});
-      ++section_cnt;
+function process_pre_sections() {
+  for(var i=0; i<pre_sections.length; ++i) {
+    var section_cnt = 0;
+    for(var j=0; j<pre_sections[i][0]; ++j) {
+      //multiply by specified cts
+      for(var k=0; k<pre_sections[i][1]; ++k) {
+        sections.push({measure_size:pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:pre_sections[i][2]});
+        ++section_cnt;
+      }
     }
   }
 }
 
 
 
+
 /***********************Process pre_comments************************/
 //convert pre_comments into beat by beat comments
 var comments_delay = 0;
-for(var i=0; i<pre_comments.length; ++i) {
-  //push empty comment while advancing to next comment
-  while(comments_delay+1 < pre_comments[i][0]) {
-    comments.push("");
-    ++comments_delay;
-  }
-  //push comment
-  while(comments_delay < pre_comments[i][1]) {
-    comments.push(pre_comments[i][2]);
-    ++comments_delay;
+function process_pre_comments() {
+  for(var i=0; i<pre_comments.length; ++i) {
+    //push empty comment while advancing to next comment
+    while(comments_delay+1 < pre_comments[i][0]) {
+      comments.push("");
+      ++comments_delay;
+    }
+    //push comment
+    while(comments_delay < pre_comments[i][1]) {
+      comments.push(pre_comments[i][2]);
+      ++comments_delay;
+    }
   }
 }
 
 
 
 /***********************Draw functions************************/
-drawT = function() {
+function drawT() {
   //clear entire canvas
   canvas_context.fillStyle = 'white';
   canvas_context.fillRect(0,0,canvas.width,canvas.height);
@@ -277,10 +286,9 @@ drawT = function() {
     canvas_context.fillText(model_names[i],600 + 100*(Math.floor(i/max_rows)),320 + 20*i - 200*Math.floor(i/max_rows));
   }
 }
-drawT();
 
 
-draw_model = function(model) {
+function draw_model(model) {
   //is move index is in range
   if(move_index>=0 && move_index<model.moves.length) {
     //update model position
@@ -326,9 +334,12 @@ draw_model = function(model) {
   }
 }
 //initial drawing of models
-for(var i=0; i<models.length; ++i) {
-  draw_model(models[i]);
+function initial_draw_models() {
+  for(var i=0; i<models.length; ++i) {
+    draw_model(models[i]);
+  }
 }
+
 
 
 //draw shape functions were taken from stackoverflow
@@ -402,13 +413,13 @@ function draw_everything() {
 
 
 /*****************Next or previous frame*****************/
-prev = function() {
+function prev() {
   --move_index; //decrease move count
 
   draw_everything();
 }
 
-next = function() {
+function next() {
   ++move_index; //increase move count
 
   draw_everything();
@@ -416,7 +427,7 @@ next = function() {
 
 
 //next if right arrow, previous if left arrow
-key = function(e){
+function key(e){
   if(e.keyCode == 39) {
     next();
   }
@@ -425,3 +436,12 @@ key = function(e){
   }
 }
 window.addEventListener('keydown',key);
+
+function initialize() {
+  process_models();
+  process_pre_sections();
+  process_pre_comments();
+  drawT();
+  initial_draw_models();
+}
+initialize();
