@@ -1,17 +1,17 @@
 //T squares are 60px
 /************************Data************************/
-rect_width = 560; //width the T occupies
-rect_height = 560; //height the T occupies
-radius = 10; //pixel size of model radius
-step = 40; //pixel size of model step
-move_index = -1; //which move to load first
-sections = []; //empty array to store song sections
-comments = []; // empty array to store comments
+var rect_width = 560; //width the T occupies
+var rect_height = 560; //height the T occupies
+var radius = 10; //pixel size of model radius
+var step = 40; //pixel size of model step
+var move_index = -1; //which move to load first
+var sections = []; //empty array to store song sections
+var comments = []; // empty array to store comments
 
 
 /*******************Initialization*******************/
-canvas = document.getElementById('canvas'); //get the canvas
-canvas_context = canvas.getContext('2d');
+var canvas = document.getElementById('canvas'); //get the canvas
+var canvas_context = canvas.getContext('2d');
 canvas_context.font = "15px Arial"; //font size and type
 
 function text_bold(text,x,y) {
