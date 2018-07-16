@@ -35,8 +35,8 @@ function text_bold(text,x,y) {
 //convert their moves into beat by beat positions and actions
 //add models to a list of all the models in this walk
 var model_names = []; //array to binary insert model names
-//for each model
 function process_models() {
+  //for each model
   for(var i=0; i<models.length; ++i) {
     //pre set starting positions
     //left - middle left - middle - middle right - right
