@@ -437,7 +437,22 @@ function key(e){
 }
 window.addEventListener('keydown',key);
 
-function initialize() {
+//reinitializes the simulation at the given move index if provided
+function initialize(first_move) {
+  rect_width = 560; //width the T occupies
+  rect_height = 560; //height the T occupies
+  radius = 10; //pixel size of model radius
+  step = 40; //pixel size of model step
+  move_index = typeof first_move=="number" ? first_move-1 : -1; //which move to load if provided, else -1
+  sections = []; //empty array to store song sections
+  comments = []; // empty array to store comments
+
+
+  /*******************Initialization*******************/
+  canvas = document.getElementById('canvas'); //get the canvas
+  canvas_context = canvas.getContext('2d');
+  canvas_context.font = "15px Arial"; //font size and type
+
   process_models();
   process_pre_sections();
   process_pre_comments();
