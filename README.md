@@ -2,6 +2,8 @@
 This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=hqvDFgA9IJc), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier.
 This simulator is intended to create walk guides, not a 100% accurate teaching tool.
 
+Checkout this [demo](https://harryxli.com/walk_simulator_demo.html)!
+
 ![Alt Text](example.gif)
 
 ## How it works
@@ -10,7 +12,7 @@ This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The
 2) What section of the song it is
 3) If there are any comments
 
-Every time the user presses one of the arrow keys to move forward or back, the canvas is compeltely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
+Every time the user presses one of the arrow keys to move forward or back, the canvas is compeletely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
 
 ## How to use it
 To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid json file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.

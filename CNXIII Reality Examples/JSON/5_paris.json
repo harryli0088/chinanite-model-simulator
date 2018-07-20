@@ -17,7 +17,7 @@ pre_comments = [
 models = [
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [4,1.5,0],
       [12,"up"],
       [4,"pose"],
@@ -32,7 +32,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [4,-1.5,0],
       [12,"up"],
       [4,"pose"],
@@ -49,7 +49,7 @@ models = [
 
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [8,"delay"],
       [8,7,-4],
       [4,"pose"],
@@ -71,7 +71,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [8,"delay"],
       [8,-7,-4],
       [4,"pose"],
@@ -93,7 +93,7 @@ models = [
 
   {
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [24,"delay"],
       [8,"up half speed"],
       [4,"pose"],
@@ -115,7 +115,7 @@ models = [
   },
   {
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [24,"delay"],
       [8,"up half speed"],
       [4,"pose"],
@@ -137,7 +137,7 @@ models = [
 
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [48,"delay"],
       [4,1.5,0],
       [1,"up"],
@@ -157,7 +157,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [48,"delay"],
       [4,-1.5,0],
       [1,"up"],
@@ -181,7 +181,7 @@ models = [
 
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [48,"delay"],
       [8,"delay"],
       [8,7,-4],
@@ -200,7 +200,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [48,"delay"],
       [8,"delay"],
       [8,-7,-4],
@@ -225,7 +225,7 @@ models = [
 
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [12,"up"],
       [4,"pose"],
@@ -241,7 +241,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [8,"delay"],
       [12,"up"],
@@ -257,7 +257,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [16,"delay"],
       [12,"up"],
@@ -273,7 +273,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [24,"delay"],
       [12,"up"],
@@ -292,7 +292,7 @@ models = [
 
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"delay"],
       [12,"up"],
@@ -308,7 +308,7 @@ models = [
   },
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"delay"],
       [8,"delay"],
@@ -325,7 +325,7 @@ models = [
   },
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"delay"],
       [16,"delay"],
@@ -342,7 +342,7 @@ models = [
   },
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"delay"],
       [24,"delay"],
@@ -364,7 +364,7 @@ models = [
 
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"diag ne"],
       [44,"delay"],
@@ -384,7 +384,7 @@ models = [
   },
   {
     start: "right",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [16,"delay"],
       [4,"diag ne"],
@@ -405,7 +405,7 @@ models = [
   },
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [80,"delay"],
       [4,"delay"],
       [8,"delay"],
@@ -433,7 +433,7 @@ models = [
   {
     name:"Brandon",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [128,"delay"],
       [4,"up"],
       [4,"pose"],
@@ -452,7 +452,7 @@ models = [
   {
     name:"Shawn",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [128,"delay"],
       [16,"delay"],
       [4,"up"],
@@ -472,7 +472,7 @@ models = [
   {
     name:"Nick L",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [128,"delay"],
       [32,"delay"],
       [4,"up"],
@@ -494,7 +494,7 @@ models = [
   {
     name:"Derrick",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [128,"delay"],
       [16,"delay"],
       [32,"delay"],
@@ -515,7 +515,7 @@ models = [
   },
   {
     start: "left",
-    preMoves: [
+    pre_moves: [
       [128,"delay"],
       [16,"delay"],
       [32,"delay"],

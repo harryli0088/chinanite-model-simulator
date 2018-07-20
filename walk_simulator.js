@@ -4,7 +4,7 @@ var rect_width = 560; //width the T occupies
 var rect_height = 560; //height the T occupies
 var radius = 10; //pixel size of model radius
 var step = 40; //pixel size of model step
-var move_index = -1; //which move to load first
+var move_index = 0; //which move to load first
 var sections = []; //empty array to store song sections
 var comments = []; // empty array to store comments
 
@@ -73,13 +73,13 @@ function process_models() {
     }
 
     //for each of this model's pre moves
-    for(var j=0; j<models[i].preMoves.length; ++j) {
+    for(var j=0; j<models[i].pre_moves.length; ++j) {
       var count = 0;
       //while we are below the count length
-      while(count < models[i].preMoves[j][0]) {
+      while(count < models[i].pre_moves[j][0]) {
         //if the move is a string
-        if(typeof models[i].preMoves[j][1] == "string") {
-          var move = models[i].preMoves[j][1];
+        if(typeof models[i].pre_moves[j][1] == "string") {
+          var move = models[i].pre_moves[j][1];
           if(move.indexOf("up") !== -1) {
             models[i].moves.push({dx:0,dy:-1,move:move});
           }
@@ -120,14 +120,14 @@ function process_models() {
         //otherwise the move is custom
         else {
           //manually calculate move
-          var duration = models[i].preMoves[j][0];
-          var dx = models[i].preMoves[j][1] / duration;
-          var dy = models[i].preMoves[j][2] / duration;
+          var duration = models[i].pre_moves[j][0];
+          var dx = models[i].pre_moves[j][1] / duration;
+          var dy = models[i].pre_moves[j][2] / duration;
 
           //check if there is a custom move description
           var move = "walk";
-          if(models[i].preMoves[j][3]) {
-            move = models[i].preMoves[j][3];
+          if(models[i].pre_moves[j][3]) {
+            move = models[i].pre_moves[j][3];
           }
 
           //if the model is moving at half speed
@@ -241,7 +241,7 @@ function process_pre_comments() {
 
 
 /***********************Draw functions************************/
-function drawT() {
+function draw_t() {
   //clear entire canvas
   canvas_context.fillStyle = 'white';
   canvas_context.fillRect(0,0,canvas.width,canvas.height);
@@ -253,28 +253,30 @@ function drawT() {
   canvas_context.fillStyle = 'white';
   canvas_context.fillRect(180,20,200,340);
   canvas_context.fillRect(20,rect_height-200,rect_width-40,180);
+}
 
+function draw_key() {
   //key
   canvas_context.fillStyle = 'black';
   text_bold("Key:",20,50);
 
   //walk
-  drawCircle(20, 100, radius);
+  draw_circle(20, 100, radius);
   canvas_context.fillText("Walk",50,110);
   //pose
-  drawStar(20, 150, 5, 1.5*radius, 3*radius/4);
+  draw_star(20, 150, 5, 1.5*radius, 3*radius/4);
   canvas_context.fillText("Pose",50,160);
   //pivot
-  drawTriangle(20, 200);
+  draw_triangle(20, 200);
   canvas_context.fillText("Pivot",50,210);
   //kneel
   canvas_context.fillRect(20-radius, 250-radius,2*radius,2*radius);
   canvas_context.fillText("Kneel",50,260);
   //twirl
-  drawCircle(20, 300, radius);
+  draw_circle(20, 300, radius);
   canvas_context.fillText("Twirl",50,310);
   canvas_context.fillStyle = 'white';
-  drawCircle(20, 300, radius/2);
+  draw_circle(20, 300, radius/2);
 
 
   //model names in this walk
@@ -282,8 +284,8 @@ function drawT() {
   text_bold("Models in this walk:",600,300);
   for(var i=0; i<model_names.length; ++i) {
     //draw columns with names
-    var max_rows = 10;
-    canvas_context.fillText(model_names[i],600 + 100*(Math.floor(i/max_rows)),320 + 20*i - 200*Math.floor(i/max_rows));
+    var max_rows = 13;
+    canvas_context.fillText(model_names[i],600 + 100*(Math.floor(i/max_rows)),320 + 20*i - max_rows*20*Math.floor(i/max_rows));
   }
 }
 
@@ -304,11 +306,11 @@ function draw_model(model) {
       canvas_context.fillStyle = model.color;
       //pose
       if(model.moves[move_index].move == "pose") {
-        drawStar(model.x, model.y, 5, 1.5*radius, 3*radius/4);
+        draw_star(model.x, model.y, 5, 1.5*radius, 3*radius/4);
       }
       //pivot
       else if(model.moves[move_index].move.indexOf("pivot") !== -1) {
-        drawTriangle(model.x, model.y);
+        draw_triangle(model.x, model.y);
       }
       //kneel
       else if(model.moves[move_index].move.indexOf("kneel") !== -1) {
@@ -316,14 +318,14 @@ function draw_model(model) {
       }
       //twirl
       else if(model.moves[move_index].move.indexOf("twirl") !== -1) {
-        drawCircle(model.x, model.y, radius);
+        draw_circle(model.x, model.y, radius);
         canvas_context.fillStyle = 'white';
         canvas_context.globalAlpha = 1;
-        drawCircle(model.x, model.y, radius/2);
+        draw_circle(model.x, model.y, radius/2);
       }
       //regularly walking
       else {
-        drawCircle(model.x, model.y, radius);
+        draw_circle(model.x, model.y, radius);
       }
 
       //model label
@@ -343,7 +345,7 @@ function initial_draw_models() {
 
 
 //draw shape functions were taken from stackoverflow
-function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+function draw_star(cx, cy, spikes, outerRadius, innerRadius) {
   var rot = Math.PI / 2 * 3;
   var x = cx;
   var y = cy;
@@ -369,7 +371,7 @@ function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
 
 }
 
-function drawTriangle(x,y) {
+function draw_triangle(x,y) {
   canvas_context.beginPath();
   canvas_context.moveTo(x,y-radius);
   canvas_context.lineTo(x+radius, y+radius);
@@ -389,7 +391,7 @@ function draw_count() {
   }
 }
 
-function drawCircle(x,y,r) {
+function draw_circle(x,y,r) {
   canvas_context.beginPath();
   canvas_context.arc(x, y, r, 0, 2 * Math.PI, 0);
   canvas_context.fill();
@@ -397,43 +399,34 @@ function drawCircle(x,y,r) {
 
 
 function draw_everything() {
-  //reset T
-  drawT();
+  draw_t();
+  draw_key();
 
   //draw each model
   for(var i=0; i<models.length; ++i) {
     draw_model(models[i]);
   }
 
-  //draw count
   draw_count();
-
-  console.log(move_index);
 }
 
 
 /*****************Next or previous frame*****************/
 function prev() {
   --move_index; //decrease move count
-
   draw_everything();
 }
 
 function next() {
   ++move_index; //increase move count
-
   draw_everything();
 }
 
 
 //next if right arrow, previous if left arrow
 function key(e){
-  if(e.keyCode == 39) {
-    next();
-  }
-  else if(e.keyCode == 37) {
-    prev();
-  }
+  if(e.keyCode == 39) {next();}
+  else if(e.keyCode == 37) {prev();}
 }
 window.addEventListener('keydown',key);
 
@@ -456,7 +449,8 @@ function initialize(first_move) {
   process_models();
   process_pre_sections();
   process_pre_comments();
-  drawT();
+  draw_t();
+  draw_key();
   initial_draw_models();
 }
 initialize();

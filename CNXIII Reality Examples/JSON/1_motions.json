@@ -26,7 +26,7 @@ models = [
   {
     name:"Derrick",
     start: "middle",
-    preMoves: [
+    pre_moves: [
       [4,"delay"],
       [12,"up"],
       [64,"pose"],
@@ -46,7 +46,7 @@ models = [
   {
     name:"Melody W",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [4,"delay"],
       [4,"left"],
       [16,"pose"],
@@ -75,7 +75,7 @@ models = [
   {
     name:"Shyam",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [4,"delay"],
       [4,"right"],
       [16,"pose"],
@@ -105,7 +105,7 @@ models = [
   {
     name:"Chris Y",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [5,"delay"],
       [3,"left"],
       [16,"pose"],
@@ -133,7 +133,7 @@ models = [
   {
     name:"Michele T",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [5,"delay"],
       [3,"right"],
       [16,"pose"],
@@ -165,7 +165,7 @@ models = [
   {
     name:"Alvin",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [6,"delay"],
       [2,"left"],
       [16,"pose"],
@@ -193,7 +193,7 @@ models = [
   {
     name:"Jeff",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [6,"delay"],
       [2,"right"],
       [16,"pose"],
@@ -227,7 +227,7 @@ models = [
   {
     name:"Dom",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [7,"delay"],
       [1,"left"],
       [8,"pose"],
@@ -258,7 +258,7 @@ models = [
   {
     name:"Cynthia",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [7,"delay"],
       [1,"right"],
       [8,"pose"],
@@ -293,7 +293,7 @@ models = [
   {
     name:"Josh",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [8,"right"],
       [4,"up"],
@@ -315,7 +315,7 @@ models = [
   {
     name:"Melody T",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [4,"delay"],
       [8,"right"],
@@ -335,7 +335,7 @@ models = [
   {
     name:"Brandon",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [8,"delay"],
       [8,"right"],
@@ -358,7 +358,7 @@ models = [
   {
     name:"Christina",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [12,"delay"],
       [8,"right"],
@@ -375,7 +375,7 @@ models = [
   {
     name:"Jeremy G",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [16,"delay"],
       [8,"right"],
@@ -392,7 +392,7 @@ models = [
   {
     name:"Maggie",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [20,"delay"],
       [8,"right"],
@@ -414,7 +414,7 @@ models = [
   {
     name:"Eric",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [24,"delay"],
       [8,"right"],
@@ -431,7 +431,7 @@ models = [
   {
     name:"Julianne",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [112,"delay"],
       [28,"delay"],
       [4,"right"],
@@ -461,7 +461,7 @@ models = [
   {
     name:"Iris",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [8,"up"],
       [4,"diag ne"],
@@ -498,7 +498,7 @@ models = [
   {
     name:"Jen",
     start: "right",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [8,"up"],
       [4,"diag nw"],
@@ -536,7 +536,7 @@ models = [
   {
     name:"Peter",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [16,"delay"],
       [8,"up"],
@@ -573,7 +573,7 @@ models = [
   {
     name:"Shawn",
     start: "right",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [16,"delay"],
       [8,"up"],
@@ -611,7 +611,7 @@ models = [
   {
     name:"Allysa",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [32,"delay"],
       [8,"up"],
@@ -648,7 +648,7 @@ models = [
   {
     name:"Isabelle",
     start: "right",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [32,"delay"],
       [8,"up"],
@@ -686,7 +686,7 @@ models = [
   {
     name:"Nick L",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [48,"delay"],
       [8,"up"],
@@ -717,7 +717,7 @@ models = [
   {
     name:"John",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [192,"delay"],
       [48,"delay"],
       [8,"up"],
@@ -752,7 +752,7 @@ models = [
   {
     name:"Sam",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [10,"up"],
       [2,"pose"],
@@ -780,7 +780,7 @@ models = [
   {
     name:"Kevin",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [10,"up"],
       [2,"pose"],
@@ -809,7 +809,7 @@ models = [
   {
     name:"Sabrina",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [8,"delay"],
       [6,"up"],
@@ -838,7 +838,7 @@ models = [
   {
     name:"Eurie",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [8,"delay"],
       [6,"up"],
@@ -868,7 +868,7 @@ models = [
   {
     name:"Elaine",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [16,"delay"],
       [4,-5,0],
@@ -899,7 +899,7 @@ models = [
   {
     name:"Chris M",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [16,"delay"],
       [4,5,0],
@@ -931,7 +931,7 @@ models = [
   {
     name:"June (J)",
     start: "middle left",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [24,"delay"],
       [8,"pose"],
@@ -957,7 +957,7 @@ models = [
   {
     name:"Michelle F",
     start: "middle right",
-    preMoves: [
+    pre_moves: [
       [256,"delay"],
       [24,"delay"],
       [8,"pose"],
@@ -989,7 +989,7 @@ models = [
   {
     name:"Derrick",
     start: "right",
-    preMoves: [
+    pre_moves: [
       [384,"delay"],
       [4,"right"],
       [4,"up"],
@@ -1003,7 +1003,7 @@ models = [
   {
     name:"Tim",
     start: "left",
-    preMoves: [
+    pre_moves: [
       [384,"delay"],
       [4,"left"],
       [4,"up"],
