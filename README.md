@@ -78,3 +78,4 @@ You can change the function "drawT" to draw whatever configuration you like.
 
 ## Further application
 This lightweight simulator could be used in other applications such as for marching band formations. Feel free to take and adapt this code as you see fit!
+MIT License
