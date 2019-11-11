@@ -41,75 +41,75 @@ function ModelSimulator(options) {
   let model_names = []; //array to binary insert model names
   function process_models() {
     //for each model
-    for(let i=0; i<this.models.length; ++i) {
+    for(let i=0; i<self.models.length; ++i) {
       //pre set starting positions
       //left - middle left - middle - middle right - right
-      if(typeof this.models[i].start == "string") {
+      if(typeof self.models[i].start == "string") {
         //if the starting position includes the word "middle"
-        if(this.models[i].start.indexOf("middle") !== -1) {
+        if(self.models[i].start.indexOf("middle") !== -1) {
           //if starting middle left
-          if(this.models[i].start.indexOf("left") !== -1) {
-            this.models[i].x = rect_width/2 - step;
+          if(self.models[i].start.indexOf("left") !== -1) {
+            self.models[i].x = rect_width/2 - step;
           }
           //if starting middle right
-          else if(this.models[i].start.indexOf("right") !== -1) {
-            this.models[i].x = rect_width/2 + step;
+          else if(self.models[i].start.indexOf("right") !== -1) {
+            self.models[i].x = rect_width/2 + step;
           }
           //else just middle
           else {
-            this.models[i].x = rect_width/2;
+            self.models[i].x = rect_width/2;
           }
         }
         //if starting left
-        else if(this.models[i].start.indexOf("left") !== -1) {
-          this.models[i].x = rect_width/2 - 2*step;
+        else if(self.models[i].start.indexOf("left") !== -1) {
+          self.models[i].x = rect_width/2 - 2*step;
         }
         //if starting right
-        else if(this.models[i].start.indexOf("right") !== -1) {
-          this.models[i].x = rect_width/2 + 2*step;
+        else if(self.models[i].start.indexOf("right") !== -1) {
+          self.models[i].x = rect_width/2 + 2*step;
         }
-        this.models[i].y = rect_height-20; //all set starting positions start at bottom of T
+        self.models[i].y = rect_height-20; //all set starting positions start at bottom of T
       }
       //custom starting position
       else {
-        this.models[i].x = this.models[i].start[0];
-        this.models[i].y = this.models[i].start[1];
+        self.models[i].x = self.models[i].start[0];
+        self.models[i].y = self.models[i].start[1];
       }
 
       //for each of self model's pre moves
-      for(let j=0; j<this.models[i].pre_moves.length; ++j) {
+      for(let j=0; j<self.models[i].pre_moves.length; ++j) {
         let count = 0;
         //while we are below the count length
-        while(count < this.models[i].pre_moves[j][0]) {
+        while(count < self.models[i].pre_moves[j][0]) {
           //if the move is a string
-          if(typeof this.models[i].pre_moves[j][1] == "string") {
-            let move = this.models[i].pre_moves[j][1];
+          if(typeof self.models[i].pre_moves[j][1] == "string") {
+            let move = self.models[i].pre_moves[j][1];
             if(move.indexOf("up") !== -1) {
-              this.models[i].moves.push({dx:0,dy:-1,move:move});
+              self.models[i].moves.push({dx:0,dy:-1,move:move});
             }
             else if(move.indexOf("down") !== -1) {
-              this.models[i].moves.push({dx:0,dy:1,move:move});
+              self.models[i].moves.push({dx:0,dy:1,move:move});
             }
             else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
-              this.models[i].moves.push({dx:0,dy:0,move:move});
+              self.models[i].moves.push({dx:0,dy:0,move:move});
             }
             else if(move.indexOf("right") !== -1) {
-              this.models[i].moves.push({dx:1,dy:0,move:move});
+              self.models[i].moves.push({dx:1,dy:0,move:move});
             }
             else if(move.indexOf("left") !== -1) {
-              this.models[i].moves.push({dx:-1,dy:0,move:move});
+              self.models[i].moves.push({dx:-1,dy:0,move:move});
             }
             else if(move.indexOf("diag ne") !== -1) {
-              this.models[i].moves.push({dx:1,dy:-1,move:move});
+              self.models[i].moves.push({dx:1,dy:-1,move:move});
             }
             else if(move.indexOf("diag se") !== -1) {
-              this.models[i].moves.push({dx:1,dy:1,move:move});
+              self.models[i].moves.push({dx:1,dy:1,move:move});
             }
             else if(move.indexOf("diag sw") !== -1) {
-              this.models[i].moves.push({dx:-1,dy:1,move:move});
+              self.models[i].moves.push({dx:-1,dy:1,move:move});
             }
             else if(move.indexOf("diag nw") !== -1) {
-              this.models[i].moves.push({dx:-1,dy:-1,move:move});
+              self.models[i].moves.push({dx:-1,dy:-1,move:move});
             }
 
             //if the model is moving at half speed
@@ -117,36 +117,36 @@ function ModelSimulator(options) {
               recordModelNewPosition(i)
 
               //push half speed delay
-              this.models[i].moves.push({dx:0,dy:0,move:"pause"});
+              self.models[i].moves.push({dx:0,dy:0,move:"pause"});
               ++count;
             }
           }
           //otherwise the move is custom
           else {
             //manually calculate move
-            let duration = this.models[i].pre_moves[j][0];
-            let dx = this.models[i].pre_moves[j][1] / duration;
-            let dy = this.models[i].pre_moves[j][2] / duration;
+            let duration = self.models[i].pre_moves[j][0];
+            let dx = self.models[i].pre_moves[j][1] / duration;
+            let dy = self.models[i].pre_moves[j][2] / duration;
 
             //check if there is a custom move description
             let move = "walk";
-            if(this.models[i].pre_moves[j][3]) {
-              move = this.models[i].pre_moves[j][3];
+            if(self.models[i].pre_moves[j][3]) {
+              move = self.models[i].pre_moves[j][3];
             }
 
             //if the model is moving at half speed
             if(move.indexOf("half speed") !== -1) {
               //record double the half step to make a regular step
-              this.models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
+              self.models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
 
               recordModelNewPosition(i)
 
               //push half speed delay
-              this.models[i].moves.push({dx:0,dy:0,move:"pause"});
+              self.models[i].moves.push({dx:0,dy:0,move:"pause"});
               ++count;
             }
             else {
-              this.models[i].moves.push({dx:dx,dy:dy,move:move});
+              self.models[i].moves.push({dx:dx,dy:dy,move:move});
             }
           }
 
@@ -157,7 +157,7 @@ function ModelSimulator(options) {
         }
       }
 
-      binary_insert(this.models[i].name,model_names); //binary inser self model into the list
+      binary_insert(self.models[i].name,model_names); //binary inser self model into the list
     }
   }
 
@@ -197,11 +197,11 @@ function ModelSimulator(options) {
   //function used to get and record the new model position
   function recordModelNewPosition(i) {
     //get new model position
-    this.models[i].x += step * this.models[i].moves[this.models[i].moves.length-1].dx;
-    this.models[i].y += step * this.models[i].moves[this.models[i].moves.length-1].dy;
+    self.models[i].x += step * self.models[i].moves[self.models[i].moves.length-1].dx;
+    self.models[i].y += step * self.models[i].moves[self.models[i].moves.length-1].dy;
     //record new model position
-    this.models[i].moves[this.models[i].moves.length-1].x = this.models[i].x;
-    this.models[i].moves[this.models[i].moves.length-1].y = this.models[i].y;
+    self.models[i].moves[self.models[i].moves.length-1].x = self.models[i].x;
+    self.models[i].moves[self.models[i].moves.length-1].y = self.models[i].y;
   }
 
 
@@ -303,7 +303,7 @@ function ModelSimulator(options) {
 
       //draw if model is not delaying
       if(model.moves[move_index].move != "delay") {
-        //this.models are translucent
+        //self.models are translucent
         self.ctx.globalAlpha = 0.8;
 
         //switch to model color
@@ -341,8 +341,8 @@ function ModelSimulator(options) {
   }
   //initial drawing of models
   function initial_draw_models() {
-    for(let i=0; i<this.models.length; ++i) {
-      draw_model(this.models[i]);
+    for(let i=0; i<self.models.length; ++i) {
+      draw_model(self.models[i]);
     }
   }
 
@@ -407,8 +407,8 @@ function ModelSimulator(options) {
     draw_key();
 
     //draw each model
-    for(let i=0; i<this.models.length; ++i) {
-      draw_model(this.models[i]);
+    for(let i=0; i<self.models.length; ++i) {
+      draw_model(self.models[i]);
     }
 
     draw_count();
