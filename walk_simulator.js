@@ -19,7 +19,7 @@ function ModelSimulator(options) {
   self.ctx = self.canvas.getContext('2d');
   self.ctx.font = "15px Arial"; //font size and type
 
-  function text_bold(text,x,y) {
+  self.text_bold = function(text,x,y) {
     self.ctx.font = "bold 15px Arial";
     self.ctx.fillText(text,x,y);
     self.ctx.font = "15px Arial";
@@ -39,7 +39,7 @@ function ModelSimulator(options) {
   //convert their moves into beat by beat positions and actions
   //add models to a list of all the models in self walk
   let model_names = []; //array to binary insert model names
-  function process_models() {
+  self.process_models = function() {
     //for each model
     for(let i=0; i<self.models.length; ++i) {
       //pre set starting positions
@@ -114,7 +114,7 @@ function ModelSimulator(options) {
 
             //if the model is moving at half speed
             if(move.indexOf("half speed") !== -1) {
-              recordModelNewPosition(i)
+              self.record_model_new_position(i)
 
               //push half speed delay
               self.models[i].moves.push({dx:0,dy:0,move:"pause"});
@@ -139,7 +139,7 @@ function ModelSimulator(options) {
               //record double the half step to make a regular step
               self.models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
 
-              recordModelNewPosition(i)
+              self.record_model_new_position(i)
 
               //push half speed delay
               self.models[i].moves.push({dx:0,dy:0,move:"pause"});
@@ -150,20 +150,20 @@ function ModelSimulator(options) {
             }
           }
 
-          recordModelNewPosition(i)
+          self.record_model_new_position(i)
 
           //increase count
           ++count;
         }
       }
 
-      binary_insert(self.models[i].name,model_names); //binary inser self model into the list
+      self.binary_insert(self.models[i].name,model_names); //binary inser self model into the list
     }
   }
 
 
   //binary insert function taken from https://gist.github.com/eloone/11342252
-  function binary_insert(value, array, startVal, endVal){
+  self.binary_insert = function(value, array, startVal, endVal){
   	let length = array.length;
   	let start = typeof(startVal) != 'undefined' ? startVal : 0;
   	let end = typeof(endVal) != 'undefined' ? endVal : length - 1;//!! endVal could be 0 don't use || syntax
@@ -184,18 +184,18 @@ function ModelSimulator(options) {
   		return;
   	}
   	if(value < array[m]){
-  		binary_insert(value, array, start, m - 1);
+  		self.binary_insert(value, array, start, m - 1);
   		return;
   	}
   	if(value > array[m]){
-  		binary_insert(value, array, m + 1, end);
+  		self.binary_insert(value, array, m + 1, end);
   		return;
   	}
   	//we don't insert duplicates
   }
 
   //function used to get and record the new model position
-  function recordModelNewPosition(i) {
+  self.record_model_new_position = function(i) {
     //get new model position
     self.models[i].x += step * self.models[i].moves[self.models[i].moves.length-1].dx;
     self.models[i].y += step * self.models[i].moves[self.models[i].moves.length-1].dy;
@@ -208,7 +208,7 @@ function ModelSimulator(options) {
 
   /***********************Process pre_sections************************/
   //convert pre_sections into beat by beat section titles
-  function process_pre_sections() {
+  self.process_pre_sections = function() {
     for(let i=0; i<self.pre_sections.length; ++i) {
       let section_cnt = 0;
       for(let j=0; j<self.pre_sections[i][0]; ++j) {
@@ -227,7 +227,7 @@ function ModelSimulator(options) {
   /***********************Process pre_comments************************/
   //convert pre_comments into beat by beat comments
   let comments_delay = 0;
-  function process_pre_comments() {
+  self.process_pre_comments = function() {
     for(let i=0; i<self.pre_comments.length; ++i) {
       //push empty comment while advancing to next comment
       while(comments_delay+1 < self.pre_comments[i][0]) {
@@ -245,7 +245,7 @@ function ModelSimulator(options) {
 
 
   /***********************Draw functions************************/
-  function draw_t() {
+  self.draw_t = function() {
     //clear entire self.canvas
     self.ctx.fillStyle = 'white';
     self.ctx.fillRect(0,0,self.canvas.width,self.canvas.height);
@@ -259,33 +259,33 @@ function ModelSimulator(options) {
     self.ctx.fillRect(20,rect_height-200,rect_width-40,180);
   }
 
-  function draw_key() {
+   self.draw_key = function() {
     //key
     self.ctx.fillStyle = 'black';
-    text_bold("Key:",20,50);
+    self.text_bold("Key:",20,50);
 
     //walk
-    draw_circle(20, 100, radius);
+    self.draw_circle(20, 100, radius);
     self.ctx.fillText("Walk",50,110);
     //pose
-    draw_star(20, 150, 5, 1.5*radius, 3*radius/4);
+    self.draw_star(20, 150, 5, 1.5*radius, 3*radius/4);
     self.ctx.fillText("Pose",50,160);
     //pivot
-    draw_triangle(20, 200);
+    self.draw_triangle(20, 200);
     self.ctx.fillText("Pivot",50,210);
     //kneel
     self.ctx.fillRect(20-radius, 250-radius,2*radius,2*radius);
     self.ctx.fillText("Kneel",50,260);
     //twirl
-    draw_circle(20, 300, radius);
+    self.draw_circle(20, 300, radius);
     self.ctx.fillText("Twirl",50,310);
     self.ctx.fillStyle = 'white';
-    draw_circle(20, 300, radius/2);
+    self.draw_circle(20, 300, radius/2);
 
 
     //model names in self walk
     self.ctx.fillStyle = 'black';
-    text_bold("Models in this walk:",600,300);
+    self.text_bold("Models in this walk:",600,300);
     for(let i=0; i<model_names.length; ++i) {
       //draw columns with names
       let max_rows = 13;
@@ -294,7 +294,7 @@ function ModelSimulator(options) {
   }
 
 
-  function draw_model(model) {
+  self.draw_model = function(model) {
     //is move index is in range
     if(move_index>=0 && move_index<model.moves.length) {
       //update model position
@@ -310,11 +310,11 @@ function ModelSimulator(options) {
         self.ctx.fillStyle = model.color;
         //pose
         if(model.moves[move_index].move == "pose") {
-          draw_star(model.x, model.y, 5, 1.5*radius, 3*radius/4);
+          self.draw_star(model.x, model.y, 5, 1.5*radius, 3*radius/4);
         }
         //pivot
         else if(model.moves[move_index].move.indexOf("pivot") !== -1) {
-          draw_triangle(model.x, model.y);
+          self.draw_triangle(model.x, model.y);
         }
         //kneel
         else if(model.moves[move_index].move.indexOf("kneel") !== -1) {
@@ -322,14 +322,14 @@ function ModelSimulator(options) {
         }
         //twirl
         else if(model.moves[move_index].move.indexOf("twirl") !== -1) {
-          draw_circle(model.x, model.y, radius);
+          self.draw_circle(model.x, model.y, radius);
           self.ctx.fillStyle = 'white';
           self.ctx.globalAlpha = 1;
-          draw_circle(model.x, model.y, radius/2);
+          self.draw_circle(model.x, model.y, radius/2);
         }
         //regularly walking
         else {
-          draw_circle(model.x, model.y, radius);
+          self.draw_circle(model.x, model.y, radius);
         }
 
         //model label
@@ -340,16 +340,16 @@ function ModelSimulator(options) {
     }
   }
   //initial drawing of models
-  function initial_draw_models() {
+  self.initial_draw_models = function() {
     for(let i=0; i<self.models.length; ++i) {
-      draw_model(self.models[i]);
+      self.draw_model(self.models[i]);
     }
   }
 
 
 
   //draw shape functions were taken from stackoverflow
-  function draw_star(cx, cy, spikes, outerRadius, innerRadius) {
+  self.draw_star = function(cx, cy, spikes, outerRadius, innerRadius) {
     let rot = Math.PI / 2 * 3;
     let x = cx;
     let y = cy;
@@ -375,7 +375,7 @@ function ModelSimulator(options) {
 
   }
 
-  function draw_triangle(x,y) {
+  self.draw_triangle = function(x,y) {
     self.ctx.beginPath();
     self.ctx.moveTo(x,y-radius);
     self.ctx.lineTo(x+radius, y+radius);
@@ -383,7 +383,7 @@ function ModelSimulator(options) {
     self.ctx.fill();
   }
 
-  function draw_count() {
+  self.draw_count = function() {
     self.ctx.fillStyle = "black";
 
     //self.ctx.fillText("Total 8cts: "+(Math.floor(move_index/8) + 1),420,100);
@@ -395,35 +395,35 @@ function ModelSimulator(options) {
     }
   }
 
-  function draw_circle(x,y,r) {
+  self.draw_circle = function(x,y,r) {
     self.ctx.beginPath();
     self.ctx.arc(x, y, r, 0, 2 * Math.PI, 0);
     self.ctx.fill();
   }
 
 
-  function draw_everything() {
-    draw_t();
-    draw_key();
+   self.draw_everything = function() {
+    self.draw_t();
+    self.draw_key();
 
     //draw each model
     for(let i=0; i<self.models.length; ++i) {
-      draw_model(self.models[i]);
+      self.draw_model(self.models[i]);
     }
 
-    draw_count();
+    self.draw_count();
   }
 
 
   /*****************Next or previous frame*****************/
   self.prev = function() {
     --move_index; //decrease move count
-    draw_everything();
+    self.draw_everything();
   }
 
   self.next = function() {
     ++move_index; //increase move count
-    draw_everything();
+    self.draw_everything();
   }
 
 
@@ -435,14 +435,14 @@ function ModelSimulator(options) {
   window.addEventListener('keydown',self.key);
 
   //reinitializes the simulation at the given move index if provided
-  self.initialize = function(first_move) {
+  self.init = function(first_move) {
     if(typeof first_move === "number") this.first_name = first_move
-    process_models();
-    process_pre_sections();
-    process_pre_comments();
-    draw_t();
-    draw_key();
-    initial_draw_models();
+    self.process_models();
+    self.process_pre_sections();
+    self.process_pre_comments();
+    self.draw_t();
+    self.draw_key();
+    self.initial_draw_models();
   }
 }
 

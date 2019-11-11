@@ -32,7 +32,7 @@ canvas {
     models: models,
   })
 
-  simulator.initialize();
+  simulator.init();
 </script>
 ```
 
