@@ -170,34 +170,34 @@ function ModelSimulator(options) {
 
   //binary insert function taken from https://gist.github.com/eloone/11342252
   self.binary_insert = function(value, array, startVal, endVal){
-  	let length = array.length;
-  	let start = typeof(startVal) != 'undefined' ? startVal : 0;
-  	let end = typeof(endVal) != 'undefined' ? endVal : length - 1;//!! endVal could be 0 don't use || syntax
-  	let m = start + Math.floor((end - start)/2);
-  	if(length == 0){
-  		array.push(value);
-  		return;
-  	}
-  	if(value > array[end]){
-  		array.splice(end + 1, 0, value);
-  		return;
-  	}
-  	if(value < array[start]){//!!
-  		array.splice(start, 0, value);
-  		return;
-  	}
-  	if(start >= end){
-  		return;
-  	}
-  	if(value < array[m]){
-  		self.binary_insert(value, array, start, m - 1);
-  		return;
-  	}
-  	if(value > array[m]){
-  		self.binary_insert(value, array, m + 1, end);
-  		return;
-  	}
-  	//we don't insert duplicates
+    let length = array.length;
+    let start = typeof(startVal) != 'undefined' ? startVal : 0;
+    let end = typeof(endVal) != 'undefined' ? endVal : length - 1;//!! endVal could be 0 don't use || syntax
+    let m = start + Math.floor((end - start)/2);
+    if(length == 0){
+      array.push(value);
+      return;
+    }
+    if(value > array[end]){
+      array.splice(end + 1, 0, value);
+      return;
+    }
+    if(value < array[start]){//!!
+      array.splice(start, 0, value);
+      return;
+    }
+    if(start >= end){
+      return;
+    }
+    if(value < array[m]){
+      self.binary_insert(value, array, start, m - 1);
+      return;
+    }
+    if(value > array[m]){
+      self.binary_insert(value, array, m + 1, end);
+      return;
+    }
+    //we don't insert duplicates
   }
 
   //function used to get and record the new model position
@@ -265,7 +265,7 @@ function ModelSimulator(options) {
     self.ctx.fillRect(20,self.rect_height-200,self.rect_width-40,180);
   }
 
-   self.draw_key = function() {
+  self.draw_key = function() {
     //key
     self.ctx.fillStyle = 'black';
     self.text_bold("Key:",20,50);
@@ -408,16 +408,18 @@ function ModelSimulator(options) {
   }
 
 
-   self.draw_everything = function() {
-    self.draw_t();
-    self.draw_key();
+  self.draw_everything = function() {
+    if(self.move_index>=0 && self.move_index<self.max_moves) {
+      self.draw_t();
+      self.draw_key();
 
-    //draw each model
-    for(let i=0; i<self.models.length; ++i) {
-      self.draw_model(self.models[i]);
+      //draw each model
+      for(let i=0; i<self.models.length; ++i) {
+        self.draw_model(self.models[i]);
+      }
+
+      self.draw_count();
     }
-
-    self.draw_count();
   }
 
 
