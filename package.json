@@ -1,0 +1,19 @@
+{
+  "name": "model-simulator",
+  "version": "1.0.0",
+  "description": "Simulate your fashion walks beat-by-beat",
+  "main": "walk_simulator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harryli0088/model-simulator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harryli0088/model-simulator/issues"
+  },
+  "homepage": "https://github.com/harryli0088/model-simulator#readme"
+}

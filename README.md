@@ -1,4 +1,4 @@
-# chinanite-model-simulator
+# model-simulator
 This is a bird's eye view simulator for [ChinaNite](https://www.youtube.com/watch?v=hqvDFgA9IJc), a theatrical fashion show hosted by the Rutgers Chinese Student Organization. Creating, teaching, and remembering walks are difficult; this simulator makes all three easier.
 This simulator is intended to create walk guides, not a 100% accurate teaching tool.
 
@@ -6,8 +6,56 @@ Checkout this [demo](https://harryxli.com/walk_simulator_demo.html)!
 
 ![Alt Text](example.gif)
 
+## Usage
+### HTML
+```html
+<style>
+canvas {
+  max-width: 100%;
+}
+</style>
+<div>
+  <canvas id='canvas' width='875' height='560'></canvas>
+  <div>
+    <button onclick="simulator.prev()">Prev</button>
+    <button onclick="simulator.next()">Next</button>
+    or use your left and right arrow keys
+  </div>
+</div>
+<script type="text/javascript" src="CNXIII Reality Examples/JS/1_motions.js"></script>
+<script type="text/javascript" src="walk_simulator.js"></script>
+<script>
+  const simulator = new ModelSimulator({
+    canvas: document.getElementById("canvas"),
+    pre_sections: pre_sections,
+    pre_comments: pre_comments,
+    models: models,
+  })
+
+  simulator.initialize();
+</script>
+```
+
+### JS
+```bash
+npm install --save harryli0088/model-simulator
+```
+
+```js
+const ModelSimulator = require("model-simulator")
+
+const simulator = new ModelSimulator({
+  canvas: document.getElementById("canvas"),
+  pre_sections: pre_sections,
+  pre_comments: pre_comments,
+  models: models,
+})
+
+simulator.initialize();
+```
+
 ## How it works
-This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JSON file in the same directory (without using a server). When the file opens, it processes the JSON data to calculate at each beat:
+This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The HTML file loads a JS file in the same directory (without using a server). When the file opens, it processes the JS data to calculate at each beat:
 1) Where each model will be
 2) What section of the song it is
 3) If there are any comments
@@ -15,7 +63,7 @@ This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The
 Every time the user presses one of the arrow keys to move forward or back, the canvas is compeletely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
 
 ## How to use it
-To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid json file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
+To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid JS file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
 
 ## How to record a walk
 To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song while recording.
@@ -23,8 +71,8 @@ To record a walk, download a tool that can record your screen with audio (for ex
 ### Why do I have to step through the song manually? Why can't I just hit a "play" button
 In order to hit a "play" button and have the simulator automatically step through the walk, you must know the song's exact BPM and then time the start of the song with your simulator. It is difficult to do either. What if the song changes tempo or is slightly off beat at one point? How do you perfectly determine a song's BPM? Small errors can lead to big delays between the music and video.
 
-## JSON files
-The HTML file opens json files from the same directory which contain the necessary information for each walk.
+## JS files
+The HTML file opens JS files from the same directory which contain the necessary information for each walk.
 
 ### pre_sections
 Pre sections allow you to break up the song into parts, so that you know which part you are in. Ex Verse 1, Chorus 1, Bridge, etc.

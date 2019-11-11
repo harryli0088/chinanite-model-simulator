@@ -6,10 +6,20 @@ canvas {
 <div>
   <canvas id='canvas' width='875' height='560'></canvas>
   <div>
-    <button onclick="prev()">Prev</button>
-    <button onclick="next()">Next</button>
+    <button onclick="simulator.prev()">Prev</button>
+    <button onclick="simulator.next()">Next</button>
     or use your left and right arrow keys
   </div>
 </div>
-<script type="text/javascript" src="CNXIII Reality Examples/JSON/1_motions.json"></script>
+<script type="text/javascript" src="CNXIII Reality Examples/JS/1_motions.js"></script>
 <script type="text/javascript" src="walk_simulator.js"></script>
+<script>
+  const simulator = new ModelSimulator({
+    canvas: document.getElementById("canvas"),
+    pre_sections: pre_sections,
+    pre_comments: pre_comments,
+    models: models,
+  })
+
+  simulator.initialize();
+</script>
