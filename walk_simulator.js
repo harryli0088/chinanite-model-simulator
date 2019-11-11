@@ -6,13 +6,13 @@ function ModelSimulator(options) {
 
   //T squares are 60px
   /************************Data************************/
-  let rect_width = 560; //width the T occupies
-  let rect_height = 560; //height the T occupies
-  let radius = 10; //pixel size of model radius
-  let step = 40; //pixel size of model step
-  let move_index = 0; //which move to load first
-  let sections = []; //empty array to store song sections
-  let comments = []; // empty array to store comments
+  self.rect_width = 560; //width the T occupies
+  self.rect_height = 560; //height the T occupies
+  self.radius = 10; //pixel size of model radius
+  self.step = 40; //pixel size of model step
+  self.move_index = 0; //which move to load first
+  self.sections = []; //empty array to store song sections
+  self.comments = []; // empty array to store comments
 
   /*******************Initialization*******************/
   self.canvas = options.canvas || document.getElementById('canvas'); //get the canvas
@@ -49,26 +49,26 @@ function ModelSimulator(options) {
         if(self.models[i].start.indexOf("middle") !== -1) {
           //if starting middle left
           if(self.models[i].start.indexOf("left") !== -1) {
-            self.models[i].x = rect_width/2 - step;
+            self.models[i].x = self.rect_width/2 - self.step;
           }
           //if starting middle right
           else if(self.models[i].start.indexOf("right") !== -1) {
-            self.models[i].x = rect_width/2 + step;
+            self.models[i].x = self.rect_width/2 + self.step;
           }
           //else just middle
           else {
-            self.models[i].x = rect_width/2;
+            self.models[i].x = self.rect_width/2;
           }
         }
         //if starting left
         else if(self.models[i].start.indexOf("left") !== -1) {
-          self.models[i].x = rect_width/2 - 2*step;
+          self.models[i].x = self.rect_width/2 - 2*self.step;
         }
         //if starting right
         else if(self.models[i].start.indexOf("right") !== -1) {
-          self.models[i].x = rect_width/2 + 2*step;
+          self.models[i].x = self.rect_width/2 + 2*self.step;
         }
-        self.models[i].y = rect_height-20; //all set starting positions start at bottom of T
+        self.models[i].y = self.rect_height-20; //all set starting positions start at bottom of T
       }
       //custom starting position
       else {
@@ -159,6 +159,12 @@ function ModelSimulator(options) {
 
       self.binary_insert(self.models[i].name,model_names); //binary inser self model into the list
     }
+
+    //get the max number of moves
+    self.max_moves = 0;
+    for(let i=0; i<self.models.length; ++i) {
+      if(self.models[i].moves.length > self.max_moves) self.max_moves = self.models[i].moves.length;
+    }
   }
 
 
@@ -197,8 +203,8 @@ function ModelSimulator(options) {
   //function used to get and record the new model position
   self.record_model_new_position = function(i) {
     //get new model position
-    self.models[i].x += step * self.models[i].moves[self.models[i].moves.length-1].dx;
-    self.models[i].y += step * self.models[i].moves[self.models[i].moves.length-1].dy;
+    self.models[i].x += self.step * self.models[i].moves[self.models[i].moves.length-1].dx;
+    self.models[i].y += self.step * self.models[i].moves[self.models[i].moves.length-1].dy;
     //record new model position
     self.models[i].moves[self.models[i].moves.length-1].x = self.models[i].x;
     self.models[i].moves[self.models[i].moves.length-1].y = self.models[i].y;
@@ -214,7 +220,7 @@ function ModelSimulator(options) {
       for(let j=0; j<self.pre_sections[i][0]; ++j) {
         //multiply by specified cts
         for(let k=0; k<self.pre_sections[i][1]; ++k) {
-          sections.push({measure_size:self.pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:self.pre_sections[i][2]});
+          self.sections.push({measure_size:self.pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:self.pre_sections[i][2]});
           ++section_cnt;
         }
       }
@@ -231,12 +237,12 @@ function ModelSimulator(options) {
     for(let i=0; i<self.pre_comments.length; ++i) {
       //push empty comment while advancing to next comment
       while(comments_delay+1 < self.pre_comments[i][0]) {
-        comments.push("");
+        self.comments.push("");
         ++comments_delay;
       }
       //push comment
       while(comments_delay < self.pre_comments[i][1]) {
-        comments.push(self.pre_comments[i][2]);
+        self.comments.push(self.pre_comments[i][2]);
         ++comments_delay;
       }
     }
@@ -252,11 +258,11 @@ function ModelSimulator(options) {
     //gray boxes
     self.ctx.fillStyle = '#bbbbbb';
     self.ctx.fillRect(160,0,240,340);
-    self.ctx.fillRect(0,rect_height-220,rect_width,220);
+    self.ctx.fillRect(0,self.rect_height-220,self.rect_width,220);
     //white T
     self.ctx.fillStyle = 'white';
     self.ctx.fillRect(180,20,200,340);
-    self.ctx.fillRect(20,rect_height-200,rect_width-40,180);
+    self.ctx.fillRect(20,self.rect_height-200,self.rect_width-40,180);
   }
 
    self.draw_key = function() {
@@ -265,22 +271,22 @@ function ModelSimulator(options) {
     self.text_bold("Key:",20,50);
 
     //walk
-    self.draw_circle(20, 100, radius);
+    self.draw_circle(20, 100, self.radius);
     self.ctx.fillText("Walk",50,110);
     //pose
-    self.draw_star(20, 150, 5, 1.5*radius, 3*radius/4);
+    self.draw_star(20, 150, 5, 1.5*self.radius, 3*self.radius/4);
     self.ctx.fillText("Pose",50,160);
     //pivot
     self.draw_triangle(20, 200);
     self.ctx.fillText("Pivot",50,210);
     //kneel
-    self.ctx.fillRect(20-radius, 250-radius,2*radius,2*radius);
+    self.ctx.fillRect(20-self.radius, 250-self.radius,2*self.radius,2*self.radius);
     self.ctx.fillText("Kneel",50,260);
     //twirl
-    self.draw_circle(20, 300, radius);
+    self.draw_circle(20, 300, self.radius);
     self.ctx.fillText("Twirl",50,310);
     self.ctx.fillStyle = 'white';
-    self.draw_circle(20, 300, radius/2);
+    self.draw_circle(20, 300, self.radius/2);
 
 
     //model names in self walk
@@ -296,46 +302,46 @@ function ModelSimulator(options) {
 
   self.draw_model = function(model) {
     //is move index is in range
-    if(move_index>=0 && move_index<model.moves.length) {
+    if(self.move_index>=0 && self.move_index<model.moves.length) {
       //update model position
-      model.x = model.moves[move_index].x;
-      model.y = model.moves[move_index].y;
+      model.x = model.moves[self.move_index].x;
+      model.y = model.moves[self.move_index].y;
 
       //draw if model is not delaying
-      if(model.moves[move_index].move != "delay") {
+      if(model.moves[self.move_index].move != "delay") {
         //self.models are translucent
         self.ctx.globalAlpha = 0.8;
 
         //switch to model color
         self.ctx.fillStyle = model.color;
         //pose
-        if(model.moves[move_index].move == "pose") {
-          self.draw_star(model.x, model.y, 5, 1.5*radius, 3*radius/4);
+        if(model.moves[self.move_index].move == "pose") {
+          self.draw_star(model.x, model.y, 5, 1.5*self.radius, 3*self.radius/4);
         }
         //pivot
-        else if(model.moves[move_index].move.indexOf("pivot") !== -1) {
+        else if(model.moves[self.move_index].move.indexOf("pivot") !== -1) {
           self.draw_triangle(model.x, model.y);
         }
         //kneel
-        else if(model.moves[move_index].move.indexOf("kneel") !== -1) {
-          self.ctx.fillRect(model.x-radius, model.y-radius,2*radius,2*radius);
+        else if(model.moves[self.move_index].move.indexOf("kneel") !== -1) {
+          self.ctx.fillRect(model.x-self.radius, model.y-self.radius,2*self.radius,2*self.radius);
         }
         //twirl
-        else if(model.moves[move_index].move.indexOf("twirl") !== -1) {
-          self.draw_circle(model.x, model.y, radius);
+        else if(model.moves[self.move_index].move.indexOf("twirl") !== -1) {
+          self.draw_circle(model.x, model.y, self.radius);
           self.ctx.fillStyle = 'white';
           self.ctx.globalAlpha = 1;
-          self.draw_circle(model.x, model.y, radius/2);
+          self.draw_circle(model.x, model.y, self.radius/2);
         }
         //regularly walking
         else {
-          self.draw_circle(model.x, model.y, radius);
+          self.draw_circle(model.x, model.y, self.radius);
         }
 
         //model label
         self.ctx.globalAlpha = 1;
         self.ctx.fillStyle = "black";
-        self.ctx.fillText(model.name,model.x-model.name.length*4,model.y-radius-10);
+        self.ctx.fillText(model.name,model.x-model.name.length*4,model.y-self.radius-10);
       }
     }
   }
@@ -377,21 +383,21 @@ function ModelSimulator(options) {
 
   self.draw_triangle = function(x,y) {
     self.ctx.beginPath();
-    self.ctx.moveTo(x,y-radius);
-    self.ctx.lineTo(x+radius, y+radius);
-    self.ctx.lineTo(x-radius, y+radius);
+    self.ctx.moveTo(x,y-self.radius);
+    self.ctx.lineTo(x+self.radius, y+self.radius);
+    self.ctx.lineTo(x-self.radius, y+self.radius);
     self.ctx.fill();
   }
 
   self.draw_count = function() {
     self.ctx.fillStyle = "black";
 
-    //self.ctx.fillText("Total 8cts: "+(Math.floor(move_index/8) + 1),420,100);
-    self.ctx.fillText(sections[move_index].title+"  "+sections[move_index].measure_size+"cts: "+(Math.floor(sections[move_index].section_cnt/sections[move_index].measure_size) + 1),420,150);
-    self.ctx.fillText("Count: "+(sections[move_index].measure_cnt+1),420,200);
+    //self.ctx.fillText("Total 8cts: "+(Math.floor(self.move_index/8) + 1),420,100);
+    self.ctx.fillText(self.sections[self.move_index].title+"  "+self.sections[self.move_index].measure_size+"cts: "+(Math.floor(self.sections[self.move_index].section_cnt/self.sections[self.move_index].measure_size) + 1),420,150);
+    self.ctx.fillText("Count: "+(self.sections[self.move_index].measure_cnt+1),420,200);
 
-    if(move_index < comments.length) {
-      self.ctx.fillText("Comments: "+comments[move_index],420,250);
+    if(self.move_index < self.comments.length) {
+      self.ctx.fillText("Comments: "+self.comments[self.move_index],420,250);
     }
   }
 
@@ -417,12 +423,12 @@ function ModelSimulator(options) {
 
   /*****************Next or previous frame*****************/
   self.prev = function() {
-    --move_index; //decrease move count
+    --self.move_index; //decrease move count
     self.draw_everything();
   }
 
   self.next = function() {
-    ++move_index; //increase move count
+    ++self.move_index; //increase move count
     self.draw_everything();
   }
 
