@@ -46,29 +46,74 @@ const final = {
 }
 console.log(final)
 
-function getOneLineObject(object) {
-  let str = `\n\t\t{`
+
+function customPrettyPrint(object={}, numTabs=0, expandedLevels=0) {
+  let str = `${getThisManyStrs("\t", numTabs)}{`;
+  for(let field in object) {
+    const numExpandedLevels = expandedLevels[field] || expandedLevels || 0
+    str += "\n" + getKeyValue(field, object[field], numTabs+1, numExpandedLevels) + ","
+  }
+  str = str.slice(0, str.length-2)
+  return str + `\n${getThisManyStrs("\t", numTabs)}}`
+}
+
+function getOneLineObject(object, numTabs) {
+  let str = `\n` + getThisManyStrs(`\t`, numTabs)
+  str += `{`
   Object.keys(object).forEach(key => {
-    str += getKeyValue(key, object[key]) + ", "
+    str += getKeyValue(key, object[key], 0) + ", "
   })
   str = str.slice(0, str.length-2)
   str += `}`
   return str
 }
 
-function getKeyValue(key, value) {
-  return `"${key}":${typeof value==="string" ? `"${value}"` : value}`
+function getThisManyStrs(str, number) {
+  let string = ""
+  for(let num=0; num<number; ++num) {
+    string += str
+  }
+  return string
 }
 
-let json = `{`;
-json += `\n\t"video_src": "${final.video_src}",`
-json += `\n\t"pre_sections": [`
-final.pre_sections.forEach(section => {
-  json += getOneLineObject(section) + ","
-})
-json = json.slice(0, json.length-1)
-json += `\n\t],`
+function getKeyValue(key, value, numTabs, numExpandedLevels) {
+  let str = getThisManyStrs(`\t`, numTabs)
+  if(key!==undefined && key!==null) {
+    str += `"${key}":`
+  }
 
-json += `\n}`
-console.log(json)
-// console.log(JSON.stringify(final))
+  if(typeof value === "string") {
+    return str + `"${value}"`
+  }
+  else if(typeof value === "number") {
+    return str + value
+  }
+  else if(Array.isArray(value)) {
+    str += `[`
+    value.forEach(section => {
+      str += getKeyValue(null, section, numTabs, numExpandedLevels-1) + ","
+    })
+    str = str.slice(0, str.length-1)
+    str += `\n${getThisManyStrs(`\t`, numTabs)}]`
+    return str
+  }
+  else if(typeof value === "object") {
+    if(numExpandedLevels > 0) {
+      str += "\n" + customPrettyPrint(value, numTabs+1, numExpandedLevels)
+    }
+    else {
+      str += getOneLineObject(value, numTabs+1)
+    }
+  }
+
+  return `${str}`
+}
+
+let str = customPrettyPrint(final, 0, {
+  video_src: 1,
+  pre_sections: 1,
+  pre_comments: 1,
+  models: 2,
+})
+console.log(str)
+console.log(JSON.parse(str))
