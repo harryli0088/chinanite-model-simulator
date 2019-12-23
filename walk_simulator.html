@@ -11,6 +11,9 @@
     <button onclick="simulator.next()">Next</button>
     or use your left and right arrow keys
   </div>
+  <div>
+    Beats Per Minute <input id="bpm" type="number" value="80"/> <button onclick="simulator.autoStart(document.getElementById('bpm').value)">Auto Start</button>
+  </div>
 </div>
 <script type="text/javascript" src="CNXIII Reality Examples/JS/1_motions.js"></script>
 <script type="text/javascript" src="walk_simulator.js"></script>

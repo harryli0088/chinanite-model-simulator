@@ -13,6 +13,7 @@ function ModelSimulator(options) {
   self.move_index = -1; //which move to load first
   self.sections = []; //empty array to store song sections
   self.comments = []; // empty array to store comments
+  self.interval = null;
 
   /*******************Initialization*******************/
   self.canvas = options.canvas || document.getElementById('canvas'); //get the canvas
@@ -440,13 +441,20 @@ function ModelSimulator(options) {
     }
   }
 
+  self.autoStart = function(bpm) { //"beat" is the same as "interval" in this context
+    const secondsPerInterval = 1000*60/bpm; //ms/sec * sec/min / interval/min
+    self.next();
+    clearInterval(self.interval)
+    self.interval = setInterval(self.next, secondsPerInterval)
+  }
+
 
   //next if right arrow, previous if left arrow
-  self.key = function(e) {
+  self.keydown = function(e) {
     if(e.keyCode == 39) {self.next();}
     else if(e.keyCode == 37) {self.prev();}
   }
-  window.addEventListener('keydown',self.key);
+  window.addEventListener('keydown',self.keydown);
 
   //reinitializes the simulation at the given move index if provided
   self.init = function(first_move) {
