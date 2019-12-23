@@ -48,23 +48,56 @@ console.log(final)
 
 
 function customPrettyPrint(object={}, numTabs=0, expandedLevels=0) {
-  let str = `${getThisManyStrs("\t", numTabs)}{`;
-  for(let field in object) {
-    const numExpandedLevels = expandedLevels[field] || expandedLevels || 0
+  let str = `${getThisManyStrs("\t", numTabs)}{` //opening bracket
+  for(let field in object) { //loop through all fields and get key values
+    const numExpandedLevels = expandedLevels[field] || expandedLevels || 0 //TODO generalize this to pass objects down
     str += "\n" + getKeyValue(field, object[field], numTabs+1, numExpandedLevels) + ","
   }
-  str = str.slice(0, str.length-2)
-  return str + `\n${getThisManyStrs("\t", numTabs)}}`
+  str = str.slice(0, str.length-1) //remove last comma
+  return str + `\n${getThisManyStrs("\t", numTabs)}}` //add closing bracket
+}
+
+function getKeyValue(key, value, numTabs, numExpandedLevels) {
+  let str = getThisManyStrs(`\t`, numTabs) //start with tabs
+  if(key!==undefined && key!==null) { //if there is a key (eg not an array key), use it
+    str += `"${key}":`
+  }
+
+  if(typeof value === "string") {
+    return str + `"${value}"` //add quotes if this is a string
+  }
+  else if(typeof value === "number") {
+    return str + value
+  }
+  else if(Array.isArray(value)) {
+    str += `[` //opening bracket
+    value.forEach(section => {
+      str += getKeyValue(null, section, numTabs, numExpandedLevels-1) + "," //get each value without any keys
+    })
+    str = str.slice(0, str.length-1) //remove last comma
+    str += `\n${getThisManyStrs(`\t`, numTabs)}]` //add closing bracket
+    return str
+  }
+  else if(typeof value === "object") {
+    if(numExpandedLevels > 0) { //if we still want to expand, run custom pretty print
+      str += "\n" + customPrettyPrint(value, numTabs+1, numExpandedLevels)
+    }
+    else {
+      str += getOneLineObject(value, numTabs+1) //else get the object on one line
+    }
+  }
+
+  return `${str}`
 }
 
 function getOneLineObject(object, numTabs) {
-  let str = `\n` + getThisManyStrs(`\t`, numTabs)
-  str += `{`
+  let str = `\n` + getThisManyStrs(`\t`, numTabs) //get tabs
+  str += `{` //opening bracket
   Object.keys(object).forEach(key => {
-    str += getKeyValue(key, object[key], 0) + ", "
+    str += getKeyValue(key, object[key], 0) + ", " //get keys and values on one line
   })
-  str = str.slice(0, str.length-2)
-  str += `}`
+  str = str.slice(0, str.length-2) //remove last comma
+  str += `}` //closing bracket
   return str
 }
 
@@ -76,38 +109,7 @@ function getThisManyStrs(str, number) {
   return string
 }
 
-function getKeyValue(key, value, numTabs, numExpandedLevels) {
-  let str = getThisManyStrs(`\t`, numTabs)
-  if(key!==undefined && key!==null) {
-    str += `"${key}":`
-  }
 
-  if(typeof value === "string") {
-    return str + `"${value}"`
-  }
-  else if(typeof value === "number") {
-    return str + value
-  }
-  else if(Array.isArray(value)) {
-    str += `[`
-    value.forEach(section => {
-      str += getKeyValue(null, section, numTabs, numExpandedLevels-1) + ","
-    })
-    str = str.slice(0, str.length-1)
-    str += `\n${getThisManyStrs(`\t`, numTabs)}]`
-    return str
-  }
-  else if(typeof value === "object") {
-    if(numExpandedLevels > 0) {
-      str += "\n" + customPrettyPrint(value, numTabs+1, numExpandedLevels)
-    }
-    else {
-      str += getOneLineObject(value, numTabs+1)
-    }
-  }
-
-  return `${str}`
-}
 
 let str = customPrettyPrint(final, 0, {
   video_src: 1,
