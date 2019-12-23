@@ -55,7 +55,7 @@ To record a walk, download a tool that can record your screen with audio (for ex
 ## How to create data files
 The HTML file opens JS files which contain the necessary information for each walk.
 
-### Full JSON example:
+### Full JS example:
 ```js
 pre_sections = [
   {"measures":2, "counts":8, "text":"Intro"},
