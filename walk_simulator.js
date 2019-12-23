@@ -10,7 +10,7 @@ function ModelSimulator(options) {
   self.rect_height = 560; //height the T occupies
   self.radius = 10; //pixel size of model radius
   self.step = 40; //pixel size of model step
-  self.move_index = 0; //which move to load first
+  self.move_index = -1; //which move to load first
   self.sections = []; //empty array to store song sections
   self.comments = []; // empty array to store comments
 
@@ -42,9 +42,11 @@ function ModelSimulator(options) {
   self.process_models = function() {
     //for each model
     for(let i=0; i<self.models.length; ++i) {
+      self.models[i].moves = []
+
       //pre set starting positions
       //left - middle left - middle - middle right - right
-      if(typeof self.models[i].start == "string") {
+      if(typeof self.models[i].start === "string") {
         //if the starting position includes the word "middle"
         if(self.models[i].start.indexOf("middle") !== -1) {
           //if starting middle left
@@ -72,81 +74,81 @@ function ModelSimulator(options) {
       }
       //custom starting position
       else {
-        self.models[i].x = self.models[i].start[0];
-        self.models[i].y = self.models[i].start[1];
+        self.models[i].x = self.models[i].start.x;
+        self.models[i].y = self.models[i].start.y;
       }
 
       //for each of self model's pre moves
       for(let j=0; j<self.models[i].pre_moves.length; ++j) {
         let count = 0;
         //while we are below the count length
-        while(count < self.models[i].pre_moves[j][0]) {
-          //if the move is a string
-          if(typeof self.models[i].pre_moves[j][1] == "string") {
-            let move = self.models[i].pre_moves[j][1];
-            if(move.indexOf("up") !== -1) {
-              self.models[i].moves.push({dx:0,dy:-1,move:move});
+        while(count < self.models[i].pre_moves[j].counts) {
+          //if the move is not custom
+          if(typeof self.models[i].pre_moves[j].dx === "undefined") {
+            let type = self.models[i].pre_moves[j].type;
+            if(type.indexOf("up") !== -1) {
+              self.models[i].moves.push({dx:0,dy:-1,type:type});
             }
-            else if(move.indexOf("down") !== -1) {
-              self.models[i].moves.push({dx:0,dy:1,move:move});
+            else if(type.indexOf("down") !== -1) {
+              self.models[i].moves.push({dx:0,dy:1,type:type});
             }
-            else if(move=="pose" || move=="delay" || move=="kneel" || move=="pause") {
-              self.models[i].moves.push({dx:0,dy:0,move:move});
+            else if(type==="pose" || type==="delay" || type==="kneel" || type==="pause") {
+              self.models[i].moves.push({dx:0,dy:0,type:type});
             }
-            else if(move.indexOf("right") !== -1) {
-              self.models[i].moves.push({dx:1,dy:0,move:move});
+            else if(type.indexOf("right") !== -1) {
+              self.models[i].moves.push({dx:1,dy:0,type:type});
             }
-            else if(move.indexOf("left") !== -1) {
-              self.models[i].moves.push({dx:-1,dy:0,move:move});
+            else if(type.indexOf("left") !== -1) {
+              self.models[i].moves.push({dx:-1,dy:0,type:type});
             }
-            else if(move.indexOf("diag ne") !== -1) {
-              self.models[i].moves.push({dx:1,dy:-1,move:move});
+            else if(type.indexOf("diag ne") !== -1) {
+              self.models[i].moves.push({dx:1,dy:-1,type:type});
             }
-            else if(move.indexOf("diag se") !== -1) {
-              self.models[i].moves.push({dx:1,dy:1,move:move});
+            else if(type.indexOf("diag se") !== -1) {
+              self.models[i].moves.push({dx:1,dy:1,type:type});
             }
-            else if(move.indexOf("diag sw") !== -1) {
-              self.models[i].moves.push({dx:-1,dy:1,move:move});
+            else if(type.indexOf("diag sw") !== -1) {
+              self.models[i].moves.push({dx:-1,dy:1,type:type});
             }
-            else if(move.indexOf("diag nw") !== -1) {
-              self.models[i].moves.push({dx:-1,dy:-1,move:move});
+            else if(type.indexOf("diag nw") !== -1) {
+              self.models[i].moves.push({dx:-1,dy:-1,type:type});
             }
 
             //if the model is moving at half speed
-            if(move.indexOf("half speed") !== -1) {
+            if(type.indexOf("half speed") !== -1) {
               self.record_model_new_position(i)
 
               //push half speed delay
-              self.models[i].moves.push({dx:0,dy:0,move:"pause"});
+              self.models[i].moves.push({dx:0,dy:0,type:"pause"});
               ++count;
             }
           }
           //otherwise the move is custom
           else {
             //manually calculate move
-            let duration = self.models[i].pre_moves[j][0];
-            let dx = self.models[i].pre_moves[j][1] / duration;
-            let dy = self.models[i].pre_moves[j][2] / duration;
+            let duration = self.models[i].pre_moves[j].counts;
+            let dx = self.models[i].pre_moves[j].dx / duration;
+            let dy = self.models[i].pre_moves[j].dy / duration;
 
             //check if there is a custom move description
-            let move = "walk";
-            if(self.models[i].pre_moves[j][3]) {
-              move = self.models[i].pre_moves[j][3];
+            let type = "walk";
+            if(self.models[i].pre_moves[j].type) {
+              type = self.models[i].pre_moves[j].type;
             }
 
             //if the model is moving at half speed
-            if(move.indexOf("half speed") !== -1) {
+            if(type.indexOf("half speed") !== -1) {
               //record double the half step to make a regular step
-              self.models[i].moves.push({dx:2*dx,dy:2*dy,move:move});
+              self.models[i].moves.push({dx:2*dx,dy:2*dy,type:type});
 
               self.record_model_new_position(i)
 
               //push half speed delay
-              self.models[i].moves.push({dx:0,dy:0,move:"pause"});
+              self.models[i].moves.push({dx:0,dy:0,type:"pause"});
               ++count;
             }
             else {
-              self.models[i].moves.push({dx:dx,dy:dy,move:move});
+              self.models[i].moves.push({dx:dx,dy:dy,type:type});
             }
           }
 
@@ -216,12 +218,17 @@ function ModelSimulator(options) {
   //convert pre_sections into beat by beat section titles
   self.process_pre_sections = function() {
     for(let i=0; i<self.pre_sections.length; ++i) {
-      let section_cnt = 0;
-      for(let j=0; j<self.pre_sections[i][0]; ++j) {
+      let section_count = 0;
+      for(let j=0; j<self.pre_sections[i].measures; ++j) {
         //multiply by specified cts
-        for(let k=0; k<self.pre_sections[i][1]; ++k) {
-          self.sections.push({measure_size:self.pre_sections[i][1],measure_cnt:k,section_cnt:section_cnt,title:self.pre_sections[i][2]});
-          ++section_cnt;
+        for(let k=0; k<self.pre_sections[i].counts; ++k) {
+          self.sections.push({
+            measure_size:self.pre_sections[i].counts,
+            measure_count:k,
+            section_count:section_count,
+            text:self.pre_sections[i].text
+          });
+          ++section_count;
         }
       }
     }
@@ -236,13 +243,13 @@ function ModelSimulator(options) {
   self.process_pre_comments = function() {
     for(let i=0; i<self.pre_comments.length; ++i) {
       //push empty comment while advancing to next comment
-      while(comments_delay+1 < self.pre_comments[i][0]) {
+      while(comments_delay+1 < self.pre_comments[i].startCount) {
         self.comments.push("");
         ++comments_delay;
       }
       //push comment
-      while(comments_delay < self.pre_comments[i][1]) {
-        self.comments.push(self.pre_comments[i][2]);
+      while(comments_delay < self.pre_comments[i].endCount) {
+        self.comments.push(self.pre_comments[i].text);
         ++comments_delay;
       }
     }
@@ -308,26 +315,26 @@ function ModelSimulator(options) {
       model.y = model.moves[self.move_index].y;
 
       //draw if model is not delaying
-      if(model.moves[self.move_index].move != "delay") {
+      if(model.moves[self.move_index].type != "delay") {
         //self.models are translucent
         self.ctx.globalAlpha = 0.8;
 
         //switch to model color
         self.ctx.fillStyle = model.color;
         //pose
-        if(model.moves[self.move_index].move == "pose") {
+        if(model.moves[self.move_index].type === "pose") {
           self.draw_star(model.x, model.y, 5, 1.5*self.radius, 3*self.radius/4);
         }
         //pivot
-        else if(model.moves[self.move_index].move.indexOf("pivot") !== -1) {
+        else if(model.moves[self.move_index].type.indexOf("pivot") !== -1) {
           self.draw_triangle(model.x, model.y);
         }
         //kneel
-        else if(model.moves[self.move_index].move.indexOf("kneel") !== -1) {
+        else if(model.moves[self.move_index].type.indexOf("kneel") !== -1) {
           self.ctx.fillRect(model.x-self.radius, model.y-self.radius,2*self.radius,2*self.radius);
         }
         //twirl
-        else if(model.moves[self.move_index].move.indexOf("twirl") !== -1) {
+        else if(model.moves[self.move_index].type.indexOf("twirl") !== -1) {
           self.draw_circle(model.x, model.y, self.radius);
           self.ctx.fillStyle = 'white';
           self.ctx.globalAlpha = 1;
@@ -343,12 +350,6 @@ function ModelSimulator(options) {
         self.ctx.fillStyle = "black";
         self.ctx.fillText(model.name,model.x-model.name.length*4,model.y-self.radius-10);
       }
-    }
-  }
-  //initial drawing of models
-  self.initial_draw_models = function() {
-    for(let i=0; i<self.models.length; ++i) {
-      self.draw_model(self.models[i]);
     }
   }
 
@@ -392,11 +393,12 @@ function ModelSimulator(options) {
   self.draw_count = function() {
     self.ctx.fillStyle = "black";
 
-    //self.ctx.fillText("Total 8cts: "+(Math.floor(self.move_index/8) + 1),420,100);
-    self.ctx.fillText(self.sections[self.move_index].title+"  "+self.sections[self.move_index].measure_size+"cts: "+(Math.floor(self.sections[self.move_index].section_cnt/self.sections[self.move_index].measure_size) + 1),420,150);
-    self.ctx.fillText("Count: "+(self.sections[self.move_index].measure_cnt+1),420,200);
+    if(self.move_index < self.sections.length) { //if there are sections to draw
+      self.ctx.fillText(self.sections[self.move_index].text+"  "+self.sections[self.move_index].measure_size+"cts: "+(Math.floor(self.sections[self.move_index].section_count/self.sections[self.move_index].measure_size) + 1),420,150);
+      self.ctx.fillText("Count: "+(self.sections[self.move_index].measure_count+1),420,200);
+    }
 
-    if(self.move_index < self.comments.length) {
+    if(self.move_index < self.comments.length) { //if there are comments to draw
       self.ctx.fillText("Comments: "+self.comments[self.move_index],420,250);
     }
   }
@@ -409,10 +411,10 @@ function ModelSimulator(options) {
 
 
   self.draw_everything = function() {
-    if(self.move_index>=0 && self.move_index<self.max_moves) {
-      self.draw_t();
-      self.draw_key();
+    self.draw_t();
+    self.draw_key();
 
+    if(self.move_index>=0 && self.move_index<self.max_moves) {
       //draw each model
       for(let i=0; i<self.models.length; ++i) {
         self.draw_model(self.models[i]);
@@ -425,13 +427,17 @@ function ModelSimulator(options) {
 
   /*****************Next or previous frame*****************/
   self.prev = function() {
-    --self.move_index; //decrease move count
-    self.draw_everything();
+    if(self.move_index > 0) {
+      --self.move_index; //decrease move count
+      self.draw_everything();
+    }
   }
 
   self.next = function() {
-    ++self.move_index; //increase move count
-    self.draw_everything();
+    if(self.max_moves) {
+      ++self.move_index; //increase move count
+      self.draw_everything();
+    }
   }
 
 
@@ -444,13 +450,11 @@ function ModelSimulator(options) {
 
   //reinitializes the simulation at the given move index if provided
   self.init = function(first_move) {
-    if(typeof first_move === "number") this.first_name = first_move
+    if(typeof first_move === "number") self.move_index = first_move
     self.process_models();
     self.process_pre_sections();
     self.process_pre_comments();
-    self.draw_t();
-    self.draw_key();
-    self.initial_draw_models();
+    self.draw_everything();
   }
 }
 

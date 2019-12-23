@@ -1,17 +1,17 @@
 video_src="https://www.youtube.com/embed/539dWR_-xF0";
 
 pre_sections = [
-  [2,8,"Intro"],
-  [4,8,"Verse 1"],
-  [4,8,"Pre-Chorus 1"],
-  [8,8,"Chorus 1"],
-  [4,8,"Verse 2"],
-  [4,8,"Pre-Chorus 2"],
-  [4,8,"Chorus 2"],
-  [6,8,"Bridge 1"],
-  [4,8,"Bridge 2"],
-  [4,8,"Chorus 3"],
-  [6,8,"Ending"],
+  {"measures":2, "counts":8, "text":"Intro"},
+  {"measures":4, "counts":8, "text":"Verse 1"},
+  {"measures":4, "counts":8, "text":"Pre-Chorus 1"},
+  {"measures":8, "counts":8, "text":"Chorus 1"},
+  {"measures":4, "counts":8, "text":"Verse 2"},
+  {"measures":4, "counts":8, "text":"Pre-Chorus 2"},
+  {"measures":4, "counts":8, "text":"Chorus 2"},
+  {"measures":6, "counts":8, "text":"Bridge 1"},
+  {"measures":4, "counts":8, "text":"Bridge 2"},
+  {"measures":4, "counts":8, "text":"Chorus 3"},
+  {"measures":6, "counts":8, "text":"Ending"}
 ];
 
 pre_comments = [
@@ -21,17 +21,17 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":4, "dx":-1, "dy":-4, "type":""},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":2, "dx":2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":4, "dx":-1, "dy":-4, "type":""},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":2, "dx":2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"Eric"
@@ -39,20 +39,20 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":4, "type":"delay"},
-      {"count":4, "dx":-1, "dy":-4, "type":""},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":8, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":2, "dx":2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":4, "type":"delay"},
+      {"counts":4, "dx":-1, "dy":-4, "type":""},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":2, "dx":2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"Cynthia"
@@ -60,21 +60,21 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":8, "type":"delay"},
-      {"count":4, "dx":-1, "dy":-4, "type":""},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":8, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":2, "dx":2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":8, "type":"delay"},
+      {"counts":4, "dx":-1, "dy":-4, "type":""},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":2, "dx":2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"June (J)"
@@ -82,23 +82,23 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":12, "type":"delay"},
-      {"count":4, "dx":-1, "dy":-4, "type":""},
-      {"count":8, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":16, "type":"pose"},
-      {"count":1, "dx":2, "dy":-1, "type":""},
-      {"count":3, "type":"up"},
-      {"count":1, "dx":-1, "dy":-1, "type":""},
-      {"count":7, "dx":0, "dy":-6, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":12, "type":"delay"},
+      {"counts":4, "dx":-1, "dy":-4, "type":""},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":16, "type":"pose"},
+      {"counts":1, "dx":2, "dy":-1, "type":""},
+      {"counts":3, "type":"up"},
+      {"counts":1, "dx":-1, "dy":-1, "type":""},
+      {"counts":7, "dx":0, "dy":-6, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"blue",
     "name":"Nick Lee"
@@ -106,18 +106,18 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":4, "dx":1, "dy":-4, "type":""},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":8, "type":"pose"},
-      {"count":2, "dx":-2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":4, "dx":1, "dy":-4, "type":""},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":8, "type":"pose"},
+      {"counts":2, "dx":-2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"Isabelle"
@@ -125,20 +125,20 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":4, "type":"delay"},
-      {"count":4, "dx":1, "dy":-4, "type":""},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":16, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":2, "dx":-2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":4, "type":"delay"},
+      {"counts":4, "dx":1, "dy":-4, "type":""},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":16, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":2, "dx":-2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"Julia"
@@ -146,21 +146,21 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":8, "type":"delay"},
-      {"count":4, "dx":1, "dy":-4, "type":""},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":16, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":2, "dx":-2, "dy":-1, "type":""},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":8, "type":"delay"},
+      {"counts":4, "dx":1, "dy":-4, "type":""},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":16, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":2, "dx":-2, "dy":-1, "type":""},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"red",
     "name":"Patrick"
@@ -168,21 +168,21 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":12, "type":"delay"},
-      {"count":4, "dx":1, "dy":-4, "type":""},
-      {"count":16, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":24, "type":"pose"},
-      {"count":1, "type":"diag nw"},
-      {"count":11, "dx":0, "dy":-10, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":12, "type":"delay"},
+      {"counts":4, "dx":1, "dy":-4, "type":""},
+      {"counts":16, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":24, "type":"pose"},
+      {"counts":1, "type":"diag nw"},
+      {"counts":11, "dx":0, "dy":-10, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"blue",
     "name":"Chris Y"
@@ -190,13 +190,13 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":16, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":16, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Elizabeth"
@@ -204,13 +204,13 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":24, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":24, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Melody W"
@@ -218,13 +218,13 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":32, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":32, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Michelle F"
@@ -232,13 +232,13 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":40, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":40, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"June (S)"
@@ -246,13 +246,13 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":48, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":48, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"John"
@@ -260,13 +260,13 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":56, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":1, "dx":-1, "dy":1, "type":""},
-      {"count":3, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":56, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":1, "dx":-1, "dy":1, "type":""},
+      {"counts":3, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Sabrina"
@@ -274,12 +274,12 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":72, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":72, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Dom"
@@ -287,13 +287,13 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":64, "type":"delay"},
-      {"count":24, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":64, "type":"delay"},
+      {"counts":24, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Kevin"
@@ -301,13 +301,13 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":64, "type":"delay"},
-      {"count":40, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":64, "type":"delay"},
+      {"counts":40, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Elaine"
@@ -315,13 +315,13 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":64, "type":"delay"},
-      {"count":56, "type":"delay"},
-      {"count":12, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":64, "type":"delay"},
+      {"counts":56, "type":"delay"},
+      {"counts":12, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"gray",
     "name":"Jenett"
@@ -329,22 +329,22 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":24, "type":"delay"},
-      {"count":4, "dx":-1, "dy":-4, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":20, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":24, "type":"pose"},
-      {"count":1, "type":"diag ne"},
-      {"count":3, "dx":0, "dy":-2, "type":""},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":4, "type":"down"}
+      {"counts":24, "type":"delay"},
+      {"counts":4, "dx":-1, "dy":-4, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":20, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":24, "type":"pose"},
+      {"counts":1, "type":"diag ne"},
+      {"counts":3, "dx":0, "dy":-2, "type":""},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":4, "type":"down"}
     ],
     "color":"blue",
     "name":"Maggie"
@@ -352,24 +352,24 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":24, "type":"delay"},
-      {"count":8, "type":"delay"},
-      {"count":4, "dx":1, "dy":-4, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":3, "dy":0, "type":""},
-      {"count":12, "type":"pose"},
-      {"count":4, "dx":0, "dy":3, "type":""},
-      {"count":32, "type":"pose"},
-      {"count":4, "dx":-3, "dy":0, "type":""},
-      {"count":20, "type":"pose"},
-      {"count":1, "type":"diag nw"},
-      {"count":3, "dx":0, "dy":-2, "type":""},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"down"},
-      {"count":4, "type":"down pivot"},
-      {"count":1, "type":"left"},
-      {"count":4, "type":"down"}
+      {"counts":24, "type":"delay"},
+      {"counts":8, "type":"delay"},
+      {"counts":4, "dx":1, "dy":-4, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":3, "dy":0, "type":""},
+      {"counts":12, "type":"pose"},
+      {"counts":4, "dx":0, "dy":3, "type":""},
+      {"counts":32, "type":"pose"},
+      {"counts":4, "dx":-3, "dy":0, "type":""},
+      {"counts":20, "type":"pose"},
+      {"counts":1, "type":"diag nw"},
+      {"counts":3, "dx":0, "dy":-2, "type":""},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"down"},
+      {"counts":4, "type":"down pivot"},
+      {"counts":1, "type":"left"},
+      {"counts":4, "type":"down"}
     ],
     "color":"blue",
     "name":"Christine"
@@ -377,12 +377,12 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":4, "type":""},
-      {"count":8, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":4, "type":""},
+      {"counts":8, "type":"down"}
     ],
     "color":"red",
     "name":"Jen"
@@ -390,12 +390,12 @@ models = [
   {
     "start":"middle",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":2, "type":"delay"},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":8, "type":"pose"},
-      {"count":10, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":2, "type":"delay"},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "type":"pose"},
+      {"counts":10, "type":"down"}
     ],
     "color":"gray",
     "name":"Iris"
@@ -403,13 +403,13 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":4, "type":"delay"},
-      {"count":4, "type":"up"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":-4, "type":""},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":4, "type":"delay"},
+      {"counts":4, "type":"up"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":-4, "type":""},
+      {"counts":12, "type":"down"}
     ],
     "color":"blue",
     "name":"Christina"
@@ -417,14 +417,14 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":12, "type":"delay"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"left"},
-      {"count":8, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":12, "type":"delay"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"left"},
+      {"counts":8, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":12, "type":"down"}
     ],
     "color":"green",
     "name":"Jeremy G"
@@ -432,15 +432,15 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":8, "type":"delay"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"right"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":8, "type":"pose"},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":8, "type":"delay"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"right"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "type":"pose"},
+      {"counts":12, "type":"down"}
     ],
     "color":"orange",
     "name":"Rebecca"
@@ -448,13 +448,13 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":32, "type":"delay"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":4, "type":""},
-      {"count":8, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":32, "type":"delay"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":4, "type":""},
+      {"counts":8, "type":"down"}
     ],
     "color":"red",
     "name":"Peter"
@@ -462,13 +462,13 @@ models = [
   {
     "start":"middle",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":32, "type":"delay"},
-      {"count":2, "type":"delay"},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":8, "type":"pose"},
-      {"count":10, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":32, "type":"delay"},
+      {"counts":2, "type":"delay"},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "type":"pose"},
+      {"counts":10, "type":"down"}
     ],
     "color":"gray",
     "name":"Allysa"
@@ -476,14 +476,14 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":32, "type":"delay"},
-      {"count":4, "type":"delay"},
-      {"count":4, "type":"up"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":-4, "type":""},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":32, "type":"delay"},
+      {"counts":4, "type":"delay"},
+      {"counts":4, "type":"up"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":-4, "type":""},
+      {"counts":12, "type":"down"}
     ],
     "color":"blue",
     "name":"Shyam"
@@ -491,15 +491,15 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":32, "type":"delay"},
-      {"count":12, "type":"delay"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"right"},
-      {"count":8, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":32, "type":"delay"},
+      {"counts":12, "type":"delay"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"right"},
+      {"counts":8, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":12, "type":"down"}
     ],
     "color":"green",
     "name":"Jeremy R"
@@ -507,16 +507,16 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":32, "type":"delay"},
-      {"count":8, "type":"delay"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"left"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":8, "type":"pose"},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":32, "type":"delay"},
+      {"counts":8, "type":"delay"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"left"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "type":"pose"},
+      {"counts":12, "type":"down"}
     ],
     "color":"orange",
     "name":"Josh"
@@ -524,13 +524,13 @@ models = [
   {
     "start":"left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":64, "type":"delay"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":4, "type":""},
-      {"count":8, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":64, "type":"delay"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":4, "type":""},
+      {"counts":8, "type":"down"}
     ],
     "color":"red",
     "name":"Jeff"
@@ -538,13 +538,13 @@ models = [
   {
     "start":"middle",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":64, "type":"delay"},
-      {"count":2, "type":"delay"},
-      {"count":10, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":8, "type":"pose"},
-      {"count":10, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":64, "type":"delay"},
+      {"counts":2, "type":"delay"},
+      {"counts":10, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "type":"pose"},
+      {"counts":10, "type":"down"}
     ],
     "color":"gray",
     "name":"Michael"
@@ -552,14 +552,14 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":64, "type":"delay"},
-      {"count":4, "type":"delay"},
-      {"count":4, "type":"up"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":8, "dx":0, "dy":-4, "type":""},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":64, "type":"delay"},
+      {"counts":4, "type":"delay"},
+      {"counts":4, "type":"up"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":8, "dx":0, "dy":-4, "type":""},
+      {"counts":12, "type":"down"}
     ],
     "color":"blue",
     "name":"Joe"
@@ -567,15 +567,15 @@ models = [
   {
     "start":"middle right",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":64, "type":"delay"},
-      {"count":12, "type":"delay"},
-      {"count":4, "type":"diag ne"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"left"},
-      {"count":8, "type":"up"},
-      {"count":8, "type":"pose"},
-      {"count":12, "type":"down"}
+      {"counts":144, "type":"delay"},
+      {"counts":64, "type":"delay"},
+      {"counts":12, "type":"delay"},
+      {"counts":4, "type":"diag ne"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"left"},
+      {"counts":8, "type":"up"},
+      {"counts":8, "type":"pose"},
+      {"counts":12, "type":"down"}
     ],
     "color":"green",
     "name":"Melody T"
@@ -583,19 +583,19 @@ models = [
   {
     "start":"middle left",
     "pre_moves":[
-      {"count":144, "type":"delay"},
-      {"count":64, "type":"delay"},
-      {"count":8, "type":"delay"},
-      {"count":4, "type":"diag nw"},
-      {"count":4, "type":"pose"},
-      {"count":4, "type":"right"},
-      {"count":8, "type":"up"},
-      {"count":4, "type":"pose"},
-      {"count":16, "type":"pose"},
-      {"count":2, "dx":1, "dy":1, "type":""},
-      {"count":14, "dx":0, "dy":7, "type":""},
-      {"count":4, "dx":-2, "dy":2, "type":""},
-      {"count":4, "type":"pose"}
+      {"counts":144, "type":"delay"},
+      {"counts":64, "type":"delay"},
+      {"counts":8, "type":"delay"},
+      {"counts":4, "type":"diag nw"},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "type":"right"},
+      {"counts":8, "type":"up"},
+      {"counts":4, "type":"pose"},
+      {"counts":16, "type":"pose"},
+      {"counts":2, "dx":1, "dy":1, "type":""},
+      {"counts":14, "dx":0, "dy":7, "type":""},
+      {"counts":4, "dx":-2, "dy":2, "type":""},
+      {"counts":4, "type":"pose"}
     ],
     "color":"orange",
     "name":"Derrick"
@@ -603,11 +603,11 @@ models = [
   {
     "start":"right",
     "pre_moves":[
-      {"count":260, "type":"delay"},
-      {"count":8, "dx":-2, "dy":0, "type":""},
-      {"count":4, "type":"pose"},
-      {"count":4, "dx":2, "dy":-2, "type":""},
-      {"count":4, "type":"pose"}
+      {"counts":260, "type":"delay"},
+      {"counts":8, "dx":-2, "dy":0, "type":""},
+      {"counts":4, "type":"pose"},
+      {"counts":4, "dx":2, "dy":-2, "type":""},
+      {"counts":4, "type":"pose"}
     ],
     "color":"red",
     "name":"Tim"

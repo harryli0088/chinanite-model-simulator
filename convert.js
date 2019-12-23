@@ -25,14 +25,14 @@
 //     delete models[modelIndex].moves
 //     if(typeof move[1] == "string") {
 //       models[modelIndex].pre_moves[moveIndex] = {
-//         count: move[0],
+//         counts: move[0],
 //         type: move[1]
 //       }
 //     }
 //     //otherwise the type is custom
 //     else {
 //       models[modelIndex].pre_moves[moveIndex] = {
-//         count: move[0],
+//         counts: move[0],
 //         dx: move[1],
 //         dy: move[2],
 //         type: move[3] || ""
