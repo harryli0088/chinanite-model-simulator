@@ -1,9 +1,10 @@
 <style>
-canvas {
-  max-width: 100%;
-}
+  canvas {
+    max-width: 100%;
+  }
 </style>
 <div>
+  <input id="fileInput" type="file" onchange="load()"/>
   <canvas id='canvas' width='875' height='560'></canvas>
   <div>
     <button onclick="simulator.prev()">Prev</button>
@@ -13,17 +14,47 @@ canvas {
 </div>
 <script type="text/javascript" src="CNXIII Reality Examples/JS/1_motions.js"></script>
 <script type="text/javascript" src="walk_simulator.js"></script>
-<script type="text/javascript" src="convert.js"></script>
-<!-- <script>
-  const simulator = new ModelSimulator({
-    canvas: document.getElementById("canvas"),
-    pre_sections: pre_sections,
-    pre_comments: pre_comments,
-    models: models,
-  })
+<script>
+  let simulator = null;
 
-  simulator.init();
+  function load() {
+    let reader = new FileReader();
+    reader.readAsText(document.getElementById("fileInput").files[0], "UTF-8");
+    reader.onload = function (evt) {
+      try {
+        const data = JSON.parse(evt.target.result);
 
-  console.log(simulator);
+        simulator = new ModelSimulator({
+          canvas: document.getElementById("canvas"),
+          pre_sections: data.pre_sections || [],
+          pre_comments: data.pre_comments || [],
+          models: data.models,
+        })
 
-</script> -->
+        simulator.init();
+      }
+      catch(err) {
+        console.log(err)
+        alert("error" + err)
+      }
+    }
+
+    reader.onerror = function (evt) {
+      alert("error reading file");
+    }
+
+  }
+
+
+  //if data was imported from a javascript file
+  if(typeof models !== "undefined") {
+    simulator = new ModelSimulator({
+      canvas: document.getElementById("canvas"),
+      pre_sections: pre_sections || [],
+      pre_comments: pre_comments || [],
+      models: models,
+    })
+
+    simulator.init();
+  }
+</script>

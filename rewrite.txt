@@ -1,4 +1,3 @@
-- transform all js files to json files with fields to make them more clear
 - simulator should upload json file
 - work on the simulator file until everything works
 - add bpm

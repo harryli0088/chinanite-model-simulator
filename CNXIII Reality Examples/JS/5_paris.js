@@ -1,538 +1,481 @@
 video_src="https://www.youtube.com/embed/JZELmUooBlY";
 
 pre_sections = [
-  [6,8,"Chorus 1"],
-  [4,8,"Verse 2"],
-  [6,8,"Chorus 2"],
-  [8,8,"Bridge"],
-  [3,8,"Ending"]
+  {"measures":6, "counts":8, "text":"Chorus 1"},
+  {"measures":4, "counts":8, "text":"Verse 2"},
+  {"measures":6, "counts":8, "text":"Chorus 2"},
+  {"measures":8, "counts":8, "text":"Bridge"},
+  {"measures":3, "counts":8, "text":"Ending"}
 ];
 
 pre_comments = [
-  [17,78,"Guys outside, girls middle lanes"],
-  [79,80,"STOP"],
-  [89,120,"Quick quick step, pose 4, walk2, regular pivot"],
+  {"startCount":17, "endCount":78, "text":"Guys outside, girls middle lanes"},
+  {"startCount":79, "endCount":80, "text":"STOP"},
+  {"startCount":89, "endCount":120, "text":"Quick quick step, pose 4, walk2, regular pivot"}
 ];
 
 models = [
   {
-    start: "left",
-    pre_moves: [
-      [4,1.5,0],
-      [12,"up"],
-      [4,"pose"],
-      [3,"down"],
-      [1,-1.5,1],
-      [4,"down twirl"],
-      [3,"left"],
+    "start":"left",
+    "pre_moves":[
+      {"count":4, "dx":1.5, "dy":0, "type":""},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":3, "type":"down"},
+      {"count":1, "dx":-1.5, "dy":1, "type":""},
+      {"count":4, "type":"down twirl"},
+      {"count":3, "type":"left"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Jeremy R",
+    "color":"orange",
+    "name":"Jeremy R"
   },
   {
-    start: "right",
-    pre_moves: [
-      [4,-1.5,0],
-      [12,"up"],
-      [4,"pose"],
-      [3,"down"],
-      [1,0.5,1],
-      [4,"down twirl"],
-      [3,"right"],
+    "start":"right",
+    "pre_moves":[
+      {"count":4, "dx":-1.5, "dy":0, "type":""},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":3, "type":"down"},
+      {"count":1, "dx":0.5, "dy":1, "type":""},
+      {"count":4, "type":"down twirl"},
+      {"count":3, "type":"right"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Maggie"
-  },
-
-
-  {
-    start: "left",
-    pre_moves: [
-      [8,"delay"],
-      [8,7,-4],
-      [4,"pose"],
-      [4,-3,0],
-      [4,"up twirl"],
-      [1,"diag nw"],
-      [3,"up"],
-      [4,"pose"],
-      [1,"down"],
-      [1,"diag se"],
-      [4,"down twirl"],
-      [1,"diag sw"],
-      [1,"down"],
-      [4,"right"],
-    ],
-    moves: [],
-    color:"green",
-    name:"Joe"
+    "color":"orange",
+    "name":"Maggie"
   },
   {
-    start: "right",
-    pre_moves: [
-      [8,"delay"],
-      [8,-7,-4],
-      [4,"pose"],
-      [4,"right"],
-      [4,"up twirl"],
-      [4,"up"],
-      [4,"pose"],
-      [2,"down"],
-      [4,"down twirl"],
-      [2,"down"],
-      [4,"left"],
+    "start":"left",
+    "pre_moves":[
+      {"count":8, "type":"delay"},
+      {"count":8, "dx":7, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":4, "dx":-3, "dy":0, "type":""},
+      {"count":4, "type":"up twirl"},
+      {"count":1, "type":"diag nw"},
+      {"count":3, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "type":"down"},
+      {"count":1, "type":"diag se"},
+      {"count":4, "type":"down twirl"},
+      {"count":1, "type":"diag sw"},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"right"}
     ],
-    moves: [],
-    color:"green",
-    name:"Christine"
-  },
-
-
-
-  {
-    start: "middle left",
-    pre_moves: [
-      [24,"delay"],
-      [8,"up half speed"],
-      [4,"pose"],
-      [1,"up"],
-      [1,"diag nw"],
-      [4,"up twirl"],
-      [1,"diag ne"],
-      [1,"up"],
-      [4,"pose"],
-      [5,"down"],
-      [1,"diag sw"],
-      [2,"down twirl"],
-      [2,"left twirl"],
-      [1,"left"],
-    ],
-    moves: [],
-    color:"blue",
-    name:"Peter"
+    "color":"green",
+    "name":"Joe"
   },
   {
-    start: "middle right",
-    pre_moves: [
-      [24,"delay"],
-      [8,"up half speed"],
-      [4,"pose"],
-      [2,"up"],
-      [4,"up twirl"],
-      [2,"up"],
-      [4,"pose"],
-      [6,"down"],
-      [2,"down twirl"],
-      [2,"right twirl"],
-      [2,"right"],
+    "start":"right",
+    "pre_moves":[
+      {"count":8, "type":"delay"},
+      {"count":8, "dx":-7, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":4, "type":"right"},
+      {"count":4, "type":"up twirl"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":2, "type":"down"},
+      {"count":4, "type":"down twirl"},
+      {"count":2, "type":"down"},
+      {"count":4, "type":"left"}
     ],
-    moves: [],
-    color:"blue",
-    name:"Elizabeth"
-  },
-
-
-
-  {
-    start: "left",
-    pre_moves: [
-      [48,"delay"],
-      [4,1.5,0],
-      [1,"up"],
-      [1,-0.5,-1],
-      [4,"up twirl"],
-      [6,"up"],
-      [4,"pose"],
-      [4,"down"],
-      [4,"down twirl"],
-      [2,"left"],
-      [2,"pose"],
-      [2,"left"],
-    ],
-    moves: [],
-    color:"orange",
-    name:"Rebecca"
+    "color":"green",
+    "name":"Christine"
   },
   {
-    start: "right",
-    pre_moves: [
-      [48,"delay"],
-      [4,-1.5,0],
-      [1,"up"],
-      [1,1.5,-1],
-      [4,"up twirl"],
-      [1,"diag nw"],
-      [5,"up"],
-      [4,"pose"],
-      [3,"down"],
-      [1,"diag se"],
-      [4,"down twirl"],
-      [2,"right"],
-      [2,"pose"],
-      [2,"right"],
+    "start":"middle left",
+    "pre_moves":[
+      {"count":24, "type":"delay"},
+      {"count":8, "type":"up half speed"},
+      {"count":4, "type":"pose"},
+      {"count":1, "type":"up"},
+      {"count":1, "type":"diag nw"},
+      {"count":4, "type":"up twirl"},
+      {"count":1, "type":"diag ne"},
+      {"count":1, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":5, "type":"down"},
+      {"count":1, "type":"diag sw"},
+      {"count":2, "type":"down twirl"},
+      {"count":2, "type":"left twirl"},
+      {"count":1, "type":"left"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Chris M"
-  },
-
-
-  {
-    start: "left",
-    pre_moves: [
-      [48,"delay"],
-      [8,"delay"],
-      [8,7,-4],
-      [4,"pose"],
-      [4,"left"],
-      [4,"up twirl"],
-      [2,0,-3],
-      [2,"pose"],
-      [4,"pose"],
-      [8,"down"],
-      [4,"right"],
-    ],
-    moves: [],
-    color:"green",
-    name:"Michelle F"
+    "color":"blue",
+    "name":"Peter"
   },
   {
-    start: "right",
-    pre_moves: [
-      [48,"delay"],
-      [8,"delay"],
-      [8,-7,-4],
-      [4,"pose"],
-      [4,3,0],
-      [4,"up twirl"],
-      [2,1,-3],
-      [2,"pose"],
-      [4,"pose"],
-      [8,"down"],
-      [4,"left"],
+    "start":"middle right",
+    "pre_moves":[
+      {"count":24, "type":"delay"},
+      {"count":8, "type":"up half speed"},
+      {"count":4, "type":"pose"},
+      {"count":2, "type":"up"},
+      {"count":4, "type":"up twirl"},
+      {"count":2, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":6, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":2, "type":"right twirl"},
+      {"count":2, "type":"right"}
     ],
-    moves: [],
-    color:"green",
-    name:"John"
-  },
-
-
-
-
-
-
-  {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,-2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [4,"down"],
-      [4,"right"],
-    ],
-    moves: [],
-    color:"green",
-    name:"Iris <3"
+    "color":"blue",
+    "name":"Elizabeth"
   },
   {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [8,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,-2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"left",
+    "pre_moves":[
+      {"count":48, "type":"delay"},
+      {"count":4, "dx":1.5, "dy":0, "type":""},
+      {"count":1, "type":"up"},
+      {"count":1, "dx":-0.5, "dy":-1, "type":""},
+      {"count":4, "type":"up twirl"},
+      {"count":6, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":4, "type":"down"},
+      {"count":4, "type":"down twirl"},
+      {"count":2, "type":"left"},
+      {"count":2, "type":"pose"},
+      {"count":2, "type":"left"}
     ],
-    moves: [],
-    color:"green",
-    name:"Nick P"
+    "color":"orange",
+    "name":"Rebecca"
   },
   {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [16,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,-2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"right",
+    "pre_moves":[
+      {"count":48, "type":"delay"},
+      {"count":4, "dx":-1.5, "dy":0, "type":""},
+      {"count":1, "type":"up"},
+      {"count":1, "dx":1.5, "dy":-1, "type":""},
+      {"count":4, "type":"up twirl"},
+      {"count":1, "type":"diag nw"},
+      {"count":5, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":3, "type":"down"},
+      {"count":1, "type":"diag se"},
+      {"count":4, "type":"down twirl"},
+      {"count":2, "type":"right"},
+      {"count":2, "type":"pose"},
+      {"count":2, "type":"right"}
     ],
-    moves: [],
-    color:"green",
-    name:"Jen"
+    "color":"orange",
+    "name":"Chris M"
   },
   {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [24,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,-2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"left",
+    "pre_moves":[
+      {"count":48, "type":"delay"},
+      {"count":8, "type":"delay"},
+      {"count":8, "dx":7, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":4, "type":"left"},
+      {"count":4, "type":"up twirl"},
+      {"count":2, "dx":0, "dy":-3, "type":""},
+      {"count":2, "type":"pose"},
+      {"count":4, "type":"pose"},
+      {"count":8, "type":"down"},
+      {"count":4, "type":"right"}
     ],
-    moves: [],
-    color:"green",
-    name:"Eric"
-  },
-
-
-
-  {
-    start: "left",
-    pre_moves: [
-      [80,"delay"],
-      [4,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
-    ],
-    moves: [],
-    color:"orange",
-    name:"Patrick"
+    "color":"green",
+    "name":"Michelle F"
   },
   {
-    start: "left",
-    pre_moves: [
-      [80,"delay"],
-      [4,"delay"],
-      [8,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"right",
+    "pre_moves":[
+      {"count":48, "type":"delay"},
+      {"count":8, "type":"delay"},
+      {"count":8, "dx":-7, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":4, "dx":3, "dy":0, "type":""},
+      {"count":4, "type":"up twirl"},
+      {"count":2, "dx":1, "dy":-3, "type":""},
+      {"count":2, "type":"pose"},
+      {"count":4, "type":"pose"},
+      {"count":8, "type":"down"},
+      {"count":4, "type":"left"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Michele T"
+    "color":"green",
+    "name":"John"
   },
   {
-    start: "left",
-    pre_moves: [
-      [80,"delay"],
-      [4,"delay"],
-      [16,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":4, "type":"down"},
+      {"count":4, "type":"right"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Jeremy G"
+    "color":"green",
+    "name":"Iris <3"
   },
   {
-    start: "left",
-    pre_moves: [
-      [80,"delay"],
-      [4,"delay"],
-      [24,"delay"],
-      [12,"up"],
-      [4,"pose"],
-      [1,2,1],
-      [1,"down"],
-      [2,"down pivot"],
-      [8,"down"],
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":8, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Cynthia"
-  },
-
-
-
-
-
-  {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [4,"diag ne"],
-      [44,"delay"],
-      [8,-4,0],
-      [8,"up"],
-      [4,"pose"],
-      [1,-0.5,1],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,0.5,1],
-      [1,"down"],
-      [4,"right"],
-    ],
-    moves: [],
-    color:"orange",
-    name:"Eurie"
+    "color":"green",
+    "name":"Nick P"
   },
   {
-    start: "right",
-    pre_moves: [
-      [80,"delay"],
-      [16,"delay"],
-      [4,"diag ne"],
-      [60,"delay"],
-      [8,-4,0],
-      [8,"up"],
-      [4,"pose"],
-      [1,-0.5,1],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,0.5,1],
-      [1,"down"],
-      [4,"right"],
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Isabelle"
+    "color":"green",
+    "name":"Jen"
   },
   {
-    start: "left",
-    pre_moves: [
-      [80,"delay"],
-      [4,"delay"],
-      [8,"delay"],
-      [4,"diag nw"],
-      [48,"delay"],
-      [8,4,0],
-      [8,"up"],
-      [4,"pose"],
-      [1,0.5,1],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,-0.5,1],
-      [1,"down"],
-      [4,"left"],
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":24, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Julia"
-  },
-
-
-
-
-
-  {
-    name:"Brandon",
-    start: "middle right",
-    pre_moves: [
-      [128,"delay"],
-      [4,"up"],
-      [4,"pose"],
-      [8,"up"],
-      [4,"pose"],
-      [1,0.5,2],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,-0.5,0],
-      [1,"down"],
-      [4,"right"]
-    ],
-    moves: [],
-    color:"green"
+    "color":"green",
+    "name":"Eric"
   },
   {
-    name:"Shawn",
-    start: "middle left",
-    pre_moves: [
-      [128,"delay"],
-      [16,"delay"],
-      [4,"up"],
-      [4,"pose"],
-      [8,"up"],
-      [4,"pose"],
-      [1,-0.5,2],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,0.5,0],
-      [1,"down"],
-      [4,"left"]
+    "start":"left",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"green"
+    "color":"orange",
+    "name":"Patrick"
   },
   {
-    name:"Nick L",
-    start: "middle right",
-    pre_moves: [
-      [128,"delay"],
-      [32,"delay"],
-      [4,"up"],
-      [4,"pose"],
-      [8,"up"],
-      [4,"pose"],
-      [1,0.5,2],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,-0.5,0],
-      [1,"down"],
-      [4,"right"]
+    "start":"left",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"delay"},
+      {"count":8, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"green"
-  },
-
-
-  {
-    name:"Derrick",
-    start: "middle left",
-    pre_moves: [
-      [128,"delay"],
-      [16,"delay"],
-      [32,"delay"],
-      [4,"up"],
-      [4,"pose"],
-      [4,"up"],
-      [4,1.5,-4],
-      [4,"pose"],
-      [1,-0.5,2],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,0.5,0],
-      [1,"down"],
-      [8,"pose"],
-    ],
-    moves: [],
-    color:"green"
+    "color":"orange",
+    "name":"Michele T"
   },
   {
-    start: "left",
-    pre_moves: [
-      [128,"delay"],
-      [16,"delay"],
-      [32,"delay"],
-      [4,"up"],
-      [4,"pose"],
-      [4,"up"],
-      [4,1.5,-4],
-      [4,"pose"],
-      [1,0.5,1],
-      [3,"down"],
-      [2,"down twirl"],
-      [1,-0.5,1],
-      [1,"down"],
-      [8,"pose"],
+    "start":"left",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
     ],
-    moves: [],
-    color:"orange",
-    name:"Melody T"
+    "color":"orange",
+    "name":"Jeremy G"
   },
+  {
+    "start":"left",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"delay"},
+      {"count":24, "type":"delay"},
+      {"count":12, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":2, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":2, "type":"down pivot"},
+      {"count":8, "type":"down"}
+    ],
+    "color":"orange",
+    "name":"Cynthia"
+  },
+  {
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"diag ne"},
+      {"count":44, "type":"delay"},
+      {"count":8, "dx":-4, "dy":0, "type":""},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-0.5, "dy":1, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":0.5, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"right"}
+    ],
+    "color":"orange",
+    "name":"Eurie"
+  },
+  {
+    "start":"right",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":4, "type":"diag ne"},
+      {"count":60, "type":"delay"},
+      {"count":8, "dx":-4, "dy":0, "type":""},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-0.5, "dy":1, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":0.5, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"right"}
+    ],
+    "color":"orange",
+    "name":"Isabelle"
+  },
+  {
+    "start":"left",
+    "pre_moves":[
+      {"count":80, "type":"delay"},
+      {"count":4, "type":"delay"},
+      {"count":8, "type":"delay"},
+      {"count":4, "type":"diag nw"},
+      {"count":48, "type":"delay"},
+      {"count":8, "dx":4, "dy":0, "type":""},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":0.5, "dy":1, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":-0.5, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"left"}
+    ],
+    "color":"orange",
+    "name":"Julia"
+  },
+  {
+    "name":"Brandon",
+    "start":"middle right",
+    "pre_moves":[
+      {"count":128, "type":"delay"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":0.5, "dy":2, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":-0.5, "dy":0, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"right"}
+    ],
+    "color":"green"
+  },
+  {
+    "name":"Shawn",
+    "start":"middle left",
+    "pre_moves":[
+      {"count":128, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-0.5, "dy":2, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":0.5, "dy":0, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"left"}
+    ],
+    "color":"green"
+  },
+  {
+    "name":"Nick L",
+    "start":"middle right",
+    "pre_moves":[
+      {"count":128, "type":"delay"},
+      {"count":32, "type":"delay"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":8, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":0.5, "dy":2, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":-0.5, "dy":0, "type":""},
+      {"count":1, "type":"down"},
+      {"count":4, "type":"right"}
+    ],
+    "color":"green"
+  },
+  {
+    "name":"Derrick",
+    "start":"middle left",
+    "pre_moves":[
+      {"count":128, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":32, "type":"delay"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":4, "type":"up"},
+      {"count":4, "dx":1.5, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":-0.5, "dy":2, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":0.5, "dy":0, "type":""},
+      {"count":1, "type":"down"},
+      {"count":8, "type":"pose"}
+    ],
+    "color":"green"
+  },
+  {
+    "start":"left",
+    "pre_moves":[
+      {"count":128, "type":"delay"},
+      {"count":16, "type":"delay"},
+      {"count":32, "type":"delay"},
+      {"count":4, "type":"up"},
+      {"count":4, "type":"pose"},
+      {"count":4, "type":"up"},
+      {"count":4, "dx":1.5, "dy":-4, "type":""},
+      {"count":4, "type":"pose"},
+      {"count":1, "dx":0.5, "dy":1, "type":""},
+      {"count":3, "type":"down"},
+      {"count":2, "type":"down twirl"},
+      {"count":1, "dx":-0.5, "dy":1, "type":""},
+      {"count":1, "type":"down"},
+      {"count":8, "type":"pose"}
+    ],
+    "color":"orange",
+    "name":"Melody T"
+  }
 ]
