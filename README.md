@@ -34,8 +34,6 @@ const simulator = new ModelSimulator({
   pre_comments: pre_comments,
   models: models,
 })
-
-simulator.initialize();
 ```
 
 ## How it works
@@ -47,7 +45,7 @@ This simulator uses HTML5 canvas to draw each frame of a walk, beat-by-beat. The
 Every time the user presses one of the arrow keys to move forward or back, the canvas is compeletely redrawn, first with the T catwalk, then the models, and finally the song section and comments.
 
 ## How to use it
-To use this simulator, open "walk_simulaor.html" in a browser. If it loads a valid JS file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
+To use this simulator, open "model_simulaor.html" in a browser. If it loads a valid JS file, you can control the movements of each step with your right arrow key to proceed and your left arrow key to go back. In this way, you can step through a song beat-by-beat and see where the models will be at any time.
 
 ## How to record a walk
 To record a walk, download a tool that can record your screen with audio (for example, Screencastify extension on Chrome). Play the music and manually press the right arrow key to step through the song or auto start the simulator with a provided BPM of the song.
@@ -198,7 +196,7 @@ For pre moves 1-8, you can add a "pivot" option to indicate that the model is pi
 Keep in mind that right is positive x, and down is positive y.
 
 
-## The T
+## Background
 This configuration features the T catwalk. Imagining a 3x3 grid, the T occupies squares (row col):
 (1 2)
 (2 2)
@@ -206,7 +204,41 @@ This configuration features the T catwalk. Imagining a 3x3 grid, the T occupies 
 (3 2)
 (3 3)
 Each square is four steps wide. Models enter from the bottom middle of the T.
-You can change the function "drawT" to draw whatever configuration you like.
+You can pass in a different draw_background function to draw whatever configuration you like.
+
+
+## API
+### options {}
+- `models` {Array}
+- `pre_sections` {Array}
+- `pre_comments` {Array}
+- `canvas` {DOM Element} (optional) defaults to first canvas element found
+- `draw_background` {Function} (optional) defaults to internal function to draw an upside-down T
+
+
+### server.autoStart(bpm, autoRestart)
+
+Auto starts the simulation at a desired Beats-Per-Minute
+- `bpm` {Number} The Beats-Per-Minute you want the simulation to run at
+- `autoRestart` {Boolean} Whether you want the simulation to restart after reaching the end
+
+
+### server.stop()
+
+Stops the simulation
+
+### server.prev()
+
+Moves the simulation one previous step (ModelSimulator attaches an event listener to the window to run this with you hit the left arrow)
+
+### server.next()
+
+Moves the simulation to the next step (ModelSimulator attaches an event listener to the window to run this with you hit the right arrow)
+
+### server.init(move_index)
+
+Reinitializes the simulation at the given move index if provided
+- `move_index` {Number} The move index you want to start at
 
 
 ## Further application

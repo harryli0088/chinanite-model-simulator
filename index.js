@@ -16,7 +16,7 @@ function ModelSimulator(options) {
   self.interval = null;
 
   /*******************Initialization*******************/
-  self.canvas = options.canvas || document.getElementById('canvas'); //get the canvas
+  self.canvas = options.canvas || document.getElementsByTagName('canvas')[0]; //get the first canvas canvas
   self.ctx = self.canvas.getContext('2d');
   self.ctx.font = "15px Arial"; //font size and type
 
@@ -259,7 +259,7 @@ function ModelSimulator(options) {
 
 
   /***********************Draw functions************************/
-  self.draw_t = function() {
+  self.draw_background = options.draw_background || function() { //default background function draws a basic upside-down T
     //clear entire self.canvas
     self.ctx.fillStyle = 'white';
     self.ctx.fillRect(0,0,self.canvas.width,self.canvas.height);
@@ -412,7 +412,7 @@ function ModelSimulator(options) {
 
 
   self.draw_everything = function() {
-    self.draw_t();
+    self.draw_background();
     self.draw_key();
 
     if(self.move_index>=0 && self.move_index<self.max_moves) {
@@ -434,18 +434,26 @@ function ModelSimulator(options) {
     }
   }
 
-  self.next = function() {
-    if(self.max_moves) {
+  self.next = function(autoRestart) {
+    if(autoRestart===true && self.move_index>=self.max_moves) { //if we want to autoRestart AND we have passed the last move
+      self.move_index = 0; //reset to move index zero
+    }
+
+    if(self.move_index < self.max_moves) {
       ++self.move_index; //increase move count
       self.draw_everything();
     }
   }
 
-  self.autoStart = function(bpm) { //"beat" is the same as "interval" in this context
+  self.autoStart = function(bpm, autoRestart) { //"beat" is the same as "interval" in this context
     const secondsPerInterval = 1000*60/bpm; //ms/sec * sec/min / interval/min
     self.next();
     clearInterval(self.interval)
-    self.interval = setInterval(self.next, secondsPerInterval)
+    self.interval = setInterval(self.next, secondsPerInterval, autoRestart)
+  }
+
+  self.stop = function() {
+    clearInterval(self.interval)
   }
 
 
@@ -457,13 +465,15 @@ function ModelSimulator(options) {
   window.addEventListener('keydown',self.keydown);
 
   //reinitializes the simulation at the given move index if provided
-  self.init = function(first_move) {
-    if(typeof first_move === "number") self.move_index = first_move
+  self.init = function(move_index) {
+    if(typeof move_index === "number") self.move_index = move_index
     self.process_models();
     self.process_pre_sections();
     self.process_pre_comments();
     self.draw_everything();
   }
+
+  self.init() //auto init
 }
 
 if(typeof module != "undefined") {
